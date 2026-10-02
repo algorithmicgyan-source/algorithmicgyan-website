@@ -79,7 +79,8 @@ jobs:
           for n in _old:
               if n.get("link","") not in _seen:
                   all_news.append(n); _seen.add(n.get("link",""))
-          all_news = all_news[:100]
+          all_news = all_news[:10]  # roz ki top 10
+          all_news = all_news[:100]  # kul max 100 save
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
           print(f"Total {len(all_news)} saved news items")
