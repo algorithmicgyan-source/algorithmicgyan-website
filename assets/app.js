@@ -75,18 +75,6 @@ function loadHome() {
     if (!posts.length) { grid.innerHTML = emptyHTML(); return; }
     grid.innerHTML = posts.slice(0, 6).map(cardHTML).join("");
   });
-  // Latest videos on homepage
-  fetch("data/videos.json").then(function (r) { return r.json(); }).then(function (videos) {
-    var grid = document.getElementById("latestVideos");
-    if (!grid) return;
-    grid.innerHTML = videos.slice(0, 6).map(function (v) {
-      return '<a class="card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener">'
-        + '<div class="thumb"><span class="badge">🎬 Video</span>'
-        + '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-        + '<span class="play">▶</span></div>'
-        + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3></div></a>";
-    }).join("");
-  }).catch(function () {});
 }
 
 function loadPosts() {
