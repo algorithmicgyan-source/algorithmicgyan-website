@@ -55,7 +55,8 @@
       <a href="news.html">📰 News</a>
       <a href="about.html">About</a>
           <a href="search.html">🔍</a>
-    </nav>
+    <button id="langToggle" style="background:#1a73e8;color:#fff;border:none;padding:8px 16px;border-radius:99px;font-weight:700;cursor:pointer;margin-left:10px">English</button>
+</nav>
     <a class="btn btn-sub" href="https://www.youtube.com/@algorithmicgyan?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe</a>
   </div>
 </header>
@@ -81,8 +82,39 @@
   </section>
 
   <section class="section">
+    <div class="wrap section-head">
+      <h2 data-hi="📰 ताज़ा ख़बरें" data-en="📰 Latest News">📰 ताज़ा ख़बरें</h2>
+      <a class="link-more" href="news.html" data-hi="सभी देखो →" data-en="View all →">सभी देखो →</a>
+    </div>
     <div class="wrap">
-      <h2>Categories</h2>
+      <div class="grid" id="latestNews"></div>
+    </div>
+  </section>
+
+  <!-- categories moved below -->
+
+  <section class="section">
+    <div class="wrap section-head">
+      <h2 data-hi="📝 ताज़ा पोस्ट" data-en="📝 Latest Posts">📝 ताज़ा पोस्ट</h2>
+      <a class="link-more" href="posts.html">Sabhi dekho →</a>
+    </div>
+    <div class="wrap">
+      <div class="grid" id="latestGrid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap section-head">
+      <h2 data-hi="🎬 ताज़ा वीडियो" data-en="🎬 Latest Videos">🎬 ताज़ा वीडियो</h2>
+      <a class="link-more" href="videos.html">Sabhi dekho →</a>
+    </div>
+    <div class="wrap">
+      <div class="grid" id="latestVideos"></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2 data-hi="📂 श्रेणियाँ" data-en="📂 Categories">📂 श्रेणियाँ</h2>
       <div class="cat-grid">
         <a class="cat-card cat-news" href="posts.html?cat=news">
           <span class="cat-icon">📰</span>
@@ -105,26 +137,6 @@
           <p>Prerna dene wali kahaniyan</p>
         </a>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap section-head">
-      <h2>Latest Posts</h2>
-      <a class="link-more" href="posts.html">Sabhi dekho →</a>
-    </div>
-    <div class="wrap">
-      <div class="grid" id="latestGrid"></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap section-head">
-      <h2>🎬 Latest Videos</h2>
-      <a class="link-more" href="videos.html">Sabhi dekho →</a>
-    </div>
-    <div class="wrap">
-      <div class="grid" id="latestVideos"></div>
     </div>
   </section>
 </main>
@@ -153,5 +165,38 @@
 
 <script src="assets/app.js"></script>
 <script>loadHome();</script>
+
+<script>
+// Latest News load karo
+fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
+  var grid = document.getElementById("latestNews");
+  if(!grid) return;
+  grid.innerHTML = news.slice(0, 6).map(function(n){
+    var url = n.article || n.link;
+    var tgt = n.article ? '' : ' target="_blank" rel="noopener"';
+    return '<div class="card"><a href="'+url+'"'+tgt+' style="text-decoration:none;color:inherit;display:block">'
+      + '<div class="card-body"><span class="badge">📰 '+n.source+'</span>'
+      + '<h3>'+n.title+'</h3>'
+      + '<div class="meta">📅 '+n.date+'</div></div></a></div>';
+  }).join("");
+}).catch(function(){});
+
+// Hindi/English toggle
+(function(){
+  var lang = localStorage.getItem("ag-lang") || "hi";
+  function apply(l){
+    lang = l; localStorage.setItem("ag-lang", l);
+    document.querySelectorAll("[data-hi]").forEach(function(el){
+      el.textContent = el.getAttribute(l === "hi" ? "data-hi" : "data-en");
+    });
+    var btn = document.getElementById("langToggle");
+    if(btn) btn.textContent = l === "hi" ? "English" : "हिंदी";
+    document.documentElement.lang = l === "hi" ? "hi" : "en";
+  }
+  var btn = document.getElementById("langToggle");
+  if(btn) btn.addEventListener("click", function(){ apply(lang === "hi" ? "en" : "hi"); });
+  apply(lang);
+})();
+</script>
 </body>
 </html>
