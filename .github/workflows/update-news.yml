@@ -69,13 +69,20 @@ jobs:
               except Exception as e:
                   print(f"{name}: FAILED - {e}")
 
-          # Sirf aaj ki date ki news (IST)
-          _today = datetime.now(IST).strftime("%d %b %Y")
-          all_news = [n for n in all_news if n.get("date","").startswith(_today)]
+          # Purani news SAVE rakho + nayi jodo (duplicate link hatao)
+          import os as _os
+          _old = []
+          if _os.path.exists("data/news.json"):
+              try: _old = json.load(open("data/news.json", encoding="utf-8"))
+              except: _old = []
+          _seen = set(n.get("link","") for n in all_news)
+          for n in _old:
+              if n.get("link","") not in _seen:
+                  all_news.append(n); _seen.add(n.get("link",""))
+          all_news = all_news[:100]
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
-          all_news = all_news[:12]
-          print(f"Total {len(all_news)} news items for {_today}")
+          print(f"Total {len(all_news)} saved news items")
           EOF
 
       - name: Commit if changed
