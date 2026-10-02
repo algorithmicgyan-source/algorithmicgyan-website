@@ -11,11 +11,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+.ag-topbar{background:linear-gradient(90deg,#0a0a2e,#16213e);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:.85rem;font-weight:600}
+.ag-topbar #ag-time{color:#FFD166;font-weight:700}
+</style>
+<script>
+(function(){
+  var days=["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+  var months=["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
+  function tick(){
+    var now=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
+    var d="📅 "+days[now.getDay()]+", "+now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear();
+    var h=now.getHours(),m=now.getMinutes(),s=now.getSeconds(),ap=h>=12?"PM":"AM";h=h%12||12;
+    var t="🕐 "+h+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")+" "+ap+" IST 🔴 LIVE";
+    var e1=document.getElementById("ag-date"); if(e1)e1.textContent=d;
+    var e2=document.getElementById("ag-time"); if(e2)e2.textContent=t;
+    var lc=document.getElementById("live-clock"); if(lc)lc.textContent=d+" | "+t;
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
 </head>
 <body>
-<div class="topbar-news">
-  <span id="topbar-date">⏳...</span>
-  <span id="topbar-time" style="color:#FFD166;font-weight:700">⏳...</span>
+<div class="ag-topbar">
+  <span id="ag-date">⏳...</span>
+  <span id="ag-time">⏳...</span>
 </div>
 
 <div class="news-hero">
@@ -28,7 +48,7 @@
   </div>
 </div>
 <style>
-.topbar-news{background:linear-gradient(90deg,#0a0a2e,#16213e);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 16px;font-size:.9rem;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+
 .news-hero{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#fff;text-align:center;padding:28px 16px 20px}
 .news-hero h1{font-size:1.8rem;margin-bottom:6px}
 .news-hero h1 .live-dot{display:inline-block;background:#FF0033;color:#fff;font-size:.8rem;padding:4px 12px;border-radius:99px;vertical-align:middle;animation:blink 1.5s infinite;margin-left:8px}
@@ -73,18 +93,19 @@
       <p class="lede">Roz ka <strong>current affairs</strong> — <strong>UPSC, SSC, Railway, Banking</strong> exams ki taiyaari ke liye! <strong>ABP News, NDTV, AIR</strong> se <strong>automatic update!</strong> 🎓</p>
       <p style="color:var(--muted);font-size:.9rem;margin-top:8px;">🕐 Aakhri update: <span id="lastUpdated">--</span> &nbsp;|&nbsp; Page har 5 minute me khud refresh hoga</p>
       <style>@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}</style>
-      <div class="chips" id="chips">
+      <!-- chips moved below -->
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="grid" id="newsGrid"></div>
+<div class="chips" id="chips">
         <button class="chip active" data-f="all">Sabhi</button>
         <button class="chip" data-f="ABP News">ABP News</button>
         <button class="chip" data-f="NDTV">NDTV</button>
         <button class="chip" data-f="AIR">📻 AIR</button>
         <button class="chip" data-f="Hindi News">Hindi News</button>
       </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="wrap">
-      <div class="grid" id="newsGrid"></div>
       <p class="note" style="margin-top:24px;color:var(--muted);font-size:.85rem;">Khabrein sambandhit news sources se li gayi hain. Poori khabar padhne ke liye headline par tap karein.</p>
     </div>
   </section>
