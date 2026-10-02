@@ -158,12 +158,14 @@ function render(f) {
     var desc = n.desc ? '<p class="desc">' + escapeHTML(n.desc) + "</p>" : "";
     var date = n.date ? '<div class="meta"><span class="date">📅 ' + escapeHTML(n.date) + "</span></div>" : "";
     var shareBtns = '<div class="share-row">'
-      + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(n.title + " " + n.link) + '">📲 WhatsApp</a>'
+      + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(n.title + " " + (n.article || n.link)) + '">📲 WhatsApp</a>'
       + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(n.link) + '">👍 Facebook</a>'
       + '<button class="share-btn cp" onclick="copyLink(\'' + n.link.replace(/'/g, "\\'") + '\',this)">🔗 Copy</button>'
       + '</div>';
+    var artUrl = n.article ? escapeHTML(n.article) : escapeHTML(n.link);
+    var artTarget = n.article ? '' : ' target="_blank" rel="noopener"';
     return '<div class="card text-card">'
-      + '<a href="' + escapeHTML(n.link) + '" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">'
+      + '<a href="' + artUrl + '"' + artTarget + ' style="text-decoration:none;color:inherit">'
       + '<div class="card-body">' + badge
       + "<h3>" + escapeHTML(n.title) + "</h3>" + desc + date + "</div></a>" + shareBtns + "</div>";
   }).join("");
