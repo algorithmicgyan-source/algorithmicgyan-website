@@ -13,6 +13,13 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<div class="topbar-news">
+  <span id="topbar-date">⏳...</span>
+  <span id="topbar-time" style="color:#FFD166;font-weight:700">⏳...</span>
+</div>
+<style>
+.topbar-news{background:#111;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:.9rem;font-weight:600}
+</style>
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="index.html">
@@ -121,6 +128,8 @@ fetch("data/news.json").then(function(r) { return r.json(); }).then(function(d) 
     var t = h + ":" + String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0") + " " + ap + " IST";
     var el = document.getElementById("live-clock");
     if(el) el.innerHTML = "📅 " + d + " &nbsp;|&nbsp; 🕐 " + t;
+    var td=document.getElementById("topbar-date"); if(td) td.textContent="📅 "+d;
+    var tt=document.getElementById("topbar-time"); if(tt) tt.textContent="🕐 "+t+" 🔴 LIVE";
   }
   tick(); setInterval(tick, 1000);
 })();
