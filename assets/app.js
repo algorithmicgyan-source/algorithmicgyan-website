@@ -80,11 +80,16 @@ function loadHome() {
     var grid = document.getElementById("latestVideos");
     if (!grid) return;
     grid.innerHTML = videos.slice(0, 6).map(function (v) {
-      return '<a class="card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener">'
+      var yurl = "https://www.youtube.com/watch?v=" + v.id;
+      return '<a class="card" href="' + yurl + '" target="_blank" rel="noopener">'
         + '<div class="thumb"><span class="badge">🎬 Video</span>'
         + '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
         + '<span class="play">▶</span></div>'
-        + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3></div></a>";
+        + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3></div></a>"
+      + '<div class="share-row">'
+      + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(v.title + " " + yurl) + '">📲 Share</a>'
+      + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(yurl) + '">👍 Share</a>'
+      + "</div>";
     }).join("");
   }).catch(function () {});
 }
@@ -117,3 +122,7 @@ function loadPosts() {
     render(startCat);
   });
 }
+
+var _vss = document.createElement("style");
+_vss.textContent = ".share-row{display:flex;gap:6px;padding:0 12px 12px}.share-btn{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff;text-decoration:none}.share-btn.wa{background:#25D366}.share-btn.fb{background:#1877F2}";
+document.head.appendChild(_vss);
