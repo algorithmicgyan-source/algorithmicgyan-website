@@ -86,8 +86,11 @@ jobs:
           import re as _re
           for n in all_news[:12]:
               if n.get("article"): continue
-              _slug = _re.sub(r'[^\w\s-]', '', n["title"].lower())
-              _slug = _re.sub(r'[-\s]+', '-', _slug)[:60].strip('-')
+              _words = _re.findall(r'[a-z0-9]+', n["title"].lower())
+              _slug = '-'.join(_words[:8])[:60].strip('-')
+              if not _slug or len(_slug) < 5:
+                  import hashlib as _hl
+                  _slug = "news-" + _hl.md5(n["title"].encode()).hexdigest()[:8]
               _dp = n["date"][:11].replace(" ", "-")
               _fn = f"news/article/{_dp}-{_slug}.html"
               if not _os.path.exists(_fn):
