@@ -3,135 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Taza Khabar & Current Affairs — UPSC, SSC, Railway Exams — Algorithmic Gyan</title>
-<meta name="description" content="Roz ka current affairs aur taza khabrein — UPSC, SSC, Railway, Banking exams ki taiyaari ke liye. ABP News, NDTV se automatic daily update, simple Hindi me.">
-<meta name="theme-color" content="#070B14">
-<link rel="icon" href="assets/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<title>Taza Khabar 🔴 LIVE | Algorithmic Gyan</title>
+<meta name="description" content="Aaj ki taza khabrein Hindi me - ABP News, NDTV se live updates. Algorithmic Gyan News.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5;color:#222}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes ticker{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+/* Top bar */
+.topbar{background:#111;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:.85rem}
+.live-btn{background:#FF0033;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-weight:700;cursor:pointer;animation:blink 1.5s infinite}
+/* Header */
+.site-head{background:#fff;text-align:center;padding:20px 16px 12px}
+.site-head .logo{font-size:2.2rem;font-weight:900}
+.site-head .logo .red{color:#FF0033}
+.site-head .tagline{color:#888;letter-spacing:8px;font-size:.85rem;margin-top:4px}
+/* Search */
+.searchbar{display:flex;max-width:500px;margin:14px auto 4px;border:2px solid #ddd;border-radius:8px;overflow:hidden}
+.searchbar input{flex:1;border:none;padding:12px;font-size:1rem;outline:none}
+.searchbar button{background:#CC0000;color:#fff;border:none;padding:0 28px;font-size:1rem;font-weight:700;cursor:pointer}
+/* Nav */
+.mainnav{background:#CC0000;padding:12px 16px;display:flex;gap:20px;align-items:center}
+.mainnav a{color:#fff;text-decoration:none;font-weight:600}
+.mainnav .menu{font-size:1.4rem}
+/* Breaking ticker */
+.breaking{display:flex;background:#111;color:#fff;overflow:hidden;align-items:center}
+.breaking .label{background:#FF0033;padding:10px 16px;font-weight:900;white-space:nowrap;z-index:2}
+.breaking .tick{white-space:nowrap;overflow:hidden;flex:1}
+.breaking .tick span{display:inline-block;padding:10px 0;animation:ticker 40s linear infinite}
+/* Cards */
+.news-grid{max-width:800px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:12px;overflow:hidden;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.1);text-decoration:none;color:#fff;display:block}
+.card .img{height:200px;display:flex;align-items:flex-end;position:relative;background-size:cover}
+.card .img .overlay{position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.85))}
+.card .txt{position:relative;padding:20px;z-index:1}
+.card h2{font-size:1.3rem;line-height:1.4;margin-bottom:8px}
+.card .meta{font-size:.85rem;color:#ddd}
+.card .src{display:inline-block;background:#FF0033;color:#fff;font-size:.75rem;padding:3px 10px;border-radius:99px;margin-bottom:8px;font-weight:700}
+.card.small .img{height:120px}
+.card.small h2{font-size:1.05rem}
+.card.small .txt{padding:14px}
+footer{background:#111;color:#888;text-align:center;padding:20px;font-size:.85rem;margin-top:10px}
+footer a{color:#ccc}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
-      <span>Algorithmic Gyan</span>
-    </a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="posts.html">Posts</a>
-      <a href="videos.html">Videos</a>
-      <a href="news.html">📰 News</a>      <a href="about.html">About</a>
-          <a href="search.html">🔍</a>
-    </nav>
-    <a class="btn btn-sub" href="https://www.youtube.com/@algorithmicgyan?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe</a>
-  </div>
-</header>
 
-<main>
-  <section class="page-head">
-    <div class="wrap">
-      <h1>📰 Taza Khabar <span style="font-size:1rem;background:#FF0033;color:#fff;padding:4px 12px;border-radius:999px;vertical-align:middle;animation:blink 1.5s infinite;">🔴 LIVE</span></h1>
-      <div id="live-clock" style="font-size:1.1rem;color:#FFD166;font-weight:700;margin-top:8px;">⏳ लोड हो रहा है...</div>
-      <p class="lede">Roz ka <strong>current affairs</strong> — <strong>UPSC, SSC, Railway, Banking</strong> exams ki taiyaari ke liye! <strong>ABP News, NDTV, AIR</strong> se <strong>automatic update!</strong> 🎓</p>
-      <p style="color:var(--muted);font-size:.9rem;margin-top:8px;">🕐 Aakhri update: <span id="lastUpdated">--</span> &nbsp;|&nbsp; Page har 5 minute me khud refresh hoga</p>
-      <style>@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}</style>
-      <div class="chips" id="chips">
-        <button class="chip active" data-f="all">Sabhi</button>
-        <button class="chip" data-f="ABP News">ABP News</button>
-        <button class="chip" data-f="NDTV">NDTV</button>
-        <button class="chip" data-f="AIR">📻 AIR</button>
-        <button class="chip" data-f="Hindi News">Hindi News</button>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="wrap">
-      <div class="grid" id="newsGrid"></div>
-      <p class="note" style="margin-top:24px;color:var(--muted);font-size:.85rem;">Khabrein sambandhit news sources se li gayi hain. Poori khabar padhne ke liye headline par tap karein.</p>
-    </div>
-  </section>
-</main>
+<div class="topbar">
+  <span id="live-date">⏳...</span>
+  <button class="live-btn" onclick="location.reload()">● LIVE TV</button>
+</div>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="foot-brand">
-      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
-      <div>
-        <strong>Algorithmic Gyan</strong>
-        <p>AI se bane science, history aur education videos — simple Hindi me.</p>
-      </div>
-    </div>
-    <div class="foot-links">
-      <a href="posts.html">Posts</a>
-      <a href="videos.html">Videos</a>
-      <a href="news.html">📰 News</a>      <a href="about.html">About</a>
-      <a href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">Facebook</a>
-    </div>
+<div class="site-head">
+  <div class="logo">⚛️ Algorithmic <span class="red">Gyan</span></div>
+  <div class="tagline">TRUTH FIRST</div>
+  <div class="searchbar">
+    <input type="text" id="q" placeholder="Search news..." onkeyup="if(event.key==='Enter')doSearch()">
+    <button onclick="doSearch()">Search</button>
   </div>
-  <div class="wrap foot-bottom">© 2026 Algorithmic Gyan. Sabhi adhikaar surakshit.</div>
+</div>
+
+<nav class="mainnav">
+  <span class="menu">☰</span>
+  <a href="index.html">Home</a>
+  <a href="news.html">📰 News</a>
+  <a href="videos.html">Videos</a>
+  <a href="posts.html">Posts</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="breaking">
+  <div class="label">BREAKING</div>
+  <div class="tick"><span>Hockey Legend Pargat Singh Named Punjab Congress Chief Months Ahead Of Polls &nbsp; ● &nbsp; Karnataka Man, 40, Stages Own Kidnapping To Extort Rs 90 Lakh From Father &nbsp; ● &nbsp; Deposit 25% Of Wife's Salary In In-Laws' Account: High Court After Man's Death &nbsp; ● &nbsp; IIT Bombay Professor Suryanarayana Doolla Interrogated For 8 Hours Over Student  &nbsp; ● &nbsp; 'Charanjit Channi Saheb Has Won': Raja Warring Meets Rahul Gandhi After Exit As  &nbsp; ● &nbsp; Cipla's Pune Godown Loses Drug Licence Over 'Misbranding, Storage Violations' &nbsp; ● &nbsp; Devendra Fadnavis Launches Dharavi Experience Centre Near BKC In Mumbai &nbsp; ● &nbsp; Actor Dino Morea Questioned For 6 Hours In Rs 65-Crore Mumbai Desilting 'Scam'</span></div>
+</div>
+
+<div class="news-grid" id="grid"></div>
+
+<footer>
+  <a href="index.html">Home</a> | <a href="news.html">News</a> | <a href="videos.html">Videos</a> | <a href="about.html">About</a><br><br>
+  © 2026 Algorithmic Gyan • <a href="https://algorithmicgyan-source.github.io/algorithmicgyan-website/">Website</a>
 </footer>
 
 <script>
-var SOURCE_COLORS = {
-  "ABP News": "#E63946",
-  "NDTV": "#1D3557",
-  "Google News Hindi": "#22D3EE"
-};
-function escapeHTML(s) {
-  return String(s == null ? "" : s)
-    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-var ALL = [];
-function render(f) {
-  var list = ALL.filter(function(n) { return f === "all" || n.source === f; });
-  document.getElementById("newsGrid").innerHTML = list.map(function(n) {
-    var color = SOURCE_COLORS[n.source] || "#9AA7BD";
-    var badge = '<span class="badge"><span class="dot" style="background:' + color + '"></span> '
-      + escapeHTML(n.source) + "</span>";
-    var desc = n.desc ? '<p class="desc">' + escapeHTML(n.desc) + "</p>" : "";
-    var date = n.date ? '<div class="meta"><span class="date">📅 ' + escapeHTML(n.date) + "</span></div>" : "";
-    return '<a class="card text-card" href="' + escapeHTML(n.link) + '" target="_blank" rel="noopener">'
-      + '<div class="card-body">' + badge
-      + "<h3>" + escapeHTML(n.title) + "</h3>" + desc + date + "</div></a>";
-  }).join("");
-}
-fetch("data/news.json").then(function(r) { return r.json(); }).then(function(d) {
-  ALL = d; render("all");
-  // Last updated time
-  var now = new Date();
-  document.getElementById("lastUpdated").textContent =
-    now.toLocaleDateString("en-IN", {day:"numeric", month:"short", year:"numeric"}) + ", " +
-    now.toLocaleTimeString("en-IN", {hour:"2-digit", minute:"2-digit"});
-});
-// Live clock: day + date + ticking time (IST)
+var NEWS = [{"source": "NDTV", "title": "Hockey Legend Pargat Singh Named Punjab Congress Chief Months Ahead Of Polls", "link": "https://www.ndtv.com/india-news/hockey-legend-pargat-singh-named-punjab-congress-chief-months-ahead-of-polls-12131223#publisher=newsstand", "date": "02 Oct 2026, 09:43 PM", "desc": "This change comes after the party last month replaced its central in-charge, appointing Sachin Pilot in place of Bhupesh Baghel, as the latter was seen as partisan in a battle largely between camps le"}, {"source": "NDTV", "title": "Karnataka Man, 40, Stages Own Kidnapping To Extort Rs 90 Lakh From Father", "link": "https://www.ndtv.com/india-news/karnataka-man-40-stages-own-kidnapping-to-extort-rs-90-lakh-from-father-12131309#publisher=newsstand", "date": "02 Oct 2026, 09:35 PM", "desc": "During interrogation, police allegedly found that Manish had fabricated the kidnapping with the help of his associates in an attempt to extort money from his father."}, {"source": "NDTV", "title": "Deposit 25% Of Wife's Salary In In-Laws' Account: High Court After Man's Death", "link": "https://www.ndtv.com/india-news/deposit-25-of-wifes-salary-in-in-laws-account-rajasthan-high-court-after-mans-death-12131168#publisher=newsstand", "date": "02 Oct 2026, 09:34 PM", "desc": "While securing the job on grounds of compassionate appointment after her husband's death in 2017, the woman had promised to take responsibility to care for and maintain her in-laws."}, {"source": "NDTV", "title": "IIT Bombay Professor Suryanarayana Doolla Interrogated For 8 Hours Over Student Suicide", "link": "https://www.ndtv.com/india-news/iit-bombay-professor-suryanarayana-doolla-interrogated-for-8-hours-over-sahil-wakode-suicide-12131304#publisher=newsstand", "date": "02 Oct 2026, 09:33 PM", "desc": "Sahil Wakode, 22, was found hanging in his hostel room on September 18. His parents had alleged that Prof Doolla subjected him to caste discrimination"}, {"source": "NDTV", "title": "'Charanjit Channi Saheb Has Won': Raja Warring Meets Rahul Gandhi After Exit As Punjab Congress Chief", "link": "https://www.ndtv.com/india-news/channi-saheb-won-raja-warring-meets-rahul-gandhi-after-exit-as-punjab-congress-chief-pargat-singh-replaces-him-12131272#publisher=newsstand", "date": "02 Oct 2026, 09:28 PM", "desc": "Raja Warring, MP from Ludhiana, resigned as Punjab Congress president on September 30, about six months before the 2027 Assembly elections, ending a tenure that began in April 2022 and was marked in r"}, {"source": "NDTV", "title": "Cipla's Pune Godown Loses Drug Licence Over 'Misbranding, Storage Violations'", "link": "https://www.ndtv.com/india-news/ciplas-pune-godown-loses-drug-licence-over-misbranding-storage-violations-12131164#publisher=newsstand", "date": "02 Oct 2026, 09:01 PM", "desc": "A major reason for the action was the misbranding of 'Reactin Plus', a Schedule-H drug that cannot be sold over the counter."}, {"source": "NDTV", "title": "Devendra Fadnavis Launches Dharavi Experience Centre Near BKC In Mumbai", "link": "https://www.ndtv.com/india-news/devendra-fadnavis-launches-dharavi-experience-centre-near-bkc-in-mumbai-12129973#publisher=newsstand", "date": "02 Oct 2026, 08:37 PM", "desc": "He said that this serves as an ideal example of the urban transformation taking place across the country under the leadership of Prime Minister Narendra Modi."}, {"source": "NDTV", "title": "Actor Dino Morea Questioned For 6 Hours In Rs 65-Crore Mumbai Desilting 'Scam'", "link": "https://www.ndtv.com/india-news/actor-dino-morea-questioned-for-6-hours-in-rs-65-crore-mumbai-desilting-scam-12131011#publisher=newsstand", "date": "02 Oct 2026, 08:17 PM", "desc": "The investigation pertains to alleged financial irregularities in a Brihanmumbai Municipal Corporation (BMC) sanitation contract awarded to clean and desilt the Mithi River."}, {"source": "NDTV", "title": "700 Detained As Delhi, Mumbai See Big Protests Against Gyanesh Kumar", "link": "https://www.ndtv.com/india-news/700-detained-as-delhi-mumbai-see-big-protests-against-gyanesh-kumar-12130718#publisher=newsstand", "date": "02 Oct 2026, 08:14 PM", "desc": "At the centre of the protests are issues related to the Election Commission and the SIR)that has struck off crores of 'inactive' voters across the country."}, {"source": "NDTV", "title": "Analysis: Who After Raja Warring? Inside The Congress Search For Punjab 2027 Poll Formula", "link": "https://www.ndtv.com/india-news/who-after-raja-warring-inside-the-congress-search-for-punjab-2027-poll-formula-12130976#publisher=newsstand", "date": "02 Oct 2026, 08:09 PM", "desc": "Vijay Inder Singla has emerged as a prominent contender as a Hindu face, while Pargat Singh, Sukhjinder Singh Randhawa, Rana KP Singh and Sukhbinder Singh Sarkaria are among the Jat Sikh names being d"}, {"source": "NDTV", "title": "MK Stalin Attacks Vijay Government Over Hindi Signboard In Tamil Nadu", "link": "https://www.ndtv.com/india-news/mk-stalin-attacks-vijay-government-over-hindi-signboard-in-tamil-nadu-12130971#publisher=newsstand", "date": "02 Oct 2026, 08:07 PM", "desc": "The Tamil Nadu government has removed the Hindi lettering from the signboard and suspended two highways department officials."}, {"source": "NDTV", "title": "flydubai Incident Highlights: Hero Pilot Recovering Well, Says Indian Envoy To UAE", "link": "https://www.ndtv.com/world-news/flydubai-hijack-fz1073-emergency-landing-israel-saudi-arabia-live-updates-pilots-injured-12119823#publisher=newsstand", "date": "02 Oct 2026, 08:02 PM", "desc": "flydubai Incident Highlights: Flight-tracking information showed the aircraft first transmitted squawk code 7700, the internationally recognised code for a general emergency."}, {"source": "NDTV", "title": "flydubai Hero's 2025 Podcast Is Viral. Interviewer Zalak Mehta Shares 1st Impression", "link": "https://www.ndtv.com/india-news/flydubai-incident-safety-was-always-captain-smit-machchhars-top-priority-recounts-podcaster-zalak-mehta-12130018#publisher=newsstand", "date": "02 Oct 2026, 08:02 PM", "desc": "Captain Smit Machchhar's calm demeanour was a striking personality trait that podcaster Zalak Mehta remembered distinctly from the 2025 interview."}, {"source": "NDTV", "title": "'Highest Courage': Milind Deora, Pilots Body Call For Award For Smit Machchhar", "link": "https://www.ndtv.com/india-news/flydubai-pilot-award-for-bravery-highest-courage-milind-deora-pilots-body-call-for-award-for-smit-machchhar-12130240#publisher=newsstand", "date": "02 Oct 2026, 08:01 PM", "desc": "Shiv Sena Rajya Sabha MP Milind Deora on Friday wrote to the Prime Minister's Office to award Smit Machchhar with India's highest civilian award, the Ashoka Chakra, for his bravery on the flydubai fli"}, {"source": "NDTV", "title": "Any Power Behind flydubai Plot Will Pay \"Very Heavy Price\", Warns Netanyahu", "link": "https://www.ndtv.com/world-news/any-power-behind-flydubai-plot-will-pay-very-heavy-price-warns-netanyahu-12130869#publisher=newsstand", "date": "02 Oct 2026, 07:47 PM", "desc": "Netanyahu did not identify any country as a potential culprit but for years has been quick to point the finger at Iran, which Israel and the United States attacked in February."}, {"source": "Hindi News", "title": "ज्ञानेश कुमार के इस्तीफ़े की मांग- मुंबई में सीजेपी का प्रदर्शन, दीपके ने क्या कहा? - BBC", "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1tbFdKUHhiT1dGTDRWTDJnUkIwV3ptb1dkZHBOYjVRTlRpa29LUnZrUlF4UjR5eThveGhLbGdjem15ZG1sdFZzSS1QYnF4Z2JqaGd3NGhZQ0RqemYz0gFiQVVfeXFMUHFTdm9sUmJURWN0OFhmaDY0ZWU0dnFFaGJhSWczeFA5d3J1YzFTNGNRV0NlM1RwSk9nSXZKMmh1cHBYS21Vcl90THVOdUN2QW9raTNFV25RTk9KUGdNOFZkenc?oc=5", "date": "02 Oct 2026, 08:55 PM", "desc": "ज्ञानेश कुमार के इस्तीफ़े की मांग- मुंबई में सीजेपी का प्रदर्शन, दीपके ने क्या कहा?  BBCज्ञानेश कुमार के ख़िलाफ़ विरोध प्रदर्शन, कई लोग हिरासत में, जाने क्या-क्या हुआ?- ग्राउंड रिपोर्ट"}, {"source": "Hindi News", "title": "यूपी कांग्रेस संगठन में बड़े फेरबदल की तैयारी, सपा से सीट बंटवारे को जल्द अंतिम रूप देंगे राहुल-अखिलेश - Jagran", "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQN0lKQ3NhN1V5VlNFenNqVVdWcnZ4dGkxWURRcVMwbnhPdDJRLWhNVUhxQzhoYkJZaGU2RnVySXlQeGJ3akRtMlNNdUk2SVFWN044WWlOck5RNGc0emh0eHBHWUxiZFNJeU5INER1M0pMOHQ0cFJmX1NDbjBleXAyQTFpNkRSeHNjUWYzeW5GZW8yREQtemU1dEh6VDlVcFU2ODd4MzhsdEQzQml1QTJjVU5HMWRfNVVSSkt1WEJDUGFKazdiYUtV?oc=5", "date": "02 Oct 2026, 08:01 PM", "desc": "यूपी कांग्रेस संगठन में बड़े फेरबदल की तैयारी, सपा से सीट बंटवारे को जल्द अंतिम रूप देंगे राहुल-अखिलेश  Jagranआराधना मिश्रा बनीं यूपी कांग्रेस की नई अध्यक्ष, इमरान मसूद बनाए गए कार्यकारी अध्"}, {"source": "Hindi News", "title": "इसराइल की फ़्लाइट में ओमानी पायलट को इजाज़त कैसे मिली? नेतन्याहू ने दिया ये जवाब - BBC", "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5SY1ZGTHJnRm9Sb0dsbU45UXEtUnRBOFRLMmRaRmJ2WVlXNU5qckVmRUZVc1VkeUYzWldEVVBLTmxDY2EzX2I3Mk16RHBSTjgxbWNkSHlFYi1IOVFl0gFiQVVfeXFMTi15WEJKRkYxM3h2eUxJVlkwQVFvdVVyQklRVXRHQXRtU2RjZnlweENMbVBwQl9TQk1ENFk1X3l5N0RJaW55cFpIQXY2YzZrZklvcTZsZnUzYWxrcU04MmstSHc?oc=5", "date": "02 Oct 2026, 07:55 PM", "desc": "इसराइल की फ़्लाइट में ओमानी पायलट को इजाज़त कैसे मिली? नेतन्याहू ने दिया ये जवाब  BBC'जिसने भी भेजा भारी कीमत चुकाएगा...', नेतन्याहू ने चेताया, ओमानी पायलट से पूछताछ करेगा इजरायल"}, {"source": "Hindi News", "title": "राजा वडिंग की राहुल गांधी से दिल्ली में मुलाकात, पंजाब पर क्या हुई बात? - ABP News", "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWVhOcTgyZ1dQb1NrdTlrTlYydFdNQVRTaHJydDVVUG9UZ3ltUGpFNVc2MnhIeVFaMVNkaDBOSnlGclU5LWg5NHNxLWpSWThYYTRnWVA3WkFqbS1tejRZUk1TOWJwZFItdEs5NGNOTG5FSW1MTk1lY3JRZkxEb19LWWt2SzVrZFV5WXRwUjBHV2RJVF9YVU5sUUtVVndNcFcwaGfSAacBQVVfeXFMT3dWTDg0b1RpWE9lRW92YncxcG8yZEthZTZ2cjRCQkdSbXdpQ0tZd1hNdlVDc082c3hFZkt1Ym1mYjV5SFFMc3hoLUQydlI1c0lRUmY2OE5BNlZkbUJ3dVdNZTZPQzQ5d3pyWS1ieTNDRnVqZFJ2V1NzaklTcnRFbzBMUWtGVHM5LWZsWDhIZ21xV1M1V3NrTUNvZnZySmtRdFBzaVA2Xzg?oc=5", "date": "02 Oct 2026, 11:19 AM", "desc": "राजा वडिंग की राहुल गांधी से दिल्ली में मुलाकात, पंजाब पर क्या हुई बात?  ABP Newsपरगट सिंह बने पंजाब कांग्रेस के नए अध्यक्ष, राजा वड़िंग की लेंगे जगह  Aaj Takपरगट सिंह पंजाब कांग्र"}, {"source": "Hindi News", "title": "8th Pay Commission: फरवरी-मार्च या मई 2027... 8वें वेतन आयोग की रिपोर्ट कब आएगी? एक्सपर्ट्स ने बताया - Aaj Tak", "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPWmxLeExRTVMtLWt0eTdEekxJTWNLWWxTdkJjalpNc3RFblFHVGpOQkxENFQtZ29BV1VQTTc5X2tqclA0M3lfWlpZbjctZlVyT0loQkpDM2dzeUEwMUxZNHlXXzFONkpjdEFETVFRcHhMTEdfaE1SN3lJNDJVNU5iN1FIWXFkSkR3TVlZMzl3bmlpX0U4MVVYakFWYW9lSjhCTGVDSy0xMWgwV3FvenBieVhEYnVwMzd6TFpYNElXNU85ZnVGUVh0SF9WSFg4clB5NExHUlBPN1p1dG5HSlFxdkJ5d2wzSHEyZ0QtcUllc0JsOXB4eEQ5SNIB_gFBVV95cUxPdW4tMzRGeElHOGRMUHZxbTExU2RGSjRTSmNieWZ3ZW9aaF9yc2RIUHRrYklQcEZzYWZzUDhBdllHUjlsYVN0WE85OFNNa2pHUlVZZ25abXp4S3Jod1lzTXAtTGRpeWI4VDZieWZKS1JZYnZFb2JBZm9fNDdraDl3cGU3eDNXd1gtdlQ0ZDVFRHh3Y1JWWHNRRVVhSnd1MW9QM2l2dUpxcHV4UTBmcmphSWpJTGM5cWU2X0M4bDRPMVNqOTY3YzFDVnNuNXNLc01MUnd2SXZxM0czR0pTa1hfMEFjY0ZSR3ZNLWZqb013dF9WTlpleTlRSTRGd3Rqdw?oc=5", "date": "02 Oct 2026, 11:42 AM", "desc": "8th Pay Commission: फरवरी-मार्च या मई 2027... 8वें वेतन आयोग की रिपोर्ट कब आएगी? एक्सपर्ट्स ने बताया  Aaj Tak5% तक बढ़ गया DA, त्योहार से पहले इन सरकारी कर्मचारियों के लिए बड़ी खुशखबरी, Busi"}, {"source": "Hindi News", "title": "भारत ने अंतरिक्ष में मिसाइल से मार गिराया था सैटेलाइट, वॉशिंगटन में मच गई थी खलबली, पूर्व अमेरिकी अफसर का खुलासा - Navbharat Times", "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNV2JmOXpKT0J3eXNfRkcxMnJRSFhvZkhjMnZCR1RRc0liekRsOWUwTVUwYXNIa3FOSW9jWVQyMmNSMHp0eVQ3UUM1M0xSdUZJYUhIR3lKYXRkRzcxcjlobkNRR3dYdEZuQzFlVkVVeG9iVEthRXc3dExHbmtPMzBqOFNWbThwSmo2LU1pbjY4d3BMLXkyOFJSOUF1M1Y3VkE5NTE5dnNtaml1cW1UTmRaeWUxV3lqcHRKVkVIUmFTTk9KRlZOZlVsdGQ2OFNGVEZ5UmQ5WHNtSklYRGxPUjFBemo1RG5HUVBoWDFTa1BHRzQwdzZfM0pqT2NqYVR5Z9IBgwJBVV95cUxQY0xVWG5nM1oxVGcwZzVTSGRYckpHT2tfVmpwUTBUNFRIaWJvYWFuOERkbzc5b1R0S1FBYnFUV1p4ejBsc2tnUjJWeUVYUE9LQU1aSUxKd0d3eEVfelB1SDhPc2xXTGwyRHlOc0Iydl9YWXBfNGlMWEtrd2QyMjU4UXNjVElJdWc5eXNRd1VHWmlONVpSbGpzc2tuandsSjZCWTMzVmFxX1JuS1JmU2lPZ3FWQWlzYTBjd1JYY2FaZTdRaVQxc1pDNXpzMTZiNlU3aDdDQnphNE9iQTFkUzFKMXV4U1c3QkhHVExnVzBSSE9qdVV0ZWF6QUpMOEhqTmNsMGRn?oc=5", "date": "02 Oct 2026, 05:54 PM", "desc": "भारत ने अंतरिक्ष में मिसाइल से मार गिराया था सैटेलाइट, वॉशिंगटन में मच गई थी खलबली, पूर्व अमेरिकी अफसर का खुलासा  Navbharat Timesभारत ने दोबारा दे दिया था अमेरिका को 'पोखरण मूमेंट', ASAT मिस"}, {"source": "Hindi News", "title": "1200 ft पर 100 Kmph से दौड़ी वंदे भारत, दुनिया के सबसे ऊंचे पुल पर बना रफ्तार ​का रिकॉर्ड - Aaj Tak", "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQX2pjSFNULXU3VkZaYWd2Y3B4WVdXRkhwNHVPN3NrWXlYN0FoaTZGX0N0R0lIZ0xSZ3JvOUFKSUF3NUNEbzVEZ2hkeTBLOHJQd1JERnNmc3lhcVNWN2JPbkM0UHppZm45OWVJY24yR0JoZE53bU44T0lCdnYzZnlQMTBnajRsQ0VsYWhEMWR5dzQ4Z0hxOGZELXJ1MGZQbGU5NFJReFFQSGQ5UzRVbExfOFlzSGdadWQwZFJnU29aTEFBMHBUaUVYU2lBTWVYN2hrazhFSmlrdGJKckNBN2FXa2RlOTNDSWFSNGJwUi1UbldMT0VhY0hicNIB_gFBVV95cUxPQkc2empaWk9SWGhMN3JNdlFWNU5HcXZjYVhHRGZkQ2psRFV6bjh5bkx0UVhvQ3JmQ2RGTUYyNENWbWFmS2pVR0MwTHc1UlFibEVNS2VFWGZQdDdqWnZuUGZjcVZSVnNod0k2NjMyZUhoUEJjTnhJdlE4WjhMcnZ1eTJOSG93UDNsbGRmbi1kZ2xlQUJseG1tT2Jkd3ByUU51bUkyRktBQnZ4R3Y4dUEzYVlydnpPdmM0UWZOUi12Z3V1cWd1ZlFxYU8wOUVSNnFNcTE5eHIwUEI3a3FVeGZHNmZHajRrVU5mQjJIb2xqNGk4bmRaSkJmNkgza3V1UQ?oc=5", "date": "02 Oct 2026, 02:40 PM", "desc": "1200 ft पर 100 Kmph से दौड़ी वंदे भारत, दुनिया के सबसे ऊंचे पुल पर बना रफ्तार ​का रिकॉर्ड  Aaj Takदुनिया के सबसे ऊंचे ब्रिज पर 100kmph से दौड़ी ट्रेन: रेलवे ने जम्मू-श्रीनगर वंदे भारत का वीड"}, {"source": "Hindi News", "title": "अरुणाचल के बाद अब लद्दाख, भारत के इस कदम से चीन को लगेगी मिर्ची? फिर चर्चा में क्यों गोगरा और हॉट स्प्रिंग - Hindustan", "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQZV9mOWRJY0NmV3FybWZGNHpOMW8xdlllOXBlMkk3dVYwdjZCMS1GQmF1TUVoYjJuQ3l1R1JBM01DQUNJVHF0YUNMZ0I4R016V0FIM0c3WTBzRExJclJWQlVtckJPaElMampGTUlZLUo1ck5EZUJIY09VYzUzU1ZhZHg4U2s2aGFuMzFrdzhhaXhmSzJqaEFOc3hfbmhGUHBJTXZmNEF2Q2J2TTRrNDkzTzVNbGtUeGhENXhueUVxbzhERWpDRXF0b1FqOFZ6Y2xiZXZ0M05qU183eHZFaEhLZEVSd3RKNUhwenfSAe8BQVVfeXFMUGcyNFdabjdhYktLamF6Yy10SjJkR1RvZDFXaTFTQXBWRkFPRHByYmgwV1hsMVVsRVZ2UW5NOGhJVkY4MThDb1BTR1pYNi13YnM1aklpaHdGaW00N3FIM09ucF95QXJaREZJU0RreE1KaG1FcVZtWWZORTBidHhkZWFSZENFNDJJQzdRME9ZNFM1cVJRRDVOdEtHYXhGWWgxNFB4VXhGSDZhRmxjTVlWNUhaZDhtRV8yb3R1RVNwREJtMm5sbnRlbjRuOEViNWRMbE1fdl9sRm5kcmE2SW5DQnk4RXViQVFOME12Q0tLaFU?oc=5", "date": "02 Oct 2026, 04:00 PM", "desc": "अरुणाचल के बाद अब लद्दाख, भारत के इस कदम से चीन को लगेगी मिर्ची? फिर चर्चा में क्यों गोगरा और हॉट स्प्रिंग  Hindustanलद्दाख की 28 जगहों के नाम अब आधिकारिक, MHA ने नक्शे में किया शामिल &"}, {"source": "Hindi News", "title": "SIR पर बवाल के बीच ECI का बड़ा फैसला, 20 राज्यों में Voter List में छूटे वोटर्स जोड़े जाएंगे, जानें पूरी डि - India TV Hindi", "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPeC1NUjhYaEZ6NkJSa1J0QnpkR0NWZVB2ZEFBNDRzY1VrYUlGSks0a25NUTRXM2dBcDRpNnZNSS1oYnFQR0hCb2c4QnU4T3VMOWJaeXlTNmVnV0o4WFpPbXVBODd3U3J3SlV6NUlyMzNIN1U5dWpIbXRCUkVQUEZxUUtJRG43X0NvS0Y0bjBKRV9UQTRFclNlLURrNkVOQk10TUdhYjlsdDlUeHN3LVdpbktPNzRxYnNZUGdIakx5dllOdGdPVzFHaVRHZE42UmZ1RHprbFlKUHdHRkJxU2c?oc=5", "date": "02 Oct 2026, 11:53 AM", "desc": "SIR पर बवाल के बीच ECI का बड़ा फैसला, 20 राज्यों में Voter List में छूटे वोटर्स जोड़े जाएंगे, जानें पूरी डि  India TV Hindiयूपी में वोटर लिस्ट अपडेट करने के लिए विशेष अभियान, युवाओं और महिला"}, {"source": "Hindi News", "title": "पुतिन ने जमकर की PM मोदी की तारीफ, यूक्रेन के साथ युद्ध खत्म कराने की कोशिशों को सराहा - India TV Hindi", "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZFpzZUxLNkxZbWpMTEhORkQ5TVBHNjFicHh2REV0REdkdklkZ05xMW51SzUyVk4wTThESjFoVXg5dS1IUU9YSl9GaDh6Zlk0dnB4WFZwc3dBM1h6NXJUZ2ZGS1l0M1JJbVpiYjVQNXY0UmZoOWFoUlVfSkJmaEtPOEZRQ1dPUjZhR0tIYzBVMGhoaDFEN01XaU1tMXJUel9oeWRQOGZscFMzb3BhWENlVlJOMmhobWRuSXdISEk1cG16a24zSDRCU1dKVFJUZ1VW?oc=5", "date": "02 Oct 2026, 06:39 AM", "desc": "पुतिन ने जमकर की PM मोदी की तारीफ, यूक्रेन के साथ युद्ध खत्म कराने की कोशिशों को सराहा  India TV Hindi'हर मुलाकात में उठाते हैं यूक्रेन युद्ध का मुद्दा', रूसी राष्ट्रपति पुतिन ने की पीएम की"}, {"source": "Hindi News", "title": "सऊदी अरब के मदीना में हूतियों का हमला, पैगंबर की मस्जिद का पावर स्टेशन निशाने पर - Aaj Tak", "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQRng4alpNRjBvR1dwWDQ4N3JtMWVTVGFUaEZYdlBtU29Oam1LSmhXZkF4TVcwN3VKb0VSSzNTZVdqMmVTLVl6WHZMbnRueXlEaHBoUlJZRm5SVFFqdjNNck4zYXZwTnVEX2RLUXd2M0VqRncxSER1RWpMUmZUcTlxOXp0ZmtNNzVkaVVjbkp6Tnk5NkRhMXNlMnVoM2pQZTFyRVFTc0lCQXRPYXFJVVZDUGtwQVR4NXEzTzJvc2VIbTjSAcYBQVVfeXFMUFRCR3E0by14T01oUjRub1RndU1sRDJjODZLaURpME1BeWhUdktoR1ZuSlVvT1hEUjI1TVdXQWNmUkRVT3NxbHkwVENnam1Ma19XZjlRLXRMZjFCaEQtVkxqdDJzY1NPd2xxOFctZC13b2JMT1Jva1l6dERDTndEd2JYcGlfTU1JSC1wYWJkSE9LSFdMalJBdVR6VWFiMVd2RnpDYUppLWwxSm90b1ZZVWdjWTN2dHBJQXRSWWxhMExCRlBTQ2Vn?oc=5", "date": "02 Oct 2026, 02:14 PM", "desc": "सऊदी अरब के मदीना में हूतियों का हमला, पैगंबर की मस्जिद का पावर स्टेशन निशाने पर  Aaj Takमिडिल ईस्ट में बढ़ा हवाई खतरा, EASA ने सऊदी अरब को खाड़ी देशों के एयरस्पेस से बचने के दिए निर्देश&nbs"}, {"source": "Hindi News", "title": "अमेरिका ने 9000 सैनिकों वाला युद्धपोत मिडिल ईस्ट भेजा: दो पहले से मौजूद; ट्रम्प बोले थे- मिडटर्म इलेक्शन के... - Dainik Bhaskar", "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPUjFpWEYxeTJkWno0LWhnVVdpV3lmNVNRa2YteEVCbnhNMHZ5Wms5QUdEaDEybUdHejRnanY4WGFILUN3VG5TVUlvYkdDb2c1bk9DTFVWSEV0YkJocXc0UGJZdlNraFBpS1N1MkRvOXloZEFOZ2RfODE2TEx1N1piUkJjV1o5bVh2OE5SSFkySFVqRUtuSUxINUxWUlNSLS1oelRTbDZyVTNOM1FiU2FKdU9pb1hmdTYtam82bUNZQdIBxAFBVV95cUxObTRYLVA2UWVGeWhHV3VKZEk1MDl6VEVBQVdsMk9TWVVMRTR1NTg5YTNESzVnREZwam5zamwxQnZVSS1JNl9ISlZ3T18tQVNhQnBfVTR4alJ6TmN6RVNaUmxuRi1aQzl1cmJTMFlTTWFoNW54dFJxWXBSLUxLeWl5UDE4SFhGNU1fblpkUnBRdktnM3VONG1aSjVwNVpkNDh4ZmxtRUZkdlJVR0QxSjFUcTM4QlJVWm9IWmdXQW5kMTFLVFZx?oc=5", "date": "02 Oct 2026, 07:31 AM", "desc": "अमेरिका ने 9000 सैनिकों वाला युद्धपोत मिडिल ईस्ट भेजा: दो पहले से मौजूद; ट्रम्प बोले थे- मिडटर्म इलेक्शन के...  Dainik Bhaskarमार्को रुबियो ने ईरानी विदेश मंत्री को न्यूयॉर्क से जाने को कहा?"}, {"source": "Hindi News", "title": "छह देशों ने मक्का समझौते का हिस्सा बनने में दिलचस्पी दिखाई- पाकिस्तान - BBC", "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5ObEdYZzZ3QkZYWVdzTy1IMzlXWnZwOG9WQmlJVUJ2cHBCbDhUbkc3cGtRcFBoNGtCc2J2YjZZNENIT0h6aDYxVTl0Ty12RmRpV0hTd2phUQ?oc=5", "date": "02 Oct 2026, 09:58 PM", "desc": "छह देशों ने मक्का समझौते का हिस्सा बनने में दिलचस्पी दिखाई- पाकिस्तान  BBC"}, {"source": "Hindi News", "title": "Jio IPO का इंतजार खत्म, लॉन्चिंग से इश्यू प्राइस और GMP तक पर बड़ा अपडेट - Hindustan", "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPTnVNV09ONHhMMWowVHF1Z181MHZmckJLSXhwZnZ1dTVwbGtYdUwtVEpPSFNtX19pMGxnVzhrQmxiMXJoRzQ5ZGFTOXgyb25jdFIxcGZKQWJMOVFLaU0zWmQwNUF4ZWNrZW53cHlKNzh6VXlReEIyR2l5ME1kQ1p5SDdfajNMV3V0WEFWUVdpTjEtQk40NlV3emszYzk5OXJYNEIzaE5PTFhpU3pTTEdQTlRXaGtqR0RNRUNndGw2ZXRKdzV4YWFtSzUwNWF3ZEZiRWZwUXN0YmQ5VGtqb1dCWVY3UdIB6AFBVV95cUxNS3FpY2JFdm9UR0puQUd6WkloTGxLNk1TLW1QSE9wc0ZNUXl0dGlIeFFMSEtudzJkMGxWSEdqQUxMX0FubERVLVQwaHJxR0I2b0RwMHlNdWVUbmhFd21BMEVQcUt3LVZvUXVyemJNM2lYdnVCeXQ0M0p3ZjlidGpVVkRNa25XSVVlM3ZOYU9Zd1E1MzBNeFhDWlZkM1c1aXQ0QnRNcU1GS25yWU55TWh2Zk5yVjJrSjVWbEttcFdOTlVFWXNYeHBqeXljRGRNYmcwdjBLNjVLMjlxQXZpRmpJVXpWZkRuTlNh?oc=5", "date": "02 Oct 2026, 04:44 PM", "desc": "Jio IPO का इंतजार खत्म, लॉन्चिंग से इश्यू प्राइस और GMP तक पर बड़ा अपडेट  HindustanJio IPO: 2123 अक्टूबर की तारीख सच या सिर्फ market rumour? जानिए क्या है confirmed!  AIMA MediaJio"}];
+
+// Live date + time (IST)
 (function(){
-  var days = ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
-  var months = ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
+  var days=["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+  var months=["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
   function tick(){
-    var now = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
-    var d = days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear();
-    var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
-    var ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12;
-    var t = h + ":" + String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0") + " " + ap + " IST";
-    var el = document.getElementById("live-clock");
-    if(el) el.innerHTML = "📅 " + d + " &nbsp;|&nbsp; 🕐 " + t;
+    var now=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
+    document.getElementById("live-date").textContent =
+      days[now.getDay()]+", "+now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear()+
+      " | "+(now.getHours()%12||12)+":"+String(now.getMinutes()).padStart(2,"0")+":"+String(now.getSeconds()).padStart(2,"0")+" IST";
   }
-  tick(); setInterval(tick, 1000);
+  tick(); setInterval(tick,1000);
 })();
 
-// Auto-refresh har 5 minute me (LIVE feel)
-setInterval(function() { location.reload(); }, 5 * 60 * 1000);
-document.getElementById("chips").addEventListener("click", function(e) {
-  var b = e.target.closest(".chip"); if (!b) return;
-  document.querySelectorAll("#chips .chip").forEach(function(c) { c.classList.remove("active"); });
-  b.classList.add("active"); render(b.dataset.f);
-});
+// Card gradients per source
+var GRAD={
+  "ABP News":"linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d)",
+  "NDTV":"linear-gradient(135deg,#0f2027,#203a43,#2c5364)",
+  "AIR":"linear-gradient(135deg,#134e5e,#71b280)",
+  "Hindi News":"linear-gradient(135deg,#8e0e00,#1f1c18)"
+};
+
+function render(list){
+  var g=document.getElementById("grid"); g.innerHTML="";
+  list.forEach(function(n,i){
+    var a=document.createElement("a");
+    a.className="card"+(i>0?" small":""); a.href=n.link; a.target="_blank"; a.rel="noopener";
+    a.innerHTML='<div class="img" style="background:'+(GRAD[n.source]||GRAD["Hindi News"])+'">'+
+      '<div class="overlay"></div><div class="txt"><span class="src">'+n.source+'</span>'+
+      '<h2>'+n.title+'</h2><div class="meta">📅 '+n.date+'</div></div></div>';
+    g.appendChild(a);
+  });
+  if(!list.length) g.innerHTML="<p style='text-align:center;padding:40px'>कोई खबर नहीं मिली</p>";
+}
+function doSearch(){
+  var q=document.getElementById("q").value.toLowerCase().trim();
+  render(q?NEWS.filter(function(n){return (n.title+" "+n.desc).toLowerCase().includes(q)}):NEWS);
+}
+render(NEWS);
+// Auto-refresh har 5 minute
+setTimeout(function(){location.reload()},5*60*1000);
 </script>
 </body>
 </html>
