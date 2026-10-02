@@ -59,7 +59,7 @@ jobs:
                       title = clean(title_el.text if title_el is not None else "")
                       link = (link_el.text or "").strip() if link_el is not None else ""
                       pub = pub_el.text if pub_el is not None else ""
-                      desc = clean(desc_el.text if desc_el is not None else "")[:5]
+                      desc = clean(desc_el.text if desc_el is not None else "")[:800]
                       if title and link:
                           all_news.append({
                               "source": name, "title": title,
