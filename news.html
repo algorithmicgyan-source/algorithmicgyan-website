@@ -34,6 +34,7 @@
   <section class="page-head">
     <div class="wrap">
       <h1>📰 Taza Khabar <span style="font-size:1rem;background:#FF0033;color:#fff;padding:4px 12px;border-radius:999px;vertical-align:middle;animation:blink 1.5s infinite;">🔴 LIVE</span></h1>
+      <div id="live-clock" style="font-size:1.1rem;color:#FFD166;font-weight:700;margin-top:8px;">⏳ लोड हो रहा है...</div>
       <p class="lede">Roz ka <strong>current affairs</strong> — <strong>UPSC, SSC, Railway, Banking</strong> exams ki taiyaari ke liye! <strong>ABP News, NDTV, AIR</strong> se <strong>automatic update!</strong> 🎓</p>
       <p style="color:var(--muted);font-size:.9rem;margin-top:8px;">🕐 Aakhri update: <span id="lastUpdated">--</span> &nbsp;|&nbsp; Page har 5 minute me khud refresh hoga</p>
       <style>@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}</style>
@@ -108,6 +109,22 @@ fetch("data/news.json").then(function(r) { return r.json(); }).then(function(d) 
     now.toLocaleDateString("en-IN", {day:"numeric", month:"short", year:"numeric"}) + ", " +
     now.toLocaleTimeString("en-IN", {hour:"2-digit", minute:"2-digit"});
 });
+// Live clock: day + date + ticking time (IST)
+(function(){
+  var days = ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+  var months = ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
+  function tick(){
+    var now = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
+    var d = days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear();
+    var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+    var ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12;
+    var t = h + ":" + String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0") + " " + ap + " IST";
+    var el = document.getElementById("live-clock");
+    if(el) el.innerHTML = "📅 " + d + " &nbsp;|&nbsp; 🕐 " + t;
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
 // Auto-refresh har 5 minute me (LIVE feel)
 setInterval(function() { location.reload(); }, 5 * 60 * 1000);
 document.getElementById("chips").addEventListener("click", function(e) {
