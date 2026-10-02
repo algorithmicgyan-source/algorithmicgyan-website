@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabhi Posts — Algorithmic Gyan</title>
+<meta name="description" content="Algorithmic Gyan ke sabhi posts — News, Facts, Current Affairs aur Motivational Stories, simple Hindi me.">
+<meta name="theme-color" content="#070B14">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
+      <span>Algorithmic Gyan</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="posts.html" class="active">Posts</a>
+      <a href="videos.html">Videos</a>
+      <a href="news.html">📰 News</a>
+      <a href="about.html">About</a>
+          <a href="search.html">🔍</a>
+    </nav>
+    <a class="btn btn-sub" href="https://www.youtube.com/@algorithmicgyan?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Sabhi Posts</h1>
+      <p class="lede">Category chuno aur padho — ya video dekho.</p>
+      <div class="chips" id="chips">
+        <button class="chip active" data-cat="all">Sabhi</button>
+        <button class="chip" data-cat="news">📰 News</button>
+        <button class="chip" data-cat="facts">🧠 Facts</button>
+        <button class="chip" data-cat="current-affairs">📅 Current Affairs</button>
+        <button class="chip" data-cat="motivational">🔥 Motivational</button>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="grid" id="postsGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
+      <div>
+        <strong>Algorithmic Gyan</strong>
+        <p>AI se bane science, history aur education videos — simple Hindi me.</p>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">© 2026 Algorithmic Gyan. Sabhi adhikaar surakshit.</div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>loadPosts();</script>
+</body>
+</html>

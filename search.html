@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search — Algorithmic Gyan</title>
+<meta name="description" content="Algorithmic Gyan par khojo — posts, videos aur taza khabrein, sab kuch ek jagah.">
+<meta name="theme-color" content="#070B14">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
+      <span>Algorithmic Gyan</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="posts.html">Posts</a>
+      <a href="videos.html">Videos</a>
+      <a href="news.html">📰 News</a>
+      <a href="about.html">About</a>
+          <a href="search.html">🔍</a>
+    </nav>
+    <a class="btn btn-sub" href="https://www.youtube.com/@algorithmicgyan?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <h1>🔍 Khojo</h1>
+      <p class="lede">Posts, videos aur khabrein — sab kuch ek jagah khojo.</p>
+      <div style="margin-top:16px;max-width:500px;">
+        <input type="search" id="searchInput" placeholder="Kya khojna hai? (jaise: gandhi, taj mahal...)"
+          style="width:100%;padding:14px 18px;font-size:1.05rem;border-radius:12px;border:1px solid var(--line);background:var(--card);color:inherit;font-family:inherit;">
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div id="searchInfo" style="color:var(--muted);margin-bottom:16px;"></div>
+      <div class="grid" id="searchGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
+      <div>
+        <strong>Algorithmic Gyan</strong>
+        <p>AI se bane science, history aur education videos — simple Hindi me.</p>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="posts.html">Posts</a>
+      <a href="videos.html">Videos</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">© 2026 Algorithmic Gyan. Sabhi adhikaar surakshit.</div>
+</footer>
+
+<script>
+function escapeHTML(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+var DATA = { posts: [], videos: [], news: [] };
+function doSearch(q) {
+  q = q.trim().toLowerCase();
+  var grid = document.getElementById("searchGrid");
+  var info = document.getElementById("searchInfo");
+  if (q.length < 2) {
+    grid.innerHTML = "";
+    info.textContent = "Kam se kam 2 akshar likho.";
+    return;
+  }
+  var html = "";
+  var count = 0;
+  // Videos
+  DATA.videos.forEach(function(v) {
+    if ((v.title || "").toLowerCase().indexOf(q) >= 0) {
+      count++;
+      html += '<a class="card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener">'
+        + '<div class="thumb"><span class="badge">🎬 Video</span>'
+        + '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+        + '<span class="play">▶</span></div>'
+        + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3></div></a>";
+    }
+  });
+  // Posts
+  DATA.posts.forEach(function(p) {
+    var hay = ((p.title || "") + " " + (p.description || "")).toLowerCase();
+    if (hay.indexOf(q) >= 0) {
+      count++;
+      html += '<a class="card text-card" href="posts.html">'
+        + '<div class="card-body"><span class="badge">📝 Post</span>'
+        + "<h3>" + escapeHTML(p.title) + "</h3>"
+        + (p.description ? '<p class="desc">' + escapeHTML(p.description) + "</p>" : "") + "</div></a>";
+    }
+  });
+  // News
+  DATA.news.forEach(function(n) {
+    var hay = ((n.title || "") + " " + (n.desc || "")).toLowerCase();
+    if (hay.indexOf(q) >= 0) {
+      count++;
+      html += '<a class="card text-card" href="' + escapeHTML(n.link) + '" target="_blank" rel="noopener">'
+        + '<div class="card-body"><span class="badge">📰 ' + escapeHTML(n.source) + "</span>"
+        + "<h3>" + escapeHTML(n.title) + "</h3></div></a>";
+    }
+  });
+  grid.innerHTML = html;
+  info.textContent = count ? count + " natije mile." : "Kuch nahi mila. Kuch aur try karo.";
+}
+Promise.all([
+  fetch("data/posts.json").then(function(r) { return r.json(); }).catch(function() { return []; }),
+  fetch("data/videos.json").then(function(r) { return r.json(); }).catch(function() { return []; }),
+  fetch("data/news.json").then(function(r) { return r.json(); }).catch(function() { return []; })
+]).then(function(res) {
+  DATA.posts = res[0]; DATA.videos = res[1]; DATA.news = res[2];
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get("q") || "";
+  if (q) { document.getElementById("searchInput").value = q; doSearch(q); }
+});
+var timer;
+document.getElementById("searchInput").addEventListener("input", function(e) {
+  clearTimeout(timer);
+  timer = setTimeout(function() { doSearch(e.target.value); }, 300);
+});
+</script>
+</body>
+</html>

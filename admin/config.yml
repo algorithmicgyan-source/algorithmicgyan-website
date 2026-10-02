@@ -1,0 +1,54 @@
+# Decap CMS config — Algorithmic Gyan website
+# IMPORTANT: neeche "repo:" me apna GitHub username aur repo naam likho
+# Example: repo: algorithmicgyan/algorithmic-gyan-website
+
+backend:
+  name: github
+  repo: algorithmicgyan-source/algorithmicgyan-website
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    files:
+      - name: "all-posts"
+        label: "Sabhi Posts"
+        file: "data/posts.json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.category}})"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                hint: "Post ya video ka title (Hindi me)"
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "📰 News", value: "news" }
+                  - { label: "🧠 Facts", value: "facts" }
+                  - { label: "📅 Current Affairs", value: "current-affairs" }
+                  - { label: "🔥 Motivational Story", value: "motivational" }
+              - label: "Date"
+                name: "date"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                hint: "Current Affairs ke liye date zaroor daalo (date by date dikhega)"
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: false
+                hint: "2-3 line me post ke baare me likho"
+              - label: "YouTube URL"
+                name: "youtube_url"
+                widget: "string"
+                required: false
+                hint: "Agar video hai to YouTube link paste karo — thumbnail apne aap aa jayega. Sirf text post hai to khaali chhodo."

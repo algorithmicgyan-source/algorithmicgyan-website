@@ -1,0 +1,83 @@
+name: Auto-update Daily News
+
+# Har 3 ghante me taza khabrein (LIVE feel!)
+on:
+  schedule:
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch daily news from RSS sources
+        run: |
+          python3 << 'EOF'
+          import json, urllib.request, xml.etree.ElementTree as ET, html, re
+          from email.utils import parsedate_to_datetime
+          from datetime import timezone, timedelta
+
+          SOURCES = [
+              ("ABP News", "https://www.abplive.com/news/india/feed"),
+              ("NDTV", "https://feeds.feedburner.com/ndtvnews-top-stories"),
+              ("AIR", "https://news.google.com/rss/search?q=%22all+india+radio%22+OR+%22akashvani%22&hl=hi&gl=IN&ceid=IN:hi"),
+              ("Hindi News", "https://news.google.com/rss?hl=hi&gl=IN&ceid=IN:hi"),
+          ]
+
+          def fmt_date(pub):
+              try:
+                  dt = parsedate_to_datetime(pub)
+                  ist = dt.astimezone(timezone(timedelta(hours=5, minutes=30)))
+                  return ist.strftime("%d %b %Y, %I:%M %p")
+              except:
+                  return pub[:16] if pub else ""
+
+          def clean(s):
+              if not s:
+                  return ""
+              s = html.unescape(s)
+              s = re.sub(r"<[^>]+>", "", s)
+              return s.strip()
+
+          all_news = []
+          for name, url in SOURCES:
+              try:
+                  req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                  data = urllib.request.urlopen(req, timeout=30).read()
+                  root = ET.fromstring(data)
+                  items = root.find("channel").findall("item")[:10]
+                  for i in items:
+                      title_el = i.find("title")
+                      link_el = i.find("link")
+                      pub_el = i.find("pubDate")
+                      desc_el = i.find("description")
+                      title = clean(title_el.text if title_el is not None else "")
+                      link = (link_el.text or "").strip() if link_el is not None else ""
+                      pub = pub_el.text if pub_el is not None else ""
+                      desc = clean(desc_el.text if desc_el is not None else "")[:200]
+                      if title and link:
+                          all_news.append({
+                              "source": name, "title": title,
+                              "link": link, "date": fmt_date(pub), "desc": desc,
+                          })
+                  print(f"{name}: {len(items)} OK")
+              except Exception as e:
+                  print(f"{name}: FAILED - {e}")
+
+          with open("data/news.json", "w", encoding="utf-8") as f:
+              json.dump(all_news, f, ensure_ascii=False, indent=1)
+          print(f"Total {len(all_news)} news items")
+          EOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "News Bot"
+          git config user.email "bot@algorithmicgyan.in"
+          git add data/news.json
+          git diff --staged --quiet || git commit -m "Auto-update: daily news"
+          git push

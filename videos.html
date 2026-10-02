@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos — Algorithmic Gyan</title>
+<meta name="description" content="Algorithmic Gyan ke sabhi YouTube videos — Long documentaries aur Shorts, simple Hindi me. Nayi video aate hi yahan khud update ho jati hai.">
+<meta name="theme-color" content="#070B14">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
+      <span>Algorithmic Gyan</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="posts.html">Posts</a>
+      <a href="videos.html">Videos</a>
+      <a href="news.html">📰 News</a>
+      <a href="videos.html" class="active">Videos</a>
+      <a href="about.html">About</a>
+          <a href="search.html">🔍</a>
+    </nav>
+    <a class="btn btn-sub" href="https://www.youtube.com/@algorithmicgyan?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <h1>🎬 Sabhi Videos</h1>
+      <p class="lede">YouTube par nayi video aate hi yahan <strong>khud</strong> aa jati hai — kuch karne ki zaroorat nahi!</p>
+      <div class="chips" id="chips">
+        <button class="chip active" data-f="all">Sabhi</button>
+        <button class="chip" data-f="long">🎬 Long Videos</button>
+        <button class="chip" data-f="short">📱 Shorts</button>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="grid" id="videosGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Algorithmic Gyan logo">
+      <div>
+        <strong>Algorithmic Gyan</strong>
+        <p>AI se bane science, history aur education videos — simple Hindi me.</p>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="posts.html">Posts</a>
+      <a href="videos.html">Videos</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">© 2026 Algorithmic Gyan. Sabhi adhikaar surakshit.</div>
+</footer>
+
+<script>
+function escapeHTML(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function isShort(v) {
+  return /#shorts?/i.test(v.title || "");
+}
+function fmtDate(d) {
+  if (!d) return "";
+  var p = d.split("-");
+  return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : d;
+}
+var ALL = [];
+function render(f) {
+  var list = ALL.filter(function(v) {
+    if (f === "short") return isShort(v);
+    if (f === "long") return !isShort(v);
+    return true;
+  });
+  document.getElementById("videosGrid").innerHTML = list.map(function(v) {
+    var badge = isShort(v)
+      ? '<span class="badge">📱 Short</span>'
+      : '<span class="badge">🎬 Video</span>';
+    return '<a class="card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener">'
+      + '<div class="thumb">' + badge
+      + '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+      + '<span class="play">▶</span></div>'
+      + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3>"
+      + '<div class="meta"><span class="date">📅 ' + escapeHTML(fmtDate(v.date)) + "</span></div></div></a>";
+  }).join("");
+}
+fetch("data/videos.json").then(function(r) { return r.json(); }).then(function(d) {
+  ALL = d; render("all");
+});
+document.getElementById("chips").addEventListener("click", function(e) {
+  var b = e.target.closest(".chip"); if (!b) return;
+  document.querySelectorAll("#chips .chip").forEach(function(c) { c.classList.remove("active"); });
+  b.classList.add("active"); render(b.dataset.f);
+});
+</script>
+</body>
+</html>
