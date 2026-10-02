@@ -69,9 +69,12 @@ jobs:
               except Exception as e:
                   print(f"{name}: FAILED - {e}")
 
+          # Sirf aaj ki date ki news (IST)
+          _today = datetime.now(IST).strftime("%d %b %Y")
+          all_news = [n for n in all_news if n.get("date","").startswith(_today)]
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
-          print(f"Total {len(all_news)} news items")
+          print(f"Total {len(all_news)} news items for {_today}")
           EOF
 
       - name: Commit if changed
