@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Deploy ke baad apna asli domain yahan likh do
+Sitemap: https://algorithmicgyan.netlify.app/sitemap.xml
