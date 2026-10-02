@@ -35,7 +35,7 @@ jobs:
                   ist = dt.astimezone(timezone(timedelta(hours=5, minutes=30)))
                   return ist.strftime("%d %b %Y, %I:%M %p")
               except:
-                  return pub[:16] if pub else ""
+                  return pub[:5] if pub else ""
 
           def clean(s):
               if not s:
@@ -50,7 +50,7 @@ jobs:
                   req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
                   data = urllib.request.urlopen(req, timeout=30).read()
                   root = ET.fromstring(data)
-                  items = root.find("channel").findall("item")[:10]
+                  items = root.find("channel").findall("item")[:5]
                   for i in items:
                       title_el = i.find("title")
                       link_el = i.find("link")
@@ -59,7 +59,7 @@ jobs:
                       title = clean(title_el.text if title_el is not None else "")
                       link = (link_el.text or "").strip() if link_el is not None else ""
                       pub = pub_el.text if pub_el is not None else ""
-                      desc = clean(desc_el.text if desc_el is not None else "")[:200]
+                      desc = clean(desc_el.text if desc_el is not None else "")[:5]
                       if title and link:
                           all_news.append({
                               "source": name, "title": title,
@@ -74,6 +74,7 @@ jobs:
           all_news = [n for n in all_news if n.get("date","").startswith(_today)]
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
+          all_news = all_news[:12]
           print(f"Total {len(all_news)} news items for {_today}")
           EOF
 
