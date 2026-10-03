@@ -207,6 +207,12 @@ document.getElementById("shareSiteBtn").addEventListener("click", async function
 fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
   var grid = document.getElementById("latestNews");
   if(!grid) return;
+  // Date-wise sort: nayi news pehle
+  news.sort(function(a, b){
+    var da = new Date(a.date.replace(/(\d{2}) (\w{3}) (\d{4})/, '$2 $1, $3'));
+    var db = new Date(b.date.replace(/(\d{2}) (\w{3}) (\d{4})/, '$2 $1, $3'));
+    return db - da;
+  });
   grid.innerHTML = news.slice(0, 6).map(function(n){
     var url = n.article || n.link;
     var tgt = n.article ? '' : ' target="_blank" rel="noopener"';
