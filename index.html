@@ -72,8 +72,25 @@
       <p class="lede">Algorithmic Gyan par milega current affairs, amazing facts, desh-duniya ki news aur motivational stories — sab kuch ek jagah.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="posts.html">Posts dekho</a>
-        <a class="btn btn-ghost" href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">YouTube Channel</a>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">▶️ YouTube</a>
       </div>
+      <div class="cta-row" style="margin-top:10px">
+        <a class="btn btn-ghost" href="post.html?slug=current-affairs-3-oct-2026-ntpc">📰 Current Affairs</a>
+        <a class="btn btn-ghost" href="news.html">🌐 News</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">📸 Instagram</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">👍 Facebook</a>
+        <button class="btn btn-ghost" id="shareSiteBtn" style="cursor:pointer">🔗 Share</button>
+      </div>
+<script>
+document.getElementById("shareSiteBtn").addEventListener("click", async function(){
+  var url = "https://algorithmicgyan-source.github.io/algorithmicgyan-website/";
+  if(navigator.share){
+    try{ await navigator.share({title:"Algorithmic Gyan", text:"Gyan ka Algorithm — News, Facts aur Stories, simple Hindi me!", url:url}); }catch(e){}
+  } else {
+    try{ await navigator.clipboard.writeText(url); alert("Link copy ho gaya! 🔗"); }catch(e){ prompt("Link copy karo:", url); }
+  }
+});
+</script>
       <div class="owner" id="ownerBlock">
         <img src="assets/owner.jpg" alt="Founder — Algorithmic Gyan" onerror="document.getElementById('ownerBlock').style.display='none'">
         <div class="owner-text">
