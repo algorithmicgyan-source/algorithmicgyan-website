@@ -33,7 +33,7 @@ fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
   var pageUrl = location.href;
   el.innerHTML = '<div class="post-card">'
     + '<h1>'+p.title+'</h1>'
-    + '<div class="meta">📅 '+p.date+' | 📂 '+p.category+'</div>'
+    + '<div class="meta"> '+p.date+' | 📂 '+p.category+'</div>'
     + img
     + '<div>'+p.content+'</div>'
     + '<div class="share-row">'

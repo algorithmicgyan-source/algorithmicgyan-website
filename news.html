@@ -21,7 +21,7 @@
   var months=["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
   function tick(){
     var now=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
-    var d="📅 "+days[now.getDay()]+", "+now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear();
+    var d=" "+days[now.getDay()]+", "+now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear();
     var h=now.getHours(),m=now.getMinutes(),s=now.getSeconds(),ap=h>=12?"PM":"AM";h=h%12||12;
     var t="🕐 "+h+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")+" "+ap+" IST 🔴 LIVE";
     var e1=document.getElementById("ag-date"); if(e1)e1.textContent=d;
@@ -157,7 +157,7 @@ function render(f) {
     var badge = '<span class="badge"><span class="dot" style="background:' + color + '"></span> '
       + escapeHTML(n.source) + "</span>";
     var desc = n.desc ? '<p class="desc">' + escapeHTML(n.desc) + "</p>" : "";
-    var date = n.date ? '<div class="meta"><span class="date">📅 ' + escapeHTML(n.date) + "</span></div>" : "";
+    var date = n.date ? '<div class="meta"><span class="date"> ' + escapeHTML(n.date) + "</span></div>" : "";
     var shareBtns = '<div class="share-row">'
       + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(n.title + "\n\n👉 पूरी खबर पढ़ें: " + SITE_URL + (n.article || "")) + '">📲 WhatsApp</a>'
       + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SITE_URL + (n.article || "")) + '">👍 Facebook</a>'
@@ -190,8 +190,8 @@ fetch("data/news.json").then(function(r) { return r.json(); }).then(function(d) 
     var ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12;
     var t = h + ":" + String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0") + " " + ap + " IST";
     var el = document.getElementById("live-clock");
-    if(el) el.innerHTML = "📅 " + d + " &nbsp;|&nbsp; 🕐 " + t;
-    var td=document.getElementById("topbar-date"); if(td) td.textContent="📅 "+d;
+    if(el) el.innerHTML = " " + d + " &nbsp;|&nbsp; 🕐 " + t;
+    var td=document.getElementById("topbar-date"); if(td) td.textContent=" "+d;
     var tt=document.getElementById("topbar-time"); if(tt) tt.textContent="🕐 "+t+" 🔴 LIVE";
   }
   tick(); setInterval(tick, 1000);

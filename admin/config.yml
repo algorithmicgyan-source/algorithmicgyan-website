@@ -33,7 +33,7 @@ collections:
                 options:
                   - { label: "📰 News", value: "news" }
                   - { label: "🧠 Facts", value: "facts" }
-                  - { label: "📅 Current Affairs", value: "current-affairs" }
+                  - { label: " Current Affairs", value: "current-affairs" }
                   - { label: "🔥 Motivational Story", value: "motivational" }
               - label: "Date"
                 name: "date"

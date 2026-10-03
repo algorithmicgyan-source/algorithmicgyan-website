@@ -31,7 +31,7 @@ function cardHTML(p) {
   var cm = catMeta(p.category);
   var badge = '<span class="badge"><span class="dot" style="background:' + cm.color + '"></span> '
     + escapeHTML(cm.label) + "</span>";
-  var date = p.date ? '<span class="date">📅 ' + escapeHTML(p.date) + "</span>" : "";
+  var date = p.date ? '<span class="date"> ' + escapeHTML(p.date) + "</span>" : "";
   var desc = p.description ? '<p class="desc">' + escapeHTML(p.description) + "</p>" : "";
   var vid = getVideoId(p.youtube_url);
 

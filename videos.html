@@ -21,7 +21,7 @@
   var months=["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
   function tick(){
     var now=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
-    var d="📅 "+days[now.getDay()]+", "+now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear();
+    var d=" "+days[now.getDay()]+", "+now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear();
     var h=now.getHours(),m=now.getMinutes(),s=now.getSeconds(),ap=h>=12?"PM":"AM";h=h%12||12;
     var t="🕐 "+h+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")+" "+ap+" IST 🔴 LIVE";
     var e1=document.getElementById("ag-date"); if(e1)e1.textContent=d;
@@ -126,7 +126,7 @@ function render(f) {
       + '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
       + '<span class="play">▶</span></div>'
       + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3>"
-      + '<div class="meta"><span class="date">📅 ' + escapeHTML(fmtDate(v.date)) + "</span></div></div></a>";
+      + '<div class="meta"><span class="date"> ' + escapeHTML(fmtDate(v.date)) + "</span></div></div></a>";
   }).join("");
 }
 fetch("data/videos.json").then(function(r) { return r.json(); }).then(function(d) {
