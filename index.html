@@ -215,7 +215,12 @@ fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
   
   btn.addEventListener("click", function(){
     if(!("Notification" in window)){
-      alert("Browser notifications supported nahi hai!");
+      alert("Is browser me notifications supported nahi hai!");
+      return;
+    }
+    // Agar pehle deny kiya hai to settings me jana padega
+    if(Notification.permission === "denied"){
+      alert("Notifications BLOCK hain!\n\nChrome Settings > Site Settings > Notifications me jakar Allow karo.");
       return;
     }
     Notification.requestPermission().then(function(p){
