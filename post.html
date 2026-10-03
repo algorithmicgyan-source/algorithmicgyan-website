@@ -50,27 +50,50 @@ setTimeout(function(){
     var targetId = hash.substring(1);
     var target = document.getElementById(targetId);
     if(target){
-      // Saare h2 sections dhoondho
-      var allH2 = document.querySelectorAll(".post-content h2, article h2, main h2");
+      var postEl = document.getElementById("post");
+      var allH2 = postEl.querySelectorAll("h2");
       if(allH2.length > 1){
-        var showing = false;
-        var content = document.querySelector(".post-content, article, main");
-        // Sirf target section + uska content dikhao
-        var els = content.children;
+        // Har h2 ke baad wala content us section ka hai
+        // Sirf target section dikhao, baaki chhupao
         var capture = false;
-        for(var i = 0; i < els.length; i++){
-          var el = els[i];
+        var walker = document.createTreeWalker(postEl, NodeFilter.SHOW_ELEMENT);
+        var nodes = [];
+        while(walker.nextNode()) nodes.push(walker.currentNode);
+        for(var i = 0; i < nodes.length; i++){
+          var el = nodes[i];
           if(el.tagName === "H2"){
             capture = (el.id === targetId);
+            el.style.display = capture ? "" : "none";
+          } else if(el.tagName !== "SCRIPT" && el.tagName !== "STYLE"){
+            // Check karo ye kis section me hai
+            var parent = el;
+            var inTarget = false;
+            // Agar ye target h2 ke baad aur agle h2 se pehle hai
+            el.style.display = ""; // pehle reset
           }
-          el.style.display = capture ? "" : "none";
         }
-        // Top par ek "Sab dekho" button lagao
-        var backBtn = document.createElement("a");
-        backBtn.href = window.location.pathname + window.location.search;
-        backBtn.textContent = "← Sab sections dekho";
-        backBtn.style.cssText = "display:inline-block;margin:10px 0;padding:8px 16px;background:#1a73e8;color:#fff;border-radius:8px;text-decoration:none;font-weight:600";
-        content.insertBefore(backBtn, content.firstChild);
+        // Simple approach: sab h2 ke sections ko div me wrap karke filter karo
+        var html = postEl.innerHTML;
+        var parts = html.split(/(<h2[^>]*>)/);
+        var newHtml = parts[0]; // h1, meta etc.
+        var currentId = null;
+        for(var j = 1; j < parts.length; j += 2){
+          var h2tag = parts[j];
+          var content = parts[j+1] || "";
+          var idMatch = h2tag.match(/id="([^"]+)"/);
+          currentId = idMatch ? idMatch[1] : null;
+          if(currentId === targetId){
+            newHtml += h2tag + content;
+          }
+        }
+        // Agar kuch mila to replace karo
+        if(newHtml !== parts[0]){
+          // "Sab dekho" button ke saath
+          var backBtn = '<a href="' + window.location.pathname + window.location.search + '" style="display:inline-block;margin:10px 0;padding:8px 16px;background:#1a73e8;color:#fff;border-radius:8px;text-decoration:none;font-weight:600">← Sab sections dekho</a><br><br>';
+          postEl.innerHTML = backBtn + newHtml;
+        } else {
+          target.scrollIntoView({behavior:"smooth", block:"start"});
+        }
       } else {
         target.scrollIntoView({behavior:"smooth", block:"start"});
       }
