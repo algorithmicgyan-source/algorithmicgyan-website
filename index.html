@@ -75,8 +75,9 @@
         <a class="btn btn-ghost" href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">▶️ YouTube</a>
       </div>
       <div class="cta-row" style="margin-top:10px">
-        <a class="btn btn-ghost" href="current-affairs.html">📰 Current Affairs</a>
         <a class="btn btn-ghost" href="post.html?slug=current-affairs-3-oct-2026-ntpc#mp-special">🏛️ MP Special</a>
+        <a class="btn btn-ghost" href="post.html?slug=current-affairs-3-oct-2026-ntpc#national">🇮🇳 National</a>
+        <a class="btn btn-ghost" href="post.html?slug=current-affairs-3-oct-2026-ntpc#international">🌍 International</a>
         <a class="btn btn-ghost" href="news.html">🌐 News</a>
         <a class="btn btn-ghost" href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">📸 Instagram</a>
         <a class="btn btn-ghost" href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">👍 Facebook</a>
@@ -224,63 +225,63 @@ fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
 (function(){
   var btn = document.getElementById("notifBtn");
   if(!btn) return;
-  
+
   function updateBtn(){
-    var wantOn = localStorage.getItem("ag-notif") === "on";
-    var reallyOn = wantOn && ("Notification" in window) && Notification.permission === "granted";
-    // Agar permission nahi hai to state reset karo
-    if(wantOn && !reallyOn && ("Notification" in window) && Notification.permission !== "default"){
-      localStorage.setItem("ag-notif", "off");
-      wantOn = false;
-    }
-    btn.textContent = reallyOn ? "🔔 ON" : "🔔 Updates";
-    btn.style.background = reallyOn ? "#22c55e" : "#ff4444";
+    var on = false;
+    try { on = localStorage.getItem("ag-notif") === "on" && ("Notification" in window) && Notification.permission === "granted"; } catch(e){}
+    btn.innerHTML = on ? "🔔 ON" : "🔔 Updates";
+    btn.style.background = on ? "#22c55e" : "#666";
+    btn.style.color = "#fff";
   }
-  
-  btn.addEventListener("click", function(){
+
+  btn.onclick = function(){
+    // Step 1: Browser support check
     if(!("Notification" in window)){
-      alert("Is browser me notifications supported nahi hai!");
+      alert("❌ Is browser me notification support nahi hai!");
       return;
     }
-    // Agar pehle deny kiya hai to settings me jana padega
-    if(Notification.permission === "denied"){
-      alert("Notifications BLOCK hain!\n\nChrome Settings > Site Settings > Notifications me jakar Allow karo.");
+    // Step 2: Current permission dekho
+    var perm = Notification.permission;
+    if(perm === "denied"){
+      alert("❌ Notifications BLOCK hain!
+
+Chrome me: 3 dots > Settings > Site settings > Notifications > Allow karo");
       return;
     }
+    if(perm === "granted"){
+      // Pehle se allowed hai - toggle karo
+      var isOn = false;
+      try { isOn = localStorage.getItem("ag-notif") === "on"; } catch(e){}
+      try { localStorage.setItem("ag-notif", isOn ? "off" : "on"); } catch(e){}
+      updateBtn();
+      if(!isOn){
+        try {
+          new Notification("✅ Algorithmic Gyan", {body: "Notifications ON! Nayi khabrein milegi.", icon: "assets/logo.png"});
+        } catch(e){ alert("✅ Notifications ON!"); }
+      } else {
+        alert("🔕 Notifications OFF");
+      }
+      return;
+    }
+    // Step 3: Permission mango (pehli baar)
+    alert("📢 Ab permission popup ayega - 'Allow' dabana!");
     Notification.requestPermission().then(function(p){
       if(p === "granted"){
-        var isOn = localStorage.getItem("ag-notif") === "on";
-        localStorage.setItem("ag-notif", isOn ? "off" : "on");
-        localStorage.setItem("ag-last-seen", Date.now());
+        try { localStorage.setItem("ag-notif", "on"); } catch(e){}
         updateBtn();
-        if(!isOn){
-          new Notification("Algorithmic Gyan", {
-            body: "Daily updates ON! Nayi khabrein aane par suchna milegi.",
-            icon: "assets/logo.png"
-          });
-        }
+        try {
+          new Notification("✅ Algorithmic Gyan", {body: "Notifications ON! Nayi khabrein milegi.", icon: "assets/logo.png"});
+        } catch(e){ alert("✅ Notifications ON!"); }
+      } else {
+        alert("❌ Permission nahi mili. Bell dobara dabao.");
       }
+      updateBtn();
+    }).catch(function(){
+      alert("❌ Kuch gadbad hui. Dobara try karo.");
     });
-  });
-  
+  };
+
   updateBtn();
-  
-  // Har 5 min me check karo nayi news
-  setInterval(function(){
-    if(localStorage.getItem("ag-notif") !== "on") return;
-    if(Notification.permission !== "granted") return;
-    fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
-      var lastSeen = parseInt(localStorage.getItem("ag-last-seen") || "0");
-      // Agar 1 ghante se purana check hai aur news hai
-      if(Date.now() - lastSeen > 3600000 && news.length > 0){
-        new Notification("Algorithmic Gyan - Nayi Khabrein!", {
-          body: news[0].title.substring(0, 80) + "...",
-          icon: "assets/logo.png"
-        });
-        localStorage.setItem("ag-last-seen", Date.now());
-      }
-    }).catch(function(){});
-  }, 300000);
 })();
 </script>
 </body>
