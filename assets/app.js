@@ -1,7 +1,7 @@
 var CATS = {
   "news":           { label: "News",               icon: "📰", color: "#FF4D5E" },
   "facts":          { label: "Facts",              icon: "🧠", color: "#22D3EE" },
-  "current-affairs":{ label: "Current Affairs",    icon: "📅", color: "#FBBF24" },
+  "current-affairs":{ label: "Current Affairs",    icon: "📰", color: "#FBBF24" },
   "motivational":   { label: "Motivational Story", icon: "🔥", color: "#34D399" }
 };
 
