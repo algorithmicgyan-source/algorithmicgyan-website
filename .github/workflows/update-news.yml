@@ -121,11 +121,26 @@ jobs:
                   # Purana post hatao, naya banayenge (updated news ke saath)
                   _pd["posts"] = [p for p in _pd["posts"] if p.get("slug") != f"current-affairs-{_today_slug}"]
               if True:
-                  _items = ""
+                  _items = []
                   for _i, _n in enumerate(_today_news, 1):
-                      _img = f"<br><img src='{_n.get('image','')}' style='width:100%;border-radius:12px;margin:12px 0' loading='lazy'>" if _n.get('image') else ""
-                      _items += f"<h3>{_i}. {_n['title']}</h3>{_img}<p><strong>Date:</strong> {_n['date']} | <strong>📰</strong> {_n['source']}</p><p>{_n.get('desc','')}</p><p><strong>📝 परीक्षा टिप:</strong> तथ्य नोट करें — UPSC/SSC/Railway में पूछे जा सकते हैं!</p><hr>"
-                  _post = {"title": f"Current Affairs: {_today_ca} — परीक्षा के लिए महत्वपूर्ण", "slug": f"current-affairs-{_today_slug}", "category": "current-affairs", "date": _today_slug, "excerpt": f"{_today_ca} की {len(_today_news)} महत्वपूर्ण खबरें", "content": f"<p><strong>{_today_ca}</strong> की खबरें:</p><hr>{_items}", "image": ""}
+                      _text = (_n['title'] + ' ' + _n.get('desc','')).lower()
+                      _is_mp = any(k in _text for k in ['madhya pradesh','mohan yadav','bhopal','indore','gwalior','jabalpur','ujjain'])
+                      _is_intl = any(k in _text for k in ['america','trump','china','japan','israel','pakistan','sri lanka','un '])
+                      _cat = 'mp' if _is_mp else ('intl' if _is_intl else 'nat')
+                      _n['_cat'] = _cat
+                      _items.append((_cat, _n))
+                  _mp_html = "<h2>🏛️ MP Special</h2>"
+                  _nat_html = "<h2>🇮🇳 National</h2>"
+                  _intl_html = "<h2>🌍 International</h2>"
+                  for _cat, _n in _items:
+                      _img2 = f"<br><img src='{_n.get('image','')}' style='width:100%;border-radius:12px;margin:12px 0' loading='lazy'>" if _n.get('image') else ""
+                      _h = f"<h3>{_n['title']}</h3>{_img2}<p><strong>Date:</strong> {_n['date']} | 📰 {_n['source']}</p><p>{_n.get('desc','')}</p><p><strong>📝 परीक्षा टिप:</strong> तथ्य नोट करें!</p><hr>"
+                      if _cat == 'mp': _mp_html += _h
+                      elif _cat == 'intl': _intl_html += _h
+                      else: _nat_html += _h
+                  _date_hdr = f"<div style='background:#1a73e8;color:#fff;padding:12px;border-radius:12px;text-align:center;font-weight:700;margin-bottom:16px'>{_today_ca}</div>"
+                  _full = _date_hdr + _mp_html + "<hr>" + _nat_html + "<hr>" + _intl_html
+                  _post = {"title": f"Current Affairs: {_today_ca} — परीक्षा के लिए महत्वपूर्ण", "slug": f"current-affairs-{_today_slug}", "category": "current-affairs", "date": _today_slug, "excerpt": f"{_today_ca} की {len(_today_news)} महत्वपूर्ण खबरें", "content": _full, "image": ""}
                   _pd["posts"].insert(0, _post)
                   json.dump(_pd, open("data/posts.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
                   print(f"Current Affairs post: {_today_ca}")
