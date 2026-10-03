@@ -226,9 +226,15 @@ fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
   if(!btn) return;
   
   function updateBtn(){
-    var on = localStorage.getItem("ag-notif") === "on";
-    btn.textContent = on ? "🔔 ON" : "🔔 Updates";
-    btn.style.background = on ? "#22c55e" : "#ff4444";
+    var wantOn = localStorage.getItem("ag-notif") === "on";
+    var reallyOn = wantOn && ("Notification" in window) && Notification.permission === "granted";
+    // Agar permission nahi hai to state reset karo
+    if(wantOn && !reallyOn && ("Notification" in window) && Notification.permission !== "default"){
+      localStorage.setItem("ag-notif", "off");
+      wantOn = false;
+    }
+    btn.textContent = reallyOn ? "🔔 ON" : "🔔 Updates";
+    btn.style.background = reallyOn ? "#22c55e" : "#ff4444";
   }
   
   btn.addEventListener("click", function(){
