@@ -24,7 +24,7 @@ jobs:
 
           SOURCES = [
               ("ABP News", "https://www.abplive.com/news/india/feed"),
-              ("NDTV", "https://feeds.feedburner.com/ndtvnews-top-stories"),
+              ("NDTV", "https://feeds.feedburner.com/ndtvkhabar-top-stories"),
               ("AIR", "https://news.google.com/rss/search?q=%22all+india+radio%22+OR+%22akashvani%22&hl=hi&gl=IN&ceid=IN:hi"),
               ("Hindi News", "https://news.google.com/rss?hl=hi&gl=IN&ceid=IN:hi"),
           ]
