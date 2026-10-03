@@ -204,7 +204,7 @@ document.getElementById("shareSiteBtn").addEventListener("click", async function
 
 <script>
 // Latest News load karo
-fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
+fetch("data/news.json?v=" + Date.now()).then(function(r){return r.json();}).then(function(news){
   var grid = document.getElementById("latestNews");
   if(!grid) return;
   // Date-wise sort: nayi news pehle

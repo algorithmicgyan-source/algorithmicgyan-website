@@ -241,7 +241,7 @@ function render(f) {
       + "<h3>" + escapeHTML(n.title) + "</h3>" + desc + date + "</div></a>" + shareBtns + "</div>";
   }).join("");
 }
-fetch("data/news.json").then(function(r) { return r.json(); }).then(function(d) {
+fetch("data/news.json?v=" + Date.now()).then(function(r) { return r.json(); }).then(function(d) {
   ALL = d; buildDateFilter(); render("all");
   // Last updated time
   var now = new Date();
