@@ -187,3 +187,20 @@ html { scroll-behavior: smooth; }
 .cta-row .btn-primary:hover {
   box-shadow: 0 8px 30px rgba(0,212,255,0.5);
 }
+
+/* Light theme - user request */
+body { background: #ffffff !important; color: #1a1a1a !important; }
+.hero, .header, header { background: #ffffff !important; }
+.post-card, .news-card, .card { background: #f8f9fa !important; color: #1a1a1a !important; border: 1px solid #e0e0e0 !important; }
+h1, h2, h3 { color: #1a1a1a !important; }
+.lede, p { color: #333 !important; }
+.btn-ghost { background: #f0f0f0 !important; color: #1a1a1a !important; border: 1px solid #ddd !important; }
+.btn-ghost:hover { background: #e0e0e0 !important; }
+nav, .navbar { background: #ffffff !important; }
+nav a { color: #1a1a1a !important; }
+.owner { background: #f8f9fa !important; }
+.owner-text strong { color: #1a1a1a !important; }
+.owner-text span, .owner-text { color: #555 !important; }
+.ca-card { background: linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%) !important; color: #1a1a1a !important; border: 1px solid #ddd !important; }
+.ca-card p { color: #666 !important; }
+.ca-card h3 { color: #1a1a1a !important; }
