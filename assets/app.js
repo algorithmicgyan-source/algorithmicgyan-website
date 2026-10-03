@@ -53,10 +53,11 @@ function cardHTML(p) {
   } else {
     dateBadge = '<span>' + cm.icon + "</span>";
   }
-  return '<article class="card text-card">'
+  var postUrl = "post.html?slug=" + encodeURIComponent(p.slug);
+  return '<a href="' + postUrl + '" style="text-decoration:none;color:inherit;display:block"><article class="card text-card">'
     + '<div class="thumb">' + badge + dateBadge + "</div>"
     + '<div class="card-body"><h3>' + escapeHTML(p.title) + "</h3>" + desc
-    + '<div class="meta">' + date + "</div></div></article>";
+    + '<div class="meta">' + date + "</div></div></article></a>";
 }
 
 function emptyHTML() {

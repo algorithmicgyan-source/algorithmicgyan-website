@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pgTitle">Post | Algorithmic Gyan</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:700px;margin:0 auto;padding:16px;background:#0f0f23;color:#fff;line-height:1.8}
+a{color:#60a5fa}
+.post-card{background:#1a1a2e;padding:28px;border-radius:16px;margin-top:12px}
+.post-card h1{line-height:1.4;font-size:1.4rem}
+.post-card img{width:100%;border-radius:12px;margin:16px 0}
+.meta{color:#888;font-size:.9rem;margin:12px 0}
+.back{display:inline-block;color:#60a5fa;text-decoration:none;font-weight:600;margin-bottom:8px}
+.share-row{display:flex;gap:8px;margin-top:20px}
+.share-row a{flex:1;text-align:center;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700}
+.wa{background:#25D366}.fb{background:#1877F2}
+</style>
+</head>
+<body>
+<a href="posts.html" class="back">← सभी पोस्ट</a>
+<div id="post"></div>
+<script>
+var slug = new URLSearchParams(location.search).get("slug");
+fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
+  var p = d.posts.find(function(x){return x.slug === slug;});
+  var el = document.getElementById("post");
+  if(!p){ el.innerHTML = "<p>पोस्ट नहीं मिली!</p>"; return; }
+  document.getElementById("pgTitle").textContent = p.title + " | Algorithmic Gyan";
+  var img = p.image ? '<img src="'+p.image+'" alt="" loading="lazy">' : "";
+  var pageUrl = location.href;
+  el.innerHTML = '<div class="post-card">'
+    + '<h1>'+p.title+'</h1>'
+    + '<div class="meta">📅 '+p.date+' | 📂 '+p.category+'</div>'
+    + img
+    + '<div>'+p.content+'</div>'
+    + '<div class="share-row">'
+    + '<a class="wa" target="_blank" href="https://wa.me/?text='+encodeURIComponent(p.title+"\n\n👉 पढ़ें: "+pageUrl)+'">📲 WhatsApp</a>'
+    + '<a class="fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(pageUrl)+'">👍 Facebook</a>'
+    + '</div></div>';
+});
+</script>
+</body>
+</html>
