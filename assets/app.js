@@ -43,8 +43,18 @@ function cardHTML(p) {
       + '<div class="card-body"><h3>' + escapeHTML(p.title) + "</h3>" + desc
       + '<div class="meta">' + date + "</div></div></a>";
   }
+  var dateBadge = "";
+  if (p.date) {
+    var dp = p.date.split("-");
+    var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+    var day = dp[2] || "";
+    var mon = months[parseInt(dp[1]||"1")-1] || "";
+    dateBadge = '<div class="date-badge"><span class="db-mon">' + mon + '</span><span class="db-day">' + day + '</span></div>';
+  } else {
+    dateBadge = '<span>' + cm.icon + "</span>";
+  }
   return '<article class="card text-card">'
-    + '<div class="thumb">' + badge + '<span>' + cm.icon + "</span></div>"
+    + '<div class="thumb">' + badge + dateBadge + "</div>"
     + '<div class="card-body"><h3>' + escapeHTML(p.title) + "</h3>" + desc
     + '<div class="meta">' + date + "</div></div></article>";
 }
@@ -126,3 +136,7 @@ function loadPosts() {
 var _vss = document.createElement("style");
 _vss.textContent = ".share-row{display:flex;gap:6px;padding:0 12px 12px}.share-btn{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff;text-decoration:none}.share-btn.wa{background:#25D366}.share-btn.fb{background:#1877F2}";
 document.head.appendChild(_vss);
+
+var _dbCss = document.createElement("style");
+_dbCss.textContent = ".date-badge{display:flex;flex-direction:column;align-items:center;background:#fff;border-radius:12px;padding:8px 16px;box-shadow:0 2px 8px rgba(0,0,0,.2)}.db-mon{background:#e53935;color:#fff;font-size:.7rem;font-weight:800;padding:2px 10px;border-radius:6px 6px 0 0;letter-spacing:1px}.db-day{font-size:1.8rem;font-weight:800;color:#222;line-height:1.2}";
+document.head.appendChild(_dbCss);
