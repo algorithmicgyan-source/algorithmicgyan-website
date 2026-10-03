@@ -42,5 +42,14 @@ fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
     + '</div></div>';
 });
 </script>
+<script>
+// URL me #section ho to wahan scroll karo
+setTimeout(function(){
+  if(window.location.hash){
+    var el = document.querySelector(window.location.hash);
+    if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+}, 800);
+</script>
 </body>
 </html>
