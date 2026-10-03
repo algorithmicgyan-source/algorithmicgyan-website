@@ -43,11 +43,38 @@ fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
 });
 </script>
 <script>
-// URL me #section ho to wahan scroll karo
+// URL me #section ho to SIRF wahi section dikhao
 setTimeout(function(){
-  if(window.location.hash){
-    var el = document.querySelector(window.location.hash);
-    if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+  var hash = window.location.hash;
+  if(hash && hash.length > 1){
+    var targetId = hash.substring(1);
+    var target = document.getElementById(targetId);
+    if(target){
+      // Saare h2 sections dhoondho
+      var allH2 = document.querySelectorAll(".post-content h2, article h2, main h2");
+      if(allH2.length > 1){
+        var showing = false;
+        var content = document.querySelector(".post-content, article, main");
+        // Sirf target section + uska content dikhao
+        var els = content.children;
+        var capture = false;
+        for(var i = 0; i < els.length; i++){
+          var el = els[i];
+          if(el.tagName === "H2"){
+            capture = (el.id === targetId);
+          }
+          el.style.display = capture ? "" : "none";
+        }
+        // Top par ek "Sab dekho" button lagao
+        var backBtn = document.createElement("a");
+        backBtn.href = window.location.pathname + window.location.search;
+        backBtn.textContent = "← Sab sections dekho";
+        backBtn.style.cssText = "display:inline-block;margin:10px 0;padding:8px 16px;background:#1a73e8;color:#fff;border-radius:8px;text-decoration:none;font-weight:600";
+        content.insertBefore(backBtn, content.firstChild);
+      } else {
+        target.scrollIntoView({behavior:"smooth", block:"start"});
+      }
+    }
   }
 }, 800);
 </script>
