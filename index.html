@@ -42,7 +42,8 @@
   <span id="ag-date">⏳...</span>
   <span style="display:flex;align-items:center;gap:8px">
     <span id="ag-time">⏳...</span>
-    <button id="langToggle" style="background:#1a73e8;color:#fff;border:none;padding:4px 12px;border-radius:99px;font-weight:700;cursor:pointer;font-size:.75rem">English</button>
+    <button id="notifBtn" style="background:#ff4444;color:#fff;border:none;padding:4px 12px;border-radius:99px;font-weight:700;cursor:pointer;font-size:.75rem;margin-right:6px">🔔 Updates</button>
+<button id="langToggle" style="background:#1a73e8;color:#fff;border:none;padding:4px 12px;border-radius:99px;font-weight:700;cursor:pointer;font-size:.75rem">English</button>
   </span>
 </div>
 <header class="site-header">
@@ -198,6 +199,59 @@ fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
   var btn = document.getElementById("langToggle");
   if(btn) btn.addEventListener("click", function(){ apply(lang === "hi" ? "en" : "hi"); });
   apply(lang);
+})();
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById("notifBtn");
+  if(!btn) return;
+  
+  function updateBtn(){
+    var on = localStorage.getItem("ag-notif") === "on";
+    btn.textContent = on ? "🔔 ON" : "🔔 Updates";
+    btn.style.background = on ? "#22c55e" : "#ff4444";
+  }
+  
+  btn.addEventListener("click", function(){
+    if(!("Notification" in window)){
+      alert("Browser notifications supported nahi hai!");
+      return;
+    }
+    Notification.requestPermission().then(function(p){
+      if(p === "granted"){
+        var isOn = localStorage.getItem("ag-notif") === "on";
+        localStorage.setItem("ag-notif", isOn ? "off" : "on");
+        localStorage.setItem("ag-last-seen", Date.now());
+        updateBtn();
+        if(!isOn){
+          new Notification("Algorithmic Gyan", {
+            body: "Daily updates ON! Nayi khabrein aane par suchna milegi.",
+            icon: "assets/logo.png"
+          });
+        }
+      }
+    });
+  });
+  
+  updateBtn();
+  
+  // Har 5 min me check karo nayi news
+  setInterval(function(){
+    if(localStorage.getItem("ag-notif") !== "on") return;
+    if(Notification.permission !== "granted") return;
+    fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
+      var lastSeen = parseInt(localStorage.getItem("ag-last-seen") || "0");
+      // Agar 1 ghante se purana check hai aur news hai
+      if(Date.now() - lastSeen > 3600000 && news.length > 0){
+        new Notification("Algorithmic Gyan - Nayi Khabrein!", {
+          body: news[0].title.substring(0, 80) + "...",
+          icon: "assets/logo.png"
+        });
+        localStorage.setItem("ag-last-seen", Date.now());
+      }
+    }).catch(function(){});
+  }, 300000);
 })();
 </script>
 </body>
