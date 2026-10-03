@@ -219,3 +219,19 @@ nav a, .navbar a { color: #fff !important; }
 .tiranga-banner h2 { color: #1a1a1a !important; margin: 0; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(255,255,255,.8); }
 .tiranga-banner p { color: #333 !important; margin: 8px 0 0; font-weight: 600; }
 .tiranga-banner .chakra { font-size: 2rem; }
+
+/* Category cards - light theme fix */
+.cat-card, .category-card { background: #ffffff !important; border: 1px solid #e0e0e0 !important; }
+.cat-card h3, .category-card h3 { color: #1a1a1a !important; }
+.cat-card p, .category-card p { color: #666 !important; }
+
+/* === LIGHT THEME (user request) === */
+:root {
+  --bg: #ffffff !important;
+  --bg2: #f8f9fa !important;
+  --card: #ffffff !important;
+  --line: #e0e0e0 !important;
+  --text: #1a1a1a !important;
+  --muted: #666666 !important;
+}
+body { background: #ffffff !important; color: #1a1a1a !important; }
