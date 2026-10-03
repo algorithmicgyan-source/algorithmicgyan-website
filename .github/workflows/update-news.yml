@@ -116,8 +116,11 @@ jobs:
           _today_news = [n for n in all_news if n.get("date","").startswith(_today_ca)]
           if _today_news:
               _pd = json.load(open("data/posts.json", encoding="utf-8"))
-              _exists = any(p.get("slug") == f"current-affairs-{_today_slug}" for p in _pd["posts"])
-              if not _exists:
+              _existing = [p for p in _pd["posts"] if p.get("slug") == f"current-affairs-{_today_slug}"]
+              if _existing:
+                  # Purana post hatao, naya banayenge (updated news ke saath)
+                  _pd["posts"] = [p for p in _pd["posts"] if p.get("slug") != f"current-affairs-{_today_slug}"]
+              if True:
                   _items = ""
                   for _i, _n in enumerate(_today_news, 1):
                       _items += f"<h3>{_i}. {_n['title']}</h3><p><strong>📅</strong> {_n['date']} | <strong>📰</strong> {_n['source']}</p><p>{_n.get('desc','')}</p><p><strong>📝 परीक्षा टिप:</strong> तथ्य नोट करें — UPSC/SSC/Railway में पूछे जा सकते हैं!</p><hr>"
