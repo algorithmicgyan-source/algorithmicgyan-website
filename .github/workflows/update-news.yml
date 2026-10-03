@@ -68,6 +68,10 @@ jobs:
                               _u = _el.attrib["url"]
                               if ".jpg" in _u or ".png" in _u or "ndtvimg" in _u:
                                   img_url = _u; break
+                      # Bekar/generic news skip karo
+                      _bad_titles = ["prati ghanta", "news on air", "hourly news"]
+                      if any(b in title.lower() for b in _bad_titles):
+                          continue
                       if title and link:
                           all_news.append({
                               "source": name, "title": title,
