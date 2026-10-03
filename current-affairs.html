@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Affairs | Algorithmic Gyan</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.ca-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;padding:20px;max-width:800px;margin:0 auto}
+.ca-card{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px 16px;text-align:center;text-decoration:none;color:#fff;transition:all .3s}
+.ca-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,212,255,.3);border-color:rgba(0,212,255,.5)}
+.ca-card .emoji{font-size:3rem;display:block;margin-bottom:12px}
+.ca-card h3{margin:0;font-size:1.1rem}
+.ca-card p{margin:8px 0 0;font-size:.85rem;color:#888}
+.ca-header{text-align:center;padding:30px 20px 10px}
+.ca-header h1{margin:0 0 8px}
+.ca-date{background:#1a73e8;color:#fff;display:inline-block;padding:8px 20px;border-radius:20px;font-weight:600;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="ca-header">
+  <h1>📰 Current Affairs</h1>
+  <p style="color:#888">Section chuno — date-wise sab kuch</p>
+  <div class="ca-date" id="caDate">3 अक्टूबर 2026</div>
+</div>
+<div class="ca-grid">
+  <a class="ca-card" href="post.html?slug=current-affairs-3-oct-2026-ntpc#mp-special">
+    <span class="emoji">🏛️</span><h3>MP Special</h3><p>मध्य प्रदेश की खबरें</p>
+  </a>
+  <a class="ca-card" href="post.html?slug=current-affairs-3-oct-2026-ntpc#national">
+    <span class="emoji">🇮🇳</span><h3>National</h3><p>देश की बड़ी खबरें</p>
+  </a>
+  <a class="ca-card" href="post.html?slug=current-affairs-3-oct-2026-ntpc#international">
+    <span class="emoji">🌍</span><h3>International</h3><p>दुनिया की खबरें</p>
+  </a>
+  <a class="ca-card" href="post.html?slug=current-affairs-3-oct-2026-ntpc#asian-games">
+    <span class="emoji">🏆</span><h3>Asian Games</h3><p>खेल की खबरें</p>
+  </a>
+  <a class="ca-card" href="post.html?slug=current-affairs-3-oct-2026-ntpc">
+    <span class="emoji">📋</span><h3>Sab Dekho</h3><p>पूरा current affairs</p>
+  </a>
+</div>
+<div style="text-align:center;padding:20px"><a href="index.html" style="color:#00d4ff">← Home</a></div>
+<script>
+// Aaj ki date dikhao
+var d = new Date();
+var days = ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+var months = ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
+document.getElementById("caDate").textContent = days[d.getDay()] + ", " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
+</script>
+</body>
+</html>
