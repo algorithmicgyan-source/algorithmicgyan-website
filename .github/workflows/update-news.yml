@@ -27,6 +27,7 @@ jobs:
               ("NDTV", "https://feeds.feedburner.com/ndtvkhabar-top-stories"),
               ("AIR", "https://news.google.com/rss/search?q=%22all+india+radio%22+OR+%22akashvani%22&hl=hi&gl=IN&ceid=IN:hi"),
               ("Hindi News", "https://news.google.com/rss?hl=hi&gl=IN&ceid=IN:hi"),
+              ("PIB", "https://news.google.com/rss/search?q=PIB+%22Press+Information+Bureau%22&hl=hi&gl=IN&ceid=IN:hi"),
           ]
 
           def fmt_date(pub):
