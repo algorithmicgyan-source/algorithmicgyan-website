@@ -243,9 +243,7 @@ fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
     // Step 2: Current permission dekho
     var perm = Notification.permission;
     if(perm === "denied"){
-      alert("❌ Notifications BLOCK hain!
-
-Chrome me: 3 dots > Settings > Site settings > Notifications > Allow karo");
+      alert("Notifications BLOCK hain! Chrome Settings me Allow karo");
       return;
     }
     if(perm === "granted"){
