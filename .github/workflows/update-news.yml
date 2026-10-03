@@ -118,7 +118,12 @@ jobs:
                   _html = f"""<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{n["title"]} | Algorithmic Gyan</title><meta name="description" content="{n.get("desc", n["title"])[:160]}"></head><body style="font-family:system-ui;max-width:700px;margin:0 auto;padding:20px"><a href="../../news.html">\u2190 \u0938\u092d\u0940 \u0916\u092c\u0930\u0947\u0902</a><article style="background:#fff;padding:24px;border-radius:12px;margin-top:12px"><span>\U0001f4f0 {n["source"]}</span><h1>{n["title"]}</h1><div>{n["date"]}</div><p>{n.get("desc","")}</p></article></body></html>"""
                   open(_fn, "w").write(_html)
               n["article"] = _fn
-          print(f"Articles ready")
+          # SAFETY CHECK: sab articles bane?
+          _missing = [n["title"][:40] for n in all_news[:12] if n.get("article") and not _os.path.exists(n["article"])]
+          if _missing:
+              print(f"ERROR: {len(_missing)} articles missing: {_missing}")
+              raise SystemExit("Article generation failed!")
+          print(f"Articles ready: all {len(all_news[:12])} verified")
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
           # Daily Current Affairs post banao (exam ke liye)
