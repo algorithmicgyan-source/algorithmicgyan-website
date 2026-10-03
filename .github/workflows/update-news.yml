@@ -20,7 +20,7 @@ jobs:
           python3 << 'EOF'
           import json, urllib.request, xml.etree.ElementTree as ET, html, re
           from email.utils import parsedate_to_datetime
-          from datetime import timezone, timedelta
+          from datetime import datetime, timezone, timedelta
 
           SOURCES = [
               ("ABP News", "https://www.abplive.com/news/india/feed"),
@@ -110,6 +110,7 @@ jobs:
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
           # Daily Current Affairs post banao (exam ke liye)
+          IST = timezone(timedelta(hours=5, minutes=30))
           _today_ca = datetime.now(IST).strftime("%d %b %Y")
           _today_slug = datetime.now(IST).strftime("%Y-%m-%d")
           _today_news = [n for n in all_news if n.get("date","").startswith(_today_ca)]
