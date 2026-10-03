@@ -196,8 +196,8 @@ h1, h2, h3 { color: #1a1a1a !important; }
 .lede, p { color: #333 !important; }
 .btn-ghost { background: #f0f0f0 !important; color: #1a1a1a !important; border: 1px solid #ddd !important; }
 .btn-ghost:hover { background: #e0e0e0 !important; }
-nav, .navbar { background: #ffffff !important; }
-nav a { color: #1a1a1a !important; }
+
+
 .owner { background: #f8f9fa !important; }
 .owner-text strong { color: #1a1a1a !important; }
 .owner-text span, .owner-text { color: #555 !important; }
@@ -208,3 +208,14 @@ nav a { color: #1a1a1a !important; }
 /* Badge fix for light theme */
 .badge { display: inline-block !important; background: #1a73e8 !important; color: #fff !important; padding: 4px 12px !important; border-radius: 20px !important; font-size: 0.75rem !important; font-weight: 600 !important; margin-bottom: 8px !important; position: static !important; }
 .card-body .badge, .news-card .badge { position: static !important; transform: none !important; }
+
+/* Header black, body white */
+.ag-topbar, .topbar { background: #0a0a1a !important; color: #fff !important; }
+nav, .navbar, header.site-header { background: #0a0a1a !important; }
+nav a, .navbar a { color: #fff !important; }
+
+/* Tiranga welcome banner */
+.tiranga-banner { background: linear-gradient(to bottom, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%); padding: 24px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 20px; position: relative; overflow: hidden; }
+.tiranga-banner h2 { color: #1a1a1a !important; margin: 0; font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(255,255,255,.8); }
+.tiranga-banner p { color: #333 !important; margin: 8px 0 0; font-weight: 600; }
+.tiranga-banner .chakra { font-size: 2rem; }
