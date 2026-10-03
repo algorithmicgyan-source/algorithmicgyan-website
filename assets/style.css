@@ -235,3 +235,9 @@ nav a, .navbar a { color: #fff !important; }
   --muted: #666666 !important;
 }
 body { background: #ffffff !important; color: #1a1a1a !important; }
+
+/* Footer - keep black */
+footer, .footer { background: #0B1120 !important; color: #EAF0FA !important; }
+footer a, .footer a { color: #9AA7BD !important; }
+footer p, .footer p { color: #9AA7BD !important; }
+footer h4, .footer h4 { color: #EAF0FA !important; }
