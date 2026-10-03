@@ -162,3 +162,28 @@ html { scroll-behavior: smooth; }
 .grid > *:nth-child(4) { animation-delay: .15s; }
 .grid > *:nth-child(5) { animation-delay: .2s; }
 .grid > *:nth-child(6) { animation-delay: .25s; }
+
+/* Premium quick buttons */
+.cta-row .btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.cta-row .btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0,212,255,0.25);
+  border-color: rgba(0,212,255,0.4);
+}
+.cta-row .btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+.cta-row .btn-primary {
+  background: linear-gradient(135deg, #00d4ff 0%, #7b61ff 100%);
+  box-shadow: 0 4px 20px rgba(0,212,255,0.35);
+  border: none;
+}
+.cta-row .btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(0,212,255,0.5);
+}
