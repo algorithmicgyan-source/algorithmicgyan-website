@@ -60,10 +60,19 @@ jobs:
                       link = (link_el.text or "").strip() if link_el is not None else ""
                       pub = pub_el.text if pub_el is not None else ""
                       desc = clean(desc_el.text if desc_el is not None else "")[:800]
+                      # NDTV media:content se image nikalo
+                      img_url = ""
+                      for _el in i.iter():
+                          _tag = _el.tag.split("}")[-1] if "}" in _el.tag else _el.tag
+                          if _tag == "content" and "url" in _el.attrib:
+                              _u = _el.attrib["url"]
+                              if ".jpg" in _u or ".png" in _u or "ndtvimg" in _u:
+                                  img_url = _u; break
                       if title and link:
                           all_news.append({
                               "source": name, "title": title,
                               "link": link, "date": fmt_date(pub), "desc": desc,
+                              "image": img_url,
                           })
                   print(f"{name}: {len(items)} OK")
               except Exception as e:
