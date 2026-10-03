@@ -129,9 +129,9 @@ jobs:
                       _cat = 'mp' if _is_mp else ('intl' if _is_intl else 'nat')
                       _n['_cat'] = _cat
                       _items.append((_cat, _n))
-                  _mp_html = "<h2>🏛️ MP Special</h2>"
-                  _nat_html = "<h2>🇮🇳 National</h2>"
-                  _intl_html = "<h2>🌍 International</h2>"
+                  _mp_html = "<h2 id=\"mp-special\">🏛️ MP Special</h2>"
+                  _nat_html = "<h2 id=\"national\">🇮🇳 National</h2>"
+                  _intl_html = "<h2 id=\"international\">🌍 International</h2>"
                   for _cat, _n in _items:
                       _img2 = f"<br><img src='{_n.get('image','')}' style='width:100%;border-radius:12px;margin:12px 0' loading='lazy'>" if _n.get('image') else ""
                       _h = f"<h3>{_n['title']}</h3>{_img2}<p><strong>Date:</strong> {_n['date']} | 📰 {_n['source']}</p><p>{_n.get('desc','')}</p><p><strong>📝 परीक्षा टिप:</strong> तथ्य नोट करें!</p><hr>"
