@@ -129,7 +129,7 @@
           <p>Amazing facts aur rochak jankari</p>
         </a>
         <a class="cat-card cat-ca" href="posts.html?cat=current-affairs">
-          <span class="cat-icon">📅</span>
+          <span class="cat-icon">📰</span>
           <h3>Current Affairs</h3>
           <p>Date by date current affairs</p>
         </a>
@@ -179,7 +179,7 @@ fetch("data/news.json").then(function(r){return r.json();}).then(function(news){
     return '<div class="card"><a href="'+url+'"'+tgt+' style="text-decoration:none;color:inherit;display:block">'
       + '<div class="card-body"><span class="badge">📰 '+n.source+'</span>'
       + '<h3>'+n.title+'</h3>'
-      + '<div class="meta">📅 '+n.date+'</div></div></a></div>';
+      + '<div class="meta">Date: '+n.date+'</div></div></a></div>';
   }).join("");
 }).catch(function(){});
 
