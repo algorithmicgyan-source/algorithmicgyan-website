@@ -98,7 +98,7 @@ jobs:
           # Har news ke liye internal article page banao (SEO)
           import re as _re
           for n in all_news[:12]:
-              if n.get("article"): continue
+              if n.get("article") and _os.path.exists(n["article"]): continue
               _words = _re.findall(r'[a-z0-9]+', n["title"].lower())
               _slug = '-'.join(_words[:8])[:60].strip('-')
               if not _slug or len(_slug) < 5:
@@ -107,7 +107,7 @@ jobs:
               _dp = n["date"][:11].replace(" ", "-")
               _fn = f"news/article/{_dp}-{_slug}.html"
               if not _os.path.exists(_fn):
-                  _html = f"""<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{n["title"]} | Algorithmic Gyan</title><meta name="description" content="{n.get("desc", n["title"])[:160]}"></head><body style="font-family:system-ui;max-width:700px;margin:0 auto;padding:20px"><a href="../../news.html">\u2190 \u0938\u092d\u0940 \u0916\u092c\u0930\u0947\u0902</a><article style="background:#fff;padding:24px;border-radius:12px;margin-top:12px"><span>\U0001f4f0 {n["source"]}</span><h1>{n["title"]}</h1><div>\U0001f4c5 {n["date"]}</div><p>{n.get("desc","")}</p></article></body></html>"""
+                  _html = f"""<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{n["title"]} | Algorithmic Gyan</title><meta name="description" content="{n.get("desc", n["title"])[:160]}"></head><body style="font-family:system-ui;max-width:700px;margin:0 auto;padding:20px"><a href="../../news.html">\u2190 \u0938\u092d\u0940 \u0916\u092c\u0930\u0947\u0902</a><article style="background:#fff;padding:24px;border-radius:12px;margin-top:12px"><span>\U0001f4f0 {n["source"]}</span><h1>{n["title"]}</h1><div>{n["date"]}</div><p>{n.get("desc","")}</p></article></body></html>"""
                   open(_fn, "w").write(_html)
               n["article"] = _fn
           print(f"Articles ready")

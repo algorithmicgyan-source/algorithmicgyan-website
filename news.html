@@ -31,6 +31,16 @@
   tick(); setInterval(tick,1000);
 })();
 </script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+</script>
+
 </head>
 <body>
 <div class="ag-topbar">
@@ -67,6 +77,7 @@
 .share-btn.fb{background:#1877F2}
 .share-btn.tw{background:#1DA1F2}
 .share-btn.cp{background:#555}
+.card-img{width:100%;height:180px;object-fit:cover;display:block;background:#0B1120}
 </style>
 <header class="site-header">
   <div class="wrap header-inner">
@@ -98,6 +109,7 @@
   </section>
   <section class="section">
     <div class="wrap">
+      <div class="chips" id="dateFilter" style="flex-wrap:nowrap;overflow-x:auto;margin-top:0;margin-bottom:14px;padding:10px 6px;align-items:center;-webkit-overflow-scrolling:touch;position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid var(--line)"></div>
       <div class="grid" id="newsGrid"></div>
 <div class="chips" id="chips">
         <button class="chip active" data-f="all">Sabhi</button>
@@ -145,14 +157,69 @@ function escapeHTML(s) {
 }
 var ALL = [];
 var SITE_URL = "https://algorithmicgyan-source.github.io/algorithmicgyan-website/";
+// ---- Date-wise archive state ----
+var curSource = "all";
+var curDate = null; // "DD Mon YYYY" or null = all dates
+var DATE_LIST = [];
+var MON_IDX = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+function dateKey(n) {
+  var m = String(n.date || "").match(/(\d{2})\s+([A-Za-z]{3})\s+(\d{4})/);
+  return m ? (m[1] + " " + m[2] + " " + m[3]) : null;
+}
+function dateLabel(k) {
+  var m = String(k).match(/(\d{2})\s+(\w{3})/);
+  return m ? (m[1] + " " + m[2]) : k;
+}
+function dateTime(k) {
+  var m = String(k).match(/(\d{2})\s+(\w{3})\s+(\d{4})/);
+  return m ? new Date(+m[3], MON_IDX[m[2]] || 0, +m[1]).getTime() : 0;
+}
+function istTodayKey() {
+  var now = new Date(new Date().toLocaleString("en-US", {timeZone:"Asia/Kolkata"}));
+  var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return String(now.getDate()).padStart(2,"0") + " " + months[now.getMonth()] + " " + now.getFullYear();
+}
+function buildDateFilter() {
+  var box = document.getElementById("dateFilter");
+  if (!box) return;
+  var seen = {};
+  DATE_LIST = [];
+  ALL.forEach(function(n) {
+    var k = dateKey(n);
+    if (k && !seen[k]) { seen[k] = 1; DATE_LIST.push(k); }
+  });
+  DATE_LIST.sort(function(a, b) { return dateTime(b) - dateTime(a); });
+  var today = istTodayKey();
+  if (curDate === null) {
+    curDate = (DATE_LIST.indexOf(today) >= 0) ? today : (DATE_LIST[0] || null);
+  }
+  var html = '<span style="flex:0 0 auto;font-weight:700;color:var(--text)">Tarikh:</span>'
+    + '<button class="chip date-chip" data-d="" style="flex:0 0 auto">Sabhi</button>';
+  DATE_LIST.forEach(function(k) {
+    var label = (k === today) ? ("Aaj (" + dateLabel(k) + ")") : dateLabel(k);
+    var act = (k === curDate) ? " active" : "";
+    html += '<button class="chip date-chip' + act + '" data-d="' + escapeHTML(k) + '" style="flex:0 0 auto">' + escapeHTML(label) + "</button>";
+  });
+  box.innerHTML = html;
+}
 function copyLink(url, btn) {
   navigator.clipboard.writeText(url).then(function() {
     btn.textContent = "✅ Copied!"; setTimeout(function(){ btn.textContent = "🔗 Copy"; }, 2000);
   });
 }
 function render(f) {
-  var list = ALL.filter(function(n) { return f === "all" || n.source === f; });
-  document.getElementById("newsGrid").innerHTML = list.map(function(n) {
+  if (typeof f === "string") curSource = f;
+  var list = ALL.filter(function(n) {
+    var okS = (curSource === "all" || n.source === curSource);
+    var okD = (!curDate || dateKey(n) === curDate);
+    return okS && okD;
+  });
+  var grid = document.getElementById("newsGrid");
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty"><p>Is tarikh me koi khabar nahi mili. Koi aur tarikh chunein.</p></div>';
+    return;
+  }
+  grid.innerHTML = list.map(function(n) {
     var color = SOURCE_COLORS[n.source] || "#9AA7BD";
     var badge = '<span class="badge"><span class="dot" style="background:' + color + '"></span> '
       + escapeHTML(n.source) + "</span>";
@@ -165,14 +232,17 @@ function render(f) {
       + '</div>';
     var artUrl = n.article ? escapeHTML(n.article) : escapeHTML(n.link);
     var artTarget = n.article ? '' : ' target="_blank" rel="noopener"';
-    return '<div class="card text-card">'
+    var dateAttr = n.date ? ' data-date="' + escapeHTML(n.date) + '"' : '';
+    var imgSrc = n.image ? n.image : "assets/logo.png";
+    var imgHtml = '<img class="card-img" src="' + escapeHTML(imgSrc) + '" alt="' + escapeHTML(n.title) + '" loading="lazy" onerror="this.style.display=\'none\'">';
+    return '<div class="card text-card"' + dateAttr + '>'
       + '<a href="' + artUrl + '"' + artTarget + ' style="text-decoration:none;color:inherit">'
-      + '<div class="card-body">' + badge
+      + imgHtml + '<div class="card-body">' + badge
       + "<h3>" + escapeHTML(n.title) + "</h3>" + desc + date + "</div></a>" + shareBtns + "</div>";
   }).join("");
 }
 fetch("data/news.json").then(function(r) { return r.json(); }).then(function(d) {
-  ALL = d; render("all");
+  ALL = d; buildDateFilter(); render("all");
   // Last updated time
   var now = new Date();
   document.getElementById("lastUpdated").textContent =
@@ -203,6 +273,13 @@ document.getElementById("chips").addEventListener("click", function(e) {
   var b = e.target.closest(".chip"); if (!b) return;
   document.querySelectorAll("#chips .chip").forEach(function(c) { c.classList.remove("active"); });
   b.classList.add("active"); render(b.dataset.f);
+});
+document.getElementById("dateFilter").addEventListener("click", function(e) {
+  var b = e.target.closest(".date-chip"); if (!b) return;
+  document.querySelectorAll("#dateFilter .date-chip").forEach(function(c) { c.classList.remove("active"); });
+  b.classList.add("active");
+  curDate = b.getAttribute("data-d") || null;
+  render();
 });
 </script>
 
