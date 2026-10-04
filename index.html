@@ -89,9 +89,9 @@
         <a class="btn btn-ghost" href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">▶️ YouTube</a>
       </div>
       <div class="cta-row" style="margin-top:10px">
-        <a class="btn btn-ghost" href="post.html?slug=current-affairs-3-oct-2026-ntpc#mp-special">🏛️ MP Special</a>
-        <a class="btn btn-ghost" href="post.html?slug=current-affairs-3-oct-2026-ntpc#national">🇮🇳 National</a>
-        <a class="btn btn-ghost" href="post.html?slug=current-affairs-3-oct-2026-ntpc#international">🌍 International</a>
+        <a class="btn btn-ghost" id="btn-mp" href="post.html?slug=current-affairs-2026-10-04#mp-special">MP Special</a>
+        <a class="btn btn-ghost" id="btn-nat" href="post.html?slug=current-affairs-2026-10-04#national">National</a>
+        <a class="btn btn-ghost" id="btn-intl" href="post.html?slug=current-affairs-2026-10-04#international">International</a>
         <a class="btn btn-ghost" href="news.html">🌐 News</a>
         <a class="btn btn-ghost" href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">📸 Instagram</a>
         <a class="btn btn-ghost" href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">👍 Facebook</a>
@@ -311,5 +311,17 @@ function googleTranslateElementInit() {
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
+<script>
+// Latest current affairs slug lao
+fetch("data/posts.json?v=" + Date.now()).then(function(r){return r.json();}).then(function(d){
+  var ca = d.posts.find(function(p){return p.category === "current-affairs";});
+  if(ca){
+    document.getElementById("btn-mp").href = "post.html?slug=" + ca.slug + "#mp-special";
+    document.getElementById("btn-nat").href = "post.html?slug=" + ca.slug + "#national";
+    document.getElementById("btn-intl").href = "post.html?slug=" + ca.slug + "#international";
+  }
+});
+</script>
 </body>
 </html>
