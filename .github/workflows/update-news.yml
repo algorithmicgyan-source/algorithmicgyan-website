@@ -65,14 +65,28 @@ jobs:
                       link = (link_el.text or "").strip() if link_el is not None else ""
                       pub = pub_el.text if pub_el is not None else ""
                       desc = clean(desc_el.text if desc_el is not None else "")[:800]
-                      # NDTV media:content se image nikalo
+                      # Image nikalo - kayi tariko se
                       img_url = ""
                       for _el in i.iter():
                           _tag = _el.tag.split("}")[-1] if "}" in _el.tag else _el.tag
-                          if _tag == "content" and "url" in _el.attrib:
+                          # media:content ya media:thumbnail
+                          if _tag in ("content", "thumbnail") and "url" in _el.attrib:
                               _u = _el.attrib["url"]
-                              if (".jpg" in _u or ".png" in _u or "ndtvimg" in _u) and "gstatic" not in _u and "googleusercontent" not in _u:
+                              if (".jpg" in _u or ".png" in _u or ".jpeg" in _u or "ndtvimg" in _u or "abplive" in _u) and "gstatic" not in _u and "googleusercontent" not in _u:
                                   img_url = _u; break
+                          # enclosure tag
+                          if _tag == "enclosure" and "url" in _el.attrib:
+                              _u = _el.attrib["url"]
+                              if (".jpg" in _u or ".png" in _u) and "gstatic" not in _u:
+                                  img_url = _u; break
+                      # Description me <img> tag dhoondho
+                      if not img_url and desc_el is not None and desc_el.text:
+                          import re as _re2
+                          _m = _re2.search(r'<img[^>]+src=["\']([^"\']+\.(?:jpg|png|jpeg)[^"\']*)["\']', desc_el.text)
+                          if _m:
+                              _u = _m.group(1)
+                              if "gstatic" not in _u and "googleusercontent" not in _u:
+                                  img_url = _u
                       # Bekar/generic news skip karo
                       _bad_titles = ["prati ghanta", "news on air", "hourly news"]
                       if any(b in title.lower() for b in _bad_titles):
