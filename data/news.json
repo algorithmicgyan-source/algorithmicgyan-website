@@ -1,14 +1,5 @@
 [
  {
-  "source": "Algorithmic Gyan",
-  "title": "नोबेल पुरस्कार 2026: चिकित्सा का नोबेल तीन वैज्ञानिकों को — रोशनी से दिमाग की कोशिकाओं को नियंत्रित करने की खोज",
-  "link": "https://www.nobelprize.org/prizes/medicine/2026/press-release/",
-  "date": "05 Oct 2026, 06:35 PM",
-  "desc": "5 अक्टूबर 2026 को चिकित्सा का नोबेल कार्ल डाइसेरोथ (अमेरिका), पीटर हेगेमन और गियॉर्ग नागेल (जर्मनी) को ऑप्टोजेनेटिक्स की खोज के लिए दिया गया। इस तकनीक से रोशनी की मदद से जीवित दिमाग की किसी एक तंत्रिका कोशिका को चालू या बंद किया जा सकता है। पुरस्कार राशि 1.2 करोड़ स्वीडिश क्रोनर।",
-  "image": "assets/ca-images/nobel-medicine-medal.jpg",
-  "article": "news/article/05-Oct-2026-nobel-medicine.html"
- },
- {
   "source": "ABP News",
   "title": "SIR पर बढ़ा बवाल! ज्ञानेश कुमार के इस्तीफे की मांग पर SC में सुनवाई आज",
   "link": "https://www.abplive.com/news/india/supreme-court-to-hear-on-october-5-pleas-seeking-cec-gyanesh-kumar-3197701",
@@ -46,6 +37,15 @@
  },
  {
   "source": "AIR",
+  "title": "सोमवारी जाम की आगोश में काशी, आकाशवाणी से मंडुवाडीह चौराहे तक भीषण जाम - Amar Ujala",
+  "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOazV5Ync2U3ZKNFlTQzdCRXFjb1dKN1lEbE4taURfaWhtcV9fRnpuZER0RWZVNHUxa1VRakRRZTNWR01WdzlUSFVsYVRDYmViNzQxNjdsT3ZPV0RsTWxtcnIwUWNNbFBsZUpmbm9vUjNtTVNOY3l0YWJ3R0NuX2FONUxwTzhhalFZdFJ6SWVSQU8xQW95Z0d0RE9MN3YzUDFscm5CWlo3RWpDano1R0FSSkJ0STBZZjRnU0VWMlpRVG54YTloOE4yNGRLbTbSAdIBQVVfeXFMTURFY21sSV8tWldubGs2TVZWVTN2LXZZX0lqYmhZWE1qRGNLTzh6Y1JvdlhDSXFjV1BiZTZoT1kzNHpqREMtN3l1ZzZDaGU2Yl9qNGZzZlN0Uk84MWx0aV9MRjhKdzBlemFkei1jdTN1UlZhVFBDdWxfX2RiaHBmNHMxRkxyUVRNWWRsRW9jVHZYOEczdi1jV1hueVVHR2w3T1ZxR3BWV196TW1uNkt1Tl80WjU2MDFIdHE2YVVORm50eHJzSWF5MWZuVlZ0UnJMVGF3?oc=5",
+  "date": "05 Oct 2026, 07:56 PM",
+  "desc": "सोमवारी जाम की आगोश में काशी, आकाशवाणी से मंडुवाडीह चौराहे तक भीषण जाम  Amar Ujala",
+  "image": "",
+  "article": "news/article/05-Oct-2026-amar-ujala.html"
+ },
+ {
+  "source": "AIR",
   "title": "आकाशवाणी पूर्णिया में हिंदी पखवाड़े में प्रतियोगिताएं हुईं - Dainik Bhaskar",
   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPekZDMTYzWTFxV2VORGVpTHo5NWVhY1owNXN2dXQzX3ZUcnFLVWYyMlhpMzF6XzZKOXVYbUpocVVsWXpNUUdreEdhaHZPTk1UVHU5TS14S21GMEM4ZUxJYUJTNy1YQ0MxQkotVTcxZW1sR3RQQ3Z1QnR2aktpMG9QUGVsRGViQ3hXSEk0aFZEQlFYVzN4NFJza25razloclFRM2NZOUZMLUlURXpWZlVKbVRUS0tEdlB3ell1TGpGWWlhd1F4RnJFclY4WFFaaUU3MFHSAdcBQVVfeXFMTU5ad0pmQ3E0ZjdhRTVmdXZqOTg2Mk1Fam1qSTk0aGZXaGlrY21LdGlnVnVfWGxoQ2pSNktKYWFzNVhZY3RHMGs3YjlnR3NSRzhSaXluNkVxYjZfdGJxRExGVzUzUGJfVXlOMXpSYk56Wmg5WE5hOHlnUGdPa19nQ3ROWjgzaWdmZmt6c3BSZUNrZy1rR0JaVVJOTFpWR0V0U2I3U2F4b0xwMk5oaUNQRjBheHdwdlVoelJ3S29nYUVqeVNlam1NbXRaUlF0dHZTZFlUMVpWZXM?oc=5",
   "date": "05 Oct 2026, 11:54 AM",
@@ -64,56 +64,47 @@
  },
  {
   "source": "Hindi News",
-  "title": "ज्ञानेश कुमार मामले में सुप्रीम कोर्ट ने चुनाव आयोग और सरकार को जारी किया नोटिस, क्या कहा? - BBC",
+  "title": "फ़ॉर्म-6 पर सुप्रीम कोर्ट की टिप्पणी के बाद फिर घिरे ज्ञानेश कुमार, विपक्ष ने पूछा- किसके आदेश पर हुआ बदलाव - BBC",
   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFB4eXBsY2s2UDRrcFlDODFVdDdoWWgzZ0tVVGtPcU9KbHVINDUtNGZOM05teEdWTG1jeS1UY3RxS1I4UWs0WEtKMzVzaWh2U1d4dzUydGw3ODR6Z2ZJ0gFiQVVfeXFMT19PVkdqYmk4empGd2JWLUxaVWdydXVCZXQ1aFVYUEJlLXAwRDkwTVk4cTVCNWRwb1g1UUdrNTNpOXNtX0xFcUdxa3BDWVotTXNKSnc3ZXVUU2wzeWUzZk4wZnc?oc=5",
-  "date": "05 Oct 2026, 03:10 PM",
-  "desc": "ज्ञानेश कुमार मामले में सुप्रीम कोर्ट ने चुनाव आयोग और सरकार को जारी किया नोटिस, क्या कहा?  BBC'हमने मॉडिफाइड फॉर्म-6 अप्रूव नहीं किया, गैरकानूनी काम हुआ है तो नतीजे भुगतने पड़ेंगे', SIR विवाद के बीच SC की बड़ी टिप्पणी  Aaj Tak'फैसलों पर रोक लगा सकते हैं', मतभेद के बीच चुनाव आयोग के निर्णयों पर सुप्रीम कोर्ट ने क्या कहा; बड़ी बातें  JagranCJI सूर्यकांत पर सौरभ दास ने निकाली भड़ास, जिसने कॉकरोच नाम दिया उसी पर भड़के, Ncr Hindi News  Hindustanकांग्रेस की 3 मांग, निशाने पर ईवीएम, SIR और ज्ञानेश कुमार, महिला पत्रकारों के उत्पीड़न का मुद्दा भी उठाया  Navbharat Times",
+  "date": "05 Oct 2026, 06:24 PM",
+  "desc": "फ़ॉर्म-6 पर सुप्रीम कोर्ट की टिप्पणी के बाद फिर घिरे ज्ञानेश कुमार, विपक्ष ने पूछा- किसके आदेश पर हुआ बदलाव  BBC'हमने मॉडिफाइड फॉर्म-6 अप्रूव नहीं किया, गैरकानूनी काम हुआ है तो नतीजे भुगतने पड़ेंगे', SIR विवाद के बीच SC की बड़ी टिप्पणी  Aaj TakSIR प्रक्रिया में बदलाव पर सुप्रीम कोर्ट सख्त, चुनाव आयोग को जारी किया नोटिस; फॉर्म-6 पर क्यों मचा घमासान?  Jagranविश्वास दोबारा जीतने का; चुनाव आयोग के मामले में सुप्रीम कोर्ट में हुई सुनवाई के बाद कांग्रेस ने लगा दिए ये आरोप  Navbharat Timesइंडिया गठबंधन ने CEC को हटाने की मांग की: नीमकाथाना में कार्यप्रणाली पर उठाए सवाल, बोले-फॉर्म 6 में किया बद...  Dainik Bhaskar",
   "image": "",
-  "article": "news/article/05-Oct-2026-news-2dc6c05d.html"
+  "article": "news/article/05-Oct-2026-6-bbc.html"
  },
  {
   "source": "Hindi News",
-  "title": "UP राज्यसभा चुनाव: BJP की लिस्ट पर हलचल, CM योगी- BL संतोष के बीच डेढ़ घंटे हुई बात - ABP News",
-  "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbkJkM1ZDNnhXVXZ2bXpEUEkzdUtMNWl2aXNGZHRJaXRTdU9VREZ6S1NZblYyaXBCRGdOeVN4RmgwVTZxMFJJdzR2dnIxb0JVaEh0dS1hMzlNazZvWExTQmNHTm53UmpJbUtMai1OeGh6czhLS1ctUDBfdFVaeTNwNEdGdmN0YXZEY0RTNGtaVFZPY1dsdDR0X2VwV3owUG04dlZ4TXlwZlFfSTU5ZW1sRdIBtgFBVV95cUxPQmJ5UmpHd1Q1UkM2eDNmTExBek9Dbi1CekloNVRBWTZvRHZSOVdFLUNaaFVROExfMy1YQlpYTDk4QmtDQU1FalhaU0tab3A3SDFXRDNuVlNLSVBBdEJKLTBBRklFaERTVnZ1VnJESElSclBpanVwczQ1WlpLNHJZMDQ0blJaMjJXSDhwNGVjcnVKSUtfVU1Kb3VDazZMeTFOSXBUNzZJU3RJZDZpTVQ0b0tKT2JWdw?oc=5",
-  "date": "05 Oct 2026, 01:26 PM",
-  "desc": "UP राज्यसभा चुनाव: BJP की लिस्ट पर हलचल, CM योगी- BL संतोष के बीच डेढ़ घंटे हुई बात  ABP NewsUP: राज्यसभा के लिए BJP की 8 उम्मीदवारों की लिस्ट जारी, मंत्री हरदीप पुरी-बीएल वर्मा का नाम नहीं  Aaj Takमोदी कैबिनेट से हरदीप पुरी, बीएल वर्मा होंगे OUT! स्मृति ईरानी-वरुण गांधी समेत इन्हें भी झटका, नहीं मिला राज्यसभा का टिकट  Navbharat Timesआगरा के रामप्रताप सिंह को भाजपा ने राज्यसभा प्रत्याशी बनाया: वर्तमान में प्रदेश महामंत्री हैं, एत्मादपुर से...  Dainik Bhaskarओबीसी, दलित; ब्राह्मण और ठाकुर चेहरों का संतुलन, भाजपा के राज्यसभा दांव में 2027 का संदेश  Jagran",
+  "title": "मायावती ने आकाश आनंद को फिर सौंपी बड़ी ज़िम्मेदारी, क्या कहा? - BBC",
+  "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9YemJFc190ZHFYMkpDdV8tbnhPcGpjNGo1RlYyd0VHVFpxT0tVY0J2YWh4bG9qMy1qbU9VT0V2Q09QUXRkUy1lN0d1TFBwU0JUakV2dXVJUQ?oc=5",
+  "date": "05 Oct 2026, 07:04 PM",
+  "desc": "मायावती ने आकाश आनंद को फिर सौंपी बड़ी ज़िम्मेदारी, क्या कहा?  BBCआकाश आनंद की BSP में वापसी, मायावती ने फिर बनाया राष्ट्रीय संयोजक  Aaj Takआकाश आनंद की बसपा में फिर वापसी होगी: मायावती कांशीराम की पुण्यतिथि पर करेंगी ऐलान; मिल सकती है संगठन की जि...  Dainik Bhaskarबुआ मायावती ने आकाश आनंद को फिर किया माफ, बसपा में कराई वापसी और बनाया नेशनल कॉर्डिनेटर  Jagranआकाश आनन्द को BSP में फिर मिली बड़ी जिम्मेदारी, ईशान का क्या होगा? मायावती ने बताया  ABP News",
   "image": "",
-  "article": "news/article/05-Oct-2026-up-bjp-cm-bl-abp-news.html"
+  "article": "news/article/05-Oct-2026-news-b7bbf786.html"
  },
  {
   "source": "Hindi News",
-  "title": "'रात 10 बजे भी हर महिला की सुरक्षा पक्की करें', हाल की रेप घटनाओं पर SC ने केंद्र और दिल्ली पुलिस को लगाई फटकार - Jagran",
-  "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNd1prLUVkalJGQWlaZjVOTHlGd0pfVjFfaTU5MUxMblRrZGUzWjNrS1h0ZmdCWkFfTFo4OFRlSHFrck9jcDF4M1c3NnBmYlcwU1FmcHVScGZJRDRxYzI2YTdjNVR4Rm5na25HdXZmOHIxbzRTTnZxLTAyQnNRTDltOEFVSVRFSEd3SFRWYjF4Q1pDRXpqSE5KNlpwOS1tb1g3bGZqZzU5dmQxS0FlUWl1elZRaGxCWWlzOTRGSWM3OXI?oc=5",
-  "date": "05 Oct 2026, 12:22 PM",
-  "desc": "'रात 10 बजे भी हर महिला की सुरक्षा पक्की करें', हाल की रेप घटनाओं पर SC ने केंद्र और दिल्ली पुलिस को लगाई फटकार  Jagran'ऐसा एक्शन लो कि अपराधियों के मन में खौफ रहे...', दिल्ली-NCR में रेप केस पर सुप्रीम कोर्ट की सख्त टिप्पणी  Aaj Takरेप और यौन हिंसा पर SC सख्त, पुलिस से पूछा- क्राइम रोकने के लिए क्या कर रहे? अपराधियों के मन में पैदा कीजिए  India TV Hindi'अपराधियों में डर हो कि मार दिए जाएंगे', दिल्ली रेप केस पर सख्त सुप्रीम कोर्ट, पुलिस से कह दी बड़ी बात  Navbharat Timesदिल्ली रेप: SC में पुलिस को फटकार, जज ने कहा- ...तो अपराधियों को लगे कि मारे जाएंगे  ABP News",
+  "title": "Flydubai के 'आतंकी' पायलट ने मिड-एयर विमान के इंजन भी बंद कर दिए थे? रिपोर्ट से मचा हड़कंप - Aaj Tak",
+  "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOczRyMWY2NUticEJ0Q2VjeWQ2Rm1kVTI5Z1lING5LenUwVktQa0ZxVjRDTzVEV0dOOEg3RmQxeEVyTUNZNHg3TFVmOHVkQTNsMTJORDdhbzNZcGg0eWNyU2p5b2JkcS1jNHdRRnFpZEdicUxGcWVDekJBenpIdHg0Q1lRRzlrS1BCS0Y0Q3UwdlNhWXN6eXcwLW03ZzZWV0lQM1JZcHZUa3dkYVBPVXlWMEEwM2J3N0k5bmpDUllvUTZmV29TcWhfRWdMYXHSAdIBQVVfeXFMTm53SHl1b2lpbFhWN2FKUm1WSzdYSjJwdnRKNU9JN2dGbG9CS2gzODBaakYtazIyQi1lSXFzTUk4OElCd3JPSTZKSkpmejlwbC01SjBMdmo5bHI0YnBOWXlpbmRIeTZ4eG9PMzNWZllkak5ZelJpVWU5b1ZKcG92aWFEVFgzVW9jTjNyZ0RoZi1SM2pTZ28wLUVnZFYxQW15ZUVhMVhpWllGUGZ2QkhoVzFzS2ZJTTVtWVU3TWVHUFNWVjVpTXhxNmE1ekV3TmpqcFB3?oc=5",
+  "date": "05 Oct 2026, 11:18 AM",
+  "desc": "Flydubai के 'आतंकी' पायलट ने मिड-एयर विमान के इंजन भी बंद कर दिए थे? रिपोर्ट से मचा हड़कंप  Aaj Takजुलाई में ही फ्लाईदुबई प्लेन को हाईजैक करने वाला था ओमानी को-पायलट, क्रू दोस्त की वजह से टाला हमला  Aaj Takस्मित मच्छार पर पैसों की बारिश, जानें हीरो पायलट को किसने दिया कितना इनाम?  ABP Newsओमानी को-पायलट ने विमान के इंजन बंद किए थे? तेल अवीव में क्रैश करने की थी साजिश; फ्लाईदुबई कांड में बड़ा खु  India TV Hindi3 देश और फ्लाईदुबई की सुरक्षा में चूक... इजरायल का 9/11 होते-होते कैसे बचा?  Jagran",
   "image": "",
-  "article": "news/article/05-Oct-2026-10-sc-jagran.html"
+  "article": "news/article/05-Oct-2026-flydubai-aaj-tak.html"
  },
  {
   "source": "Hindi News",
-  "title": "एक नहीं, थ्री लेयर सुरक्षा चूक... Flydubai केस में ओमान-UAE और इजरायल की खुली पोल - Aaj Tak",
-  "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOWDRidE1ZbEZpQm9sYmZiLWpqLW9yZzV0ZFFyRllSemVRTmRGNml3STB4eXBTN1IxYklVUld5bnI2c0hsRjVFeXNSbDd3clB4Tk9vWEZ1bzRicUI1UC1RNm9lclBhNUJUYUVLV29fYjNzMGFvMEVGVlAyQzVWZndxM2VTSDB0VHRLMmVPSHY0d1hyQlhPUmczelhnLTlpREJxdFZXMWh2bU1WYnF0S1FrV3hNZU8xWlNQaFRoTzdoME1yVXFvVUtnMDhMS25kdWhtZDZuQmRRZ3FXb0HSAeABQVVfeXFMTUhIRGhZNzVfSWdjYmdRUi10TVVGaDJUYUIzSFluZ0ZRYkRDbFVDSEd1NGhLMmVNUmpVZGlrR3hIRno3YWw3VGVhUlM3akhtWkJjUkhNZUQ0NFlEZXc4N2hmU2p2NnEyUjZTUFBlT0hlV0NCcjhpWWw1bjhqQndfZzk2SXJka2RkdFZzS2ZzWmxPYWlXRXN0aFR3NGRISVhZdzNmNzhHOV91X3ZRNTdpbXVaZk5UM3NBeWNvVWc5YmViYzJLaHNKc0dmeDZDanRQMDBENTFKTWtwRzZmSkZ2QWQ?oc=5",
-  "date": "05 Oct 2026, 09:13 AM",
-  "desc": "एक नहीं, थ्री लेयर सुरक्षा चूक... Flydubai केस में ओमान-UAE और इजरायल की खुली पोल  Aaj Takflydubai का ओमानी को-पायलट कैसे बना जिहादी? रिपोर्ट में खुलासा  Aaj Takकैप्टन स्मित मच्छर के जल्द ठीक होने के लिए पूजा: झालावाड़ में राज-राजेश्वर महादेव मंदिर में किया दुग्धाभिषेक  Dainik Bhaskar3 देश और फ्लाईदुबई की सुरक्षा में चूक... इजरायल का 9/11 होते-होते कैसे बचा?  Jagranफ्लाईदुबई विमान में नहीं होते वे 2 पायलट तो… फ्लाइट में इस वजह से हुए थे सवार; बन गए संकटमोचक, International Hindi News  Hindustan",
+  "title": "रात 10 बजे भी महिलाएं सेफ रहें, उन मर्दों के मन में डर पैदा करो जो... सुप्रीम कोर्ट में दिल्‍ली पुलिस का मु... - News18 Hindi",
+  "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOeEpabDlfbDkxX3ZmM05JVHptME1VVGUzb2VxSGk5bHoxNDFjTXQ5bDUxVncyWVdRRHNqSnJad2xoUzA5WVBfcTdSSnJIUlZxSW5rc1F5SkZrR0JEZGx4TVJKNWstNWNnTzljZWs4Vnk1aHZBQ3BEekJEbWFNNVVnUjVGbWRsN0FNekFLV1U4TTdLQzF5LXU3NjJvWjRaaXFSNFF6N2ExUkFCcFVOUXdsSGlST3QtUC03R3dIUVlCLTBNa0t3algzdVA4X0RCcTNCaFgza0hBTWhfQ2FIbjJ1SWJuTXEybG1NdWNnamNfcEJiQdIB9wFBVV95cUxOZDZxN3R2QVI2a0dsYUpiNXc1c19HUEZUUHBraXBOMGVNd29OU2lMOVB1czdsWDRkYlBWRk93MkZYdGdXaElMX1BXbXdpMVZLQVkydElOSlV1YVV2bXpzRE5Kb0Y1bVFuSHF5a1l6d3QzSlg2akVXcHprXzRwa2FVMkROM05qSWQtbzRPUUJhZlVhQVVmSE9iMFZDN2RmcmtoZjRKSGpzenE1cGVfNkRGay1xSWNEZnQwSlhndndIanlvWXg1V2QzWThTME9fRi1IWlJONFFhdnNKVmkxbXdoYzRRbno0RWU3RmN1ZnJhaVRreDJhZUZ3?oc=5",
+  "date": "05 Oct 2026, 12:20 PM",
+  "desc": "रात 10 बजे भी महिलाएं सेफ रहें, उन मर्दों के मन में डर पैदा करो जो... सुप्रीम कोर्ट में दिल्‍ली पुलिस का मु...  News18 Hindi'रात 10 बजे भी हर महिला की सुरक्षा पक्की करें', हाल की रेप घटनाओं पर SC ने केंद्र और दिल्ली पुलिस को लगाई फटकार  Jagranदिल्ली रेप: SC में पुलिस को फटकार, जज ने कहा- ...तो अपराधियों को लगे कि मारे जाएंगे  ABP Newsहर महिला रात 10 बजे भी सुरक्षित महसूस करे, 'बलात्कारी के दिल में कानून का खौफ जरूरी' : जस्टिस जेबी परदीवाला  Navbharat Timesअपराधियों के मन में डर पैदा करना होगा; दिल्ली-NCR में बढ़ते रेप मामलों पर सुप्रीम कोर्ट, Ncr Hindi News  Hindustan",
   "image": "",
-  "article": "news/article/05-Oct-2026-flydubai-uae-aaj-tak.html"
+  "article": "news/article/05-Oct-2026-10-news18-hindi.html"
  },
  {
   "source": "Hindi News",
-  "title": "जस्‍ट‍िस उज्‍जल भुइयां कौन हैं, उन्‍होंने लोगों को वोट‍िंग के अधि‍कार से वंच‍ित करने पर क्‍या कहा - BBC",
-  "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9RcDFRNko4a20tRkZwazE1QVBxXzlwSHhYT3RsVDBSbW0wcWNCOXhTZThfc012RXhBN1E4Si02czA1c1A2VXdaamtfa0JvdEc4RnVFNWQwVmpaNndv0gFiQVVfeXFMTkc3ZXFzY1lTbjJja3gyLVhZWUV4dkVNX3JBSGt4NWRuX2dXbEd0TzBjZnlGU0VZQXV4bEJqalRxcFVNUFVPS3VVQXY1ZUFaQWdwOUI4MjROTWcydFdIbndFSkE?oc=5",
-  "date": "05 Oct 2026, 12:39 PM",
-  "desc": "जस्‍ट‍िस उज्‍जल भुइयां कौन हैं, उन्‍होंने लोगों को वोट‍िंग के अधि‍कार से वंच‍ित करने पर क्‍या कहा  BBCजस्टिस भुइयां बोले- वोटिंग से रोकने वाली प्रक्रिया मनमानी: इसे कोई बहाना सही नहीं ठहरा सकता; अरबपति हो या र...  Dainik Bhaskarबंगाल में 90 लाख वोटरों के अधिकार छिनने के बाद भी सुप्रीम कोर्ट ने ठोस कदम नहीं उठाया: पूर्व जज, National Hindi News  Hindustan'राजा को शासन का अधिकार ईश्वर नहीं, जनइच्छा से मिला है', जस्टिस भुइयां ने एक दार्शनिक का जिक्र कर कही फ्रांसीसी क्रांति वाली बात  Navbharat Timesजजों ने बिना डरे... जस्टिस भुइयां और रिटायर्ड जज नरीमन के बयान पर बोले अभिषेक मनु  ABP News",
+  "title": "अखिलेश से दूरी, राहुल गांधी से करीबी; यूपी में किसका साथ देंगी छोटी पार्टियां - Hindustan",
+  "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPX1kxcUtLeVkwZkkxZDFmUHRJZFFUeFMwSGcyQWhZRDVXS3RKWllrbjJBZDZRTzllMDlYU2xUUGxNa2VJa3h0MUZTYmRUNFpnVXBWNFZ0T01JSUNzeHUwY1FOSU5zZmZVWjR6cnExNVhzU2kxLS1DaGlWSWNzcm5BbXpLWHpUdTV3UUFwNkJBbUhvNEFqUTVFdE44R3pqbG4xR0VUR2Ntd0J3SC0tbzFCMmpFY1NwVnEyem5JVUpPWkRCd2JTck1xa3lPLVFERnNWdXZSYXJIVQ?oc=5",
+  "date": "05 Oct 2026, 06:58 AM",
+  "desc": "अखिलेश से दूरी, राहुल गांधी से करीबी; यूपी में किसका साथ देंगी छोटी पार्टियां  Hindustanमौर्य की मन्नत पर संकट, स्वामी गठबंधन चाह रहे, लेकिन कांग्रेस सिर्फ टिकट पर राजी?  Aaj Takअखिलेश को परेशान करेगी ये तस्वीर! राहुल-प्रियंका से पुराने सहयोगी ने मिलाया हाथ  ABP Newsआजम खान की पत्नी से मिले स्वामी प्रसाद मौर्य; 45 मिनट चली बैठक, योगी सरकार पर बरसे, Uttar-pradesh Hindi News  Hindustanआजम खान के परिवार से मिले स्वामी प्रसाद मौर्य: तंजीन फातिमा और अदीब से 45 मिनट बात, मुख्य चुनाव आयुक्त की भ...  Dainik Bhaskar",
   "image": "",
-  "article": "news/article/05-Oct-2026-news-e36cb1bf.html"
- },
- {
-  "source": "PIB",
-  "title": "ग्रामीण विकास में ऐतिहासिक पहल: 1.25 लाख करोड़ रु. का प्रावधान, 1 जुलाई से नई व्यवस्था लागू- केन्द्रीय ग्रामीण विकास मंत्री - PIB",
-  "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBLRWk3bFBPbXM1S0g1eEdsSXIxTFFKQmpia2RUMzNaZ3dwUEVsdUhrUGdnT1Jfck5vUWpLT012T0ViRk94ZFB4dWtzTV9tdHplR2ZlVE5qelhHQWJISWhEb19HT1pTcUMtSE80TEE0WU5URzlWSTdBaU5kWk1Odw?oc=5",
-  "date": "05 Oct 2026, 01:46 PM",
-  "desc": "ग्रामीण विकास में ऐतिहासिक पहल: 1.25 लाख करोड़ रु. का प्रावधान, 1 जुलाई से नई व्यवस्था लागू- केन्द्रीय ग्रामीण विकास मंत्री  PIB",
-  "image": "",
-  "article": "news/article/05-Oct-2026-1-25-1-pib.html"
+  "article": "news/article/05-Oct-2026-hindustan.html"
  }
 ]
