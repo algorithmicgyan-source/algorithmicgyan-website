@@ -127,12 +127,11 @@ jobs:
           _mp_items = [n for n in all_news if n.get("source") == "MP News"][:3]
           _mp_links = set(n.get("link","") for n in _mp_items)
           _others = [n for n in all_news if n.get("link","") not in _mp_links]
-          all_news = (_mp_items + _others)[:12]
-          all_news = all_news[:100]  # kul max 100 save
+          all_news = (_mp_items + _others)[:100]  # archive: kul max 100 save; MP wale pehle rakho
 
           # Har news ke liye internal article page banao (SEO)
           import re as _re
-          for n in all_news[:12]:
+          for n in all_news:  # archive ke sabhi items ko article page mile
               if n.get("article") and _os.path.exists(n["article"]): continue
               _words = _re.findall(r'[a-z0-9]+', n["title"].lower())
               _slug = '-'.join(_words[:8])[:60].strip('-')
@@ -146,11 +145,11 @@ jobs:
                   open(_fn, "w").write(_html)
               n["article"] = _fn
           # SAFETY CHECK: sab articles bane?
-          _missing = [n["title"][:40] for n in all_news[:12] if n.get("article") and not _os.path.exists(n["article"])]
+          _missing = [n["title"][:40] for n in all_news if n.get("article") and not _os.path.exists(n["article"])]
           if _missing:
               print(f"ERROR: {len(_missing)} articles missing: {_missing}")
               raise SystemExit("Article generation failed!")
-          print(f"Articles ready: all {len(all_news[:12])} verified")
+          print(f"Articles ready: all {len(all_news)} verified")
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
           # Daily Current Affairs post banao (exam ke liye)
