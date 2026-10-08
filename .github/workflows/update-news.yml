@@ -56,7 +56,8 @@ jobs:
                   req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
                   data = urllib.request.urlopen(req, timeout=30).read()
                   root = ET.fromstring(data)
-                  items = root.find("channel").findall("item")[:5]
+                  _limit = 8 if name == "MP News" else 5
+                  items = root.find("channel").findall("item")[:_limit]
                   for i in items:
                       title_el = i.find("title")
                       link_el = i.find("link")
@@ -122,7 +123,11 @@ jobs:
               except:
                   return _dt.min
           all_news.sort(key=_dkey, reverse=True)
-          all_news = all_news[:12]  # roz ki top 12
+          # MP news bachao: top 12 me kam se kam 3 MP items pakke rakho
+          _mp_items = [n for n in all_news if n.get("source") == "MP News"][:3]
+          _mp_links = set(n.get("link","") for n in _mp_items)
+          _others = [n for n in all_news if n.get("link","") not in _mp_links]
+          all_news = (_mp_items + _others)[:12]
           all_news = all_news[:100]  # kul max 100 save
 
           # Har news ke liye internal article page banao (SEO)
