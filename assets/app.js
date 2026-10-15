@@ -27,6 +27,22 @@ function catMeta(cat) {
   return CATS[cat] || { label: cat, icon: "📌", color: "#9AA7BD" };
 }
 
+var SITE_URL = "https://algorithmicgyan-source.github.io/algorithmicgyan-website/";
+function agCopy(u, b) {
+  navigator.clipboard.writeText(u).then(function () {
+    b.textContent = "✅ Copied!"; setTimeout(function () { b.textContent = "🔗 Copy"; }, 2000);
+  });
+}
+function shareRowHTML(title, url) {
+  return '<div class="share-row">'
+    + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(title + "\n\n👉 पढ़ें: " + url) + '">📲 WhatsApp</a>'
+    + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '">👍 Facebook</a>'
+    + '<a class="share-btn tw" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url) + '">𝕏 X</a>'
+    + '<a class="share-btn tg" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title) + '">✈️ Telegram</a>'
+    + '<button class="share-btn cp" onclick="agCopy(\'' + url + '\',this)">🔗 Copy</button>'
+    + '</div>';
+}
+
 function cardHTML(p) {
   var cm = catMeta(p.category);
   var badge = '<span class="badge"><span class="dot" style="background:' + cm.color + '"></span> '
@@ -41,7 +57,8 @@ function cardHTML(p) {
       + '<img src="https://i.ytimg.com/vi/' + vid + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
       + '<span class="play">▶</span></div>'
       + '<div class="card-body"><h3>' + escapeHTML(p.title) + "</h3>" + desc
-      + '<div class="meta">' + date + "</div></div></a>";
+      + '<div class="meta">' + date + "</div></div></a>"
+      + shareRowHTML(p.title, p.youtube_url);
   }
   var dateBadge = "";
   if (p.date) {
@@ -57,7 +74,8 @@ function cardHTML(p) {
   return '<a href="' + postUrl + '" style="text-decoration:none;color:inherit;display:block"><article class="card text-card">'
     + '<div class="thumb">' + badge + dateBadge + "</div>"
     + '<div class="card-body"><h3>' + escapeHTML(p.title) + "</h3>" + desc
-    + '<div class="meta">' + date + "</div></div></article></a>";
+    + '<div class="meta">' + date + "</div></div></article></a>"
+    + shareRowHTML(p.title, SITE_URL + postUrl);
 }
 
 function emptyHTML() {
@@ -98,8 +116,11 @@ function loadHome() {
         + '<span class="play">▶</span></div>'
         + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3></div></a>"
       + '<div class="share-row">'
-      + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(v.title + " " + yurl) + '">📲 Share</a>'
-      + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(yurl) + '">👍 Share</a>'
+      + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(v.title + " " + yurl) + '">📲 WhatsApp</a>'
+      + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(yurl) + '">👍 Facebook</a>'
+      + '<a class="share-btn tw" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(v.title) + '&url=' + encodeURIComponent(yurl) + '">𝕏 X</a>'
+      + '<a class="share-btn tg" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(yurl) + '&text=' + encodeURIComponent(v.title) + '">✈️ Telegram</a>'
+      + '<button class="share-btn cp" onclick="agCopy(\'' + yurl + '\',this)">🔗 Copy</button>'
       + "</div>";
     }).join("");
   }).catch(function () {});
@@ -135,7 +156,7 @@ function loadPosts() {
 }
 
 var _vss = document.createElement("style");
-_vss.textContent = ".share-row{display:flex;gap:6px;padding:0 12px 12px}.share-btn{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff;text-decoration:none}.share-btn.wa{background:#25D366}.share-btn.fb{background:#1877F2}";
+_vss.textContent = ".share-row{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px}.share-btn{flex:1 1 90px;text-align:center;padding:8px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff !important;text-decoration:none}.share-btn.wa{background:#25D366}.share-btn.fb{background:#1877F2}.share-btn.tw{background:#000}.share-btn.tg{background:#229ED9}.share-btn.cp{background:#555}";
 document.head.appendChild(_vss);
 
 var _dbCss = document.createElement("style");

@@ -241,3 +241,13 @@ footer, .footer { background: #0B1120 !important; color: #EAF0FA !important; }
 footer a, .footer a { color: #9AA7BD !important; }
 footer p, .footer p { color: #9AA7BD !important; }
 footer h4, .footer h4 { color: #EAF0FA !important; }
+
+/* === Share bar (WhatsApp/Facebook/X/Telegram/Copy) — used on news cards, post cards, video cards, article pages === */
+.share-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid #eee}
+.share-btn{flex:1 1 90px;text-align:center;padding:8px 6px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff !important;text-decoration:none;display:inline-block}
+.share-btn.wa{background:#25D366}
+.share-btn.fb{background:#1877F2}
+.share-btn.tw{background:#000}
+.share-btn.tg{background:#229ED9}
+.share-btn.cp{background:#555}
+.share-label{font-weight:700;padding:8px 0;font-size:.9rem}

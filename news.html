@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/style.css?v=4">
 <style>
 .ag-topbar{background:linear-gradient(90deg,#0a0a2e,#16213e);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:.85rem;font-weight:600}
 .ag-topbar #ag-time{color:#FFD166;font-weight:700}
@@ -75,7 +75,8 @@
 .share-btn{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff;text-decoration:none}
 .share-btn.wa{background:#25D366}
 .share-btn.fb{background:#1877F2}
-.share-btn.tw{background:#1DA1F2}
+.share-btn.tw{background:#000}
+.share-btn.tg{background:#229ED9}
 .share-btn.cp{background:#555}
 .card-img{width:100%;height:180px;object-fit:cover;display:block;background:#0B1120}
 </style>
@@ -231,6 +232,8 @@ function render(f) {
     var shareBtns = '<div class="share-row">'
       + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(n.title + "\n\n👉 पूरी खबर पढ़ें: " + SITE_URL + (n.article || "")) + '">📲 WhatsApp</a>'
       + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SITE_URL + (n.article || "")) + '">👍 Facebook</a>'
+      + '<a class="share-btn tw" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(n.title) + '&url=' + encodeURIComponent(SITE_URL + (n.article || "")) + '">𝕏 X</a>'
+      + '<a class="share-btn tg" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(SITE_URL + (n.article || "")) + '&text=' + encodeURIComponent(n.title) + '">✈️ Telegram</a>'
       + '<button class="share-btn cp" onclick="copyLink(\'' + SITE_URL + (n.article || "") + '\',this)">🔗 Copy</button>'
       + '</div>';
     var artUrl = n.article ? escapeHTML(n.article) : escapeHTML(n.link);

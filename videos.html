@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/style.css?v=4">
 <style>
 .ag-topbar{background:linear-gradient(90deg,#0a0a2e,#16213e);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:.85rem;font-weight:600}
 .ag-topbar #ag-time{color:#FFD166;font-weight:700}
@@ -136,8 +136,24 @@ function render(f) {
       + '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
       + '<span class="play">▶</span></div>'
       + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3>"
-      + '<div class="meta"><span class="date"> ' + escapeHTML(fmtDate(v.date)) + "</span></div></div></a>";
+      + '<div class="meta"><span class="date"> ' + escapeHTML(fmtDate(v.date)) + "</span></div></div></a>"
+      + (function () {
+        var yurl = "https://www.youtube.com/watch?v=" + v.id;
+        return '<div class="share-row">'
+          + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(v.title + " " + yurl) + '">📲 WhatsApp</a>'
+          + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(yurl) + '">👍 Facebook</a>'
+          + '<a class="share-btn tw" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(v.title) + '&url=' + encodeURIComponent(yurl) + '">𝕏 X</a>'
+          + '<a class="share-btn tg" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(yurl) + '&text=' + encodeURIComponent(v.title) + '">✈️ Telegram</a>'
+          + '<button class="share-btn cp" onclick="agCopy(\'' + yurl + '\',this)">🔗 Copy</button>'
+          + '</div>';
+      })();
   }).join("");
+}
+function agCopy(u, b) {
+  navigator.clipboard.writeText(u).then(function () {
+    b.textContent = "✅ Copied!"; setTimeout(function () { b.textContent = "🔗 Copy"; }, 2000);
+  });
+}
 }
 fetch("data/videos.json").then(function(r) { return r.json(); }).then(function(d) {
   ALL = d; render("all");

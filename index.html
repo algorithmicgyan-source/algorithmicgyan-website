@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/style.css?v=4">
 <style>
 .ag-topbar{background:linear-gradient(90deg,#0a0a2e,#16213e);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:.85rem;font-weight:600}
 .ag-topbar #ag-time{color:#FFD166;font-weight:700}
@@ -216,10 +216,12 @@ fetch("data/news.json?v=" + Date.now()).then(function(r){return r.json();}).then
   grid.innerHTML = news.slice(0, 6).map(function(n){
     var url = n.article || n.link;
     var tgt = n.article ? '' : ' target="_blank" rel="noopener"';
+    var shareUrl = n.article ? ("https://algorithmicgyan-source.github.io/algorithmicgyan-website/" + n.article) : n.link;
     return '<div class="card"><a href="'+url+'"'+tgt+' style="text-decoration:none;color:inherit;display:block">'
       + '<div class="card-body"><span class="badge">📰 '+n.source+'</span>'
       + '<h3>'+n.title+'</h3>'
-      + '<div class="meta">Date: '+n.date+'</div></div></a></div>';
+      + '<div class="meta">Date: '+n.date+'</div></div></a>'
+      + shareRowHTML(n.title, shareUrl) + '</div>';
   }).join("");
 }).catch(function(){});
 

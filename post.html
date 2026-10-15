@@ -14,7 +14,8 @@ a{color:#60a5fa}
 .back{display:inline-block;color:#60a5fa;text-decoration:none;font-weight:600;margin-bottom:8px}
 .share-row{display:flex;gap:8px;margin-top:20px}
 .share-row a{flex:1;text-align:center;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700}
-.wa{background:#25D366}.fb{background:#1877F2}
+.wa{background:#25D366}.fb{background:#1877F2}.tw{background:#000}.tg{background:#229ED9}.cp{background:#555}
+.share-row button{flex:1;padding:10px;border-radius:8px;color:#fff;font-weight:700;border:none;cursor:pointer}
 .post-card div[style*="fef3c7"]{color:#333 !important}
 .post-card div[style*="fef3c7"] strong{color:#111 !important}
 </style>
@@ -49,8 +50,12 @@ fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
     + '<div class="share-row">'
     + '<a class="wa" target="_blank" href="https://wa.me/?text='+encodeURIComponent(p.title+"\n\n👉 पढ़ें: "+pageUrl)+'">📲 WhatsApp</a>'
     + '<a class="fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(pageUrl)+'">👍 Facebook</a>'
+    + '<a class="tw" target="_blank" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(p.title)+'&url='+encodeURIComponent(pageUrl)+'">𝕏 X</a>'
+    + '<a class="tg" target="_blank" href="https://t.me/share/url?url='+encodeURIComponent(pageUrl)+'&text='+encodeURIComponent(p.title)+'">✈️ Telegram</a>'
+    + '<button class="cp" onclick="agCopy(\''+pageUrl+'\',this)">🔗 Copy Link</button>'
     + '</div></div>';
 });
+function agCopy(u,b){navigator.clipboard.writeText(u).then(function(){b.textContent="✅ Copied!";setTimeout(function(){b.textContent="🔗 Copy Link";},2000);});}
 </script>
 <script>
 // URL me #section ho to SIRF wahi section dikhao
