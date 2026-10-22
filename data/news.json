@@ -1,15 +1,6 @@
 [
  {
   "source": "MP News",
-  "title": "MP में राज्यसभा उप चुनाव का ऐलान, 12 नवंबर को वोटिंग और काउंटिंग - ABP News",
-  "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbE9MTW5jQUY0UGdtb1dodXRQbmlTRUw3SDlIaEVvNFdab1JtMEZwZHUzSk9pN0h2LUg4MjBXS2NMZ25EeDhtc1JvSEJFYmRlMS12X0UwTzdwV2VMenltdFhvTHFzSHdHQW1KbVhLX19xTGdFSWxmMzBXTlg4VUZpUnYydUZoaFRxNnc3QWNKWmp1OGo1UHAwVzRpVXJ0VXN4QzVBbWV3MEJjekpyWnlsdktUZ2NDOElDYnfSAb8BQVVfeXFMTllhOVU2a0tyVDN1UEhPbnFGbkxBZFROM3JJNWY5MHc3NG9HN0xEWWVMX2pRS2YxUjF2YlBDdkR0ZEt3ZVVxSk1wTmFERjZ1YU93V2JWVGc0bWFnai1VOXJORzUyWElkUFhCOEk3OERPenpzSlZ5bEhHaU1DdzdMNmk2YUxFZTNHdzNZbkdTV0paVFpvX0VDTkpMTFMtdVFEVUozSEVJZkU5dXdGZjNUck5XdnpXZWtCMVlhRHU0eGc?oc=5",
-  "date": "22 Oct 2026, 10:44 AM",
-  "desc": "MP में राज्यसभा उप चुनाव का ऐलान, 12 नवंबर को वोटिंग और काउंटिंग  ABP News",
-  "image": "",
-  "article": "news/article/22-Oct-2026-mp-12-abp-news.html"
- },
- {
-  "source": "MP News",
   "title": "मध्य प्रदेश की खाली राज्यसभा सीट पर उपचुनाव का एलान, 26 अक्टूबर से शुरू होगी नामांकन प्रक्रिया; 12 नवंबर को वोटिंग - madhya pradesh rajya sabha by election announced dates out - Jagran",
   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVW5VTFd3Q3Y0VDI4X0FRdVNDOFhMZFV4MjRaazlVVi1CVjB4TURWay14YnhfaF96dGU1U3FEcmZoOGdHREZqUnNMeEFncm9yTWdHUUVoRW5YQURKZ3FjLXhsQklrY3FyUVhqa3ByRlk1bWxtcGxReGZJSVpRaVdkZWtzcklyclhxZmZJLTZkSXVWbFNyTy1ZWkZXZVVOWGJTa0JJbElzcnBWRjd2b0ZmWTh2bEJ0Z1FH?oc=5",
   "date": "22 Oct 2026, 09:47 PM",
@@ -25,6 +16,15 @@
   "desc": "एमपी में एक राज्यसभा सीट पर 12 नवंबर को उपचुनाव: मुरुगन के इस्तीफे से खाली हुई है सीट, 26 अक्टूबर को जारी ह...  Dainik Bhaskar",
   "image": "",
   "article": "news/article/22-Oct-2026-12-26-dainik-bhaskar.html"
+ },
+ {
+  "source": "MP News",
+  "title": "MP में राज्यसभा उप चुनाव का ऐलान, 12 नवंबर को वोटिंग और काउंटिंग - ABP News",
+  "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbE9MTW5jQUY0UGdtb1dodXRQbmlTRUw3SDlIaEVvNFdab1JtMEZwZHUzSk9pN0h2LUg4MjBXS2NMZ25EeDhtc1JvSEJFYmRlMS12X0UwTzdwV2VMenltdFhvTHFzSHdHQW1KbVhLX19xTGdFSWxmMzBXTlg4VUZpUnYydUZoaFRxNnc3QWNKWmp1OGo1UHAwVzRpVXJ0VXN4QzVBbWV3MEJjekpyWnlsdktUZ2NDOElDYnfSAb8BQVVfeXFMTllhOVU2a0tyVDN1UEhPbnFGbkxBZFROM3JJNWY5MHc3NG9HN0xEWWVMX2pRS2YxUjF2YlBDdkR0ZEt3ZVVxSk1wTmFERjZ1YU93V2JWVGc0bWFnai1VOXJORzUyWElkUFhCOEk3OERPenpzSlZ5bEhHaU1DdzdMNmk2YUxFZTNHdzNZbkdTV0paVFpvX0VDTkpMTFMtdVFEVUozSEVJZkU5dXdGZjNUck5XdnpXZWtCMVlhRHU0eGc?oc=5",
+  "date": "22 Oct 2026, 10:44 AM",
+  "desc": "MP में राज्यसभा उप चुनाव का ऐलान, 12 नवंबर को वोटिंग और काउंटिंग  ABP News",
+  "image": "",
+  "article": "news/article/22-Oct-2026-mp-12-abp-news.html"
  },
  {
   "source": "ABP News",
@@ -87,6 +87,105 @@
  },
  {
   "source": "Hindi News",
+  "title": "जो US लगा रहा था एक्स्ट्रा टैरिफ, अब वही पढ़ रहा कसीदे; भारत की तेल आयात नीति पर क्या बोले मार्को रुबियो - Hindustan",
+  "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNR2JvWnp3aE16ZlFnaWxyU2pkZzBvMWdxMXF3N0Q4MERMMjV6NURSMnlkLXFPRUdsZEZrd2JIbmU2TXRLb002NUFSX1ZmZFY2c2dhaFh6QTFFRXZKZWNUeTBEU2VjbmlxWTU2RGpRTlRFVzZ1emxXMC1DT3lGQ2UyUUhuR0RoemVxVXc4U3JwQ2ZDVzFuWlVPYk5wTm1mcGpoeVRuR1BVMzJWdVpnQ2R6ZmRRY2VoTWFfNE9xM2tNN2ROOHdRcUs5TjRtaUxhSm85N04xWGlNQ3JyX0RBMThTQk5yN1d4bE9wVjg2eVhsdnVvVmxFcjNOOWQtVELSAYICQVVfeXFMUDY1MFBJM2RQM05CY1NQLXROLS1NRTdBOXFoV2dkWUNHTXAwODd0bW11STAxUjVwYVNHdnpNVWROMy02UkM0UlU0YTVuRFU2N2lXY2drejAtWDRwUWFoWDdJUHhGTjVwVTlMbDU5UEI2ZGk2VDNiV19HQldHaWtGNzNmMWxEeFFQeGNsZzBzamt2MU9vdWlWX09nSzkxRUpJdHNBakZ1blBoakdvOUU5dGN1N3FLeEtFcmdhRV8zQ1NsYjQ1TFF3MmZ4czh4cE1TN2RBdHhPT0tXR2ZsRHhfUm9pVmxrZ1h3WjlacHNILWlLd3Exam9lZC1FQktWSXB0US13?oc=5",
+  "date": "22 Oct 2026, 06:33 PM",
+  "desc": "जो US लगा रहा था एक्स्ट्रा टैरिफ, अब वही पढ़ रहा कसीदे; भारत की तेल आयात नीति पर क्या बोले मार्को रुबियो  HindustanExclusive Interview: 'पाकिस्तान से संबंध भारत की कीमत पर नहीं, ऑपरेशन सिंदूर के दौरान...', क्या बोले अमेरिकी विदेश मंत्री मार्को रुबियो  AajTakरिलायंस की रिफाइनरी में रुबियो का जोरदार स्वागत, अंबानी संग कई अहम मुद्दों पर हुई बात  India TV Hindi'क्या इंदिरा गांधी को समन किया गया था?' रुबियो से मुलाकात को लेकर राहुल के तंज पर जयशंकर का पलटवार  Hindustan'डील के बेहद करीब हैं दोनों देश', भारत-अमेरिका ट्रेड एग्रीमेंट पर डोनल्ड ट्रंप का बड़ा दावा  Jagran",
+  "image": "",
+  "article": "news/article/22-Oct-2026-us-hindustan.html"
+ },
+ {
+  "source": "Hindi News",
+  "title": "फ़्रांस के राष्ट्रपति विदेशी नेताओं पर भड़के, 'इस्लामी और प्रवासी भीड़' के आरोप पर दिया जवाब - BBC",
+  "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE91eUFGLVNzSWw4aGpEakUyazl4MnQzdVBNWmRPNnZlWnp2d3VaSC1IOXdMVGFEZ3AxN25WNjVSdkJlRzdEQWVMOVc1ekRiN0tTdF9ObTZPODlZczJS0gFiQVVfeXFMUFNyZ0Q4UmxPb0tBNW83ZTRQWkZGcXhKSVhuY2xreUd0aVhNTERiemZRaUpwTHpCbWRpY1p5VThFQlRmQVFmS1lySmtjU3JBUGhHQWphZzl5RnNvQUJ3dFk3Y3c?oc=5",
+  "date": "22 Oct 2026, 11:00 PM",
+  "desc": "फ़्रांस के राष्ट्रपति विदेशी नेताओं पर भड़के, 'इस्लामी और प्रवासी भीड़' के आरोप पर दिया जवाब  BBCफ्रांस, स्पेन, अल्बानिया के बाद अब ग्रीस में जोरदार प्रदर्शन, एथेंस में निकला सबसे बड़ा मार्च; जानें वजह  India TV Hindiफ्राँस में देशव्यापी विरोध-प्रदर्शन और अशांति  Drishti IASसैयद अता हसनैन का कॉलम: फ्रांस ही नहीं, आज समूचा यूरोप कई चुनौतियों से रूबरू हो रहा है  Dainik Bhaskarफ्रांस दंगे और ज्ञानेश कुमार के खिलाफ विरोध-प्रदर्शन का एक ही पैटर्न, दोनों को सिंघम दे रहे फंड?, National Hindi News  Hindustan",
+  "image": "",
+  "article": "news/article/22-Oct-2026-news-d14aa709.html"
+ },
+ {
+  "source": "Hindi News",
+  "title": "‘CJP प्रोटेस्ट के लिए फंडिंग कहां से आती है?’ RSS के Indresh Kumar ने उठाए सवाल - zeebharat.com",
+  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNjU5TFRWVEZsUTdKUG43LXRjYS1JU0ZFa3prMTF5MnZPZWZyMXAydU9zQ3kwUkFDS1c0bDdpODZxVHlybTdad2ZhYXZiR2RpajRrU2w1aEVyNWpQV0VEcGVaSU9aRWtUOG1kUGF5SE9STE5RdUlyYXJKWEdvMG5aZDZfbl9Dc2tPVmlodjBGbV9MWHYtZWttTFR6UWhZVlVGSWdiV0JabExyNjQ?oc=5",
+  "date": "22 Oct 2026, 11:11 PM",
+  "desc": "‘CJP प्रोटेस्ट के लिए फंडिंग कहां से आती है?’ RSS के Indresh Kumar ने उठाए सवाल  zeebharat.comसौरव दास और आशुतोष रांका के सामने नई टेंशन, पेश नहीं होने पर दिल्ली पुलिस उठा सकती है बड़ा कदम  Jagranजेल से निकले ‘जाल’ से नहीं; अभिजीत दीपके, सौरभ दास और और आशुतोष रांका के लिए 4 मुश्किलें, Ncr Hindi News  Hindustanराहुल गांधी को RSS की ABC जानने की जरूरत, शिवसेना का सौरव और आशुतोष की जमानत पर तंज  News18 HindiCJP नेताओं की कम नहीं हो रही मुश्किलें, आज क्राइम ब्रांच के सामने पेश होंगे दास, रांका और शिंदे, जानिए क्या  India TV Hindi",
+  "image": "",
+  "article": "news/article/22-Oct-2026-cjp-rss-indresh-kumar-zeebharat-com.html"
+ },
+ {
+  "source": "Hindi News",
+  "title": "Tiger Shroff Attack Case में बड़ा खुलासा, वारदात से पहले शूटरों ने की थी बंदूक चलाने की प्रैक्टिस, हुआ था म - India TV Hindi",
+  "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQMy1aSFBvTFdXWHZqbENOSkQ5X1I4bE5fTEx1N0MxRThYX3ROX0JXMF9La2s0X1BNYUlNeDdNTzB6bUpWb1hYYmhIWE1JQlFtZkUzaVlSMmV4NzVyY2N2LTBiYVhGWU9ocTc0MXpsMUJvTTJFQUJQMnFCckhxV2hzcE04X1hwQlBESHFEQUN3aFl5cjJYWVJ3b2ZVaEZnYmtYWXg5QlhnNGp1d2FRT1RnN2VaV3VDSG4xRm83YUN5X1p0YzZ2MlFzTXNKZ1lsNDUzSnVLZXJPRnduRzVWN1c3VnVPMU1NZw?oc=5",
+  "date": "22 Oct 2026, 10:25 AM",
+  "desc": "Tiger Shroff Attack Case में बड़ा खुलासा, वारदात से पहले शूटरों ने की थी बंदूक चलाने की प्रैक्टिस, हुआ था म  India TV Hindiटाइगर श्रॉफ़ फ़ायरिंग केस में गिरफ़्तार बेगूसराय का ऋतिक कुमार कौन है?  BBCटाइगर पर फायरिंग से पहले शूटर्स ने प्रैक्टिस की थी: होटल में भी मिसफायर हुआ; 3 राज्यों से 10 आरोपी गिरफ्तार...  Dainik Bhaskarजब टाइगर श्रॉफ पर हुई फायरिंग, ठीक सामने रखी थी हनुमान चालीसा, अब मां आयशा बोलीं- बजरंगबली ने बचाया  India TV Hindiटाइगर श्रॉफ फायरिंग केस: गैंगस्टर अनिल पंडित वॉन्टेड घोषित, चार आरोपी पुलिस हिरासत में  Jagran",
+  "image": "",
+  "article": "news/article/22-Oct-2026-tiger-shroff-attack-case-india-tv-hindi.html"
+ },
+ {
+  "source": "Hindi News",
+  "title": "सऊदी अरब में दो बांग्लादेशियों को मौत की सज़ा दिए जाने से जुड़े वे सवाल जो हैं अनसुलझे - BBC",
+  "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBscUFaQTBnd2o3RTBXWExoZjAtak9HLXBMOXhCV2ZRbWZOZ2o2RDhGbHh6bzZtcDNON2RwdER6eUhKbmpaUzZ4OTBuMjVfcEF6NFlCRjJaNnNLYmdf0gFiQVVfeXFMTTVaRFViRjVLV1lPamtGc2NORm5KR0F6cjc4eko2dXFzVkZDZ1hxQ1E2NFlzR29BMnZYRUViRVAxUUJyaTk4OF8xTnY2d0Qxb0xCQ0dhY09xbUM1R0RpblR4dXc?oc=5",
+  "date": "22 Oct 2026, 03:21 PM",
+  "desc": "सऊदी अरब में दो बांग्लादेशियों को मौत की सज़ा दिए जाने से जुड़े वे सवाल जो हैं अनसुलझे  BBCसऊदी अरब में बांग्लादेशी महिला कामगार कितनी सुरक्षित हैं?  BBCफैक्ट चेक: इनमें से कोई भी वीडियो सउदी अरब में मौत की सजा पाने वाले बांग्लादेशी नागरिकों का नहीं है  AajTakसऊदी अरब की सख्त सजा, क्या है 'ताज़ीर', मक्का में बांग्लादेशी कपल को क्यों दी गई मौत?  India TV Hindiसऊदी अरब में कत्ल: 'चार साल की बच्ची हो गई अनाथ...', बांग्लादेशी स्वीटी की रियल स्टोरी  Jagran",
+  "image": "",
+  "article": "news/article/22-Oct-2026-news-29d9f073.html"
+ },
+ {
+  "source": "PIB",
+  "title": "सामाजिक न्याय और अधिकारिता विभाग ‘विशेष अभियान 6’ के प्रति समर्पित - Press Information Bureau",
+  "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBMTFZacHV2SXo1TEFsd1MzWmJNbkI0V2ZHR0xIU1Z3NThqQUY2YkMtS3BxUFJYakRmNUF0NGFRcUpidVU1WkVUUS1PMUYwS2NISkN5cFJZTDU2ME5NWUJxVEZTZnlpV2RvdHZ5YzlJSUlycEZyVTRncDlEbHVidw?oc=5",
+  "date": "22 Oct 2026, 02:14 PM",
+  "desc": "सामाजिक न्याय और अधिकारिता विभाग ‘विशेष अभियान 6’ के प्रति समर्पित  Press Information Bureau",
+  "image": "",
+  "article": "news/article/22-Oct-2026-6-press-information-bureau.html"
+ },
+ {
+  "source": "PIB",
+  "title": "केंद्रीय शिक्षा मंत्री ने भारत इनोवेट्स 2026 पर स्मारक पुस्तक का विमोचन किया - Press Information Bureau",
+  "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBlOU8wbER5QjU5NFpWX2V0TlZSZTZMU2VGQi1LWDhMQnNyX3BESUwtQmZwLVljMXBFOW5vVXhUQ3hQRmx0cXl2OUk0ZXRwY3ljbTFBUkJVb0piN081WS00eXNUQ1hfXzRvNDEw?oc=5",
+  "date": "22 Oct 2026, 01:23 PM",
+  "desc": "केंद्रीय शिक्षा मंत्री ने भारत इनोवेट्स 2026 पर स्मारक पुस्तक का विमोचन किया  Press Information Bureau",
+  "image": "",
+  "article": "news/article/22-Oct-2026-2026-press-information-bureau.html"
+ },
+ {
+  "source": "PIB",
+  "title": "केंद्रीय मंत्री जे. पी. नड्डा ने मुंबई में 14वें इंडिया केम 2026 का उद्घाटन किया - Press Information Bureau",
+  "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9jTmtRbmZlX3Q5OGxhcFpTaU4wT2VvZVRaOTczTjV3UnN1cGEyN253VUxxdFRsTE1za21Gc0dWVmtIZjhZaVZtWnBZWjZZTkx6NFpLNEFaU2NFYUVPR2JVSnZIQXFJTE5oOHZzbV94N1AtdU5nVGlNNg?oc=5",
+  "date": "22 Oct 2026, 07:33 PM",
+  "desc": "केंद्रीय मंत्री जे. पी. नड्डा ने मुंबई में 14वें इंडिया केम 2026 का उद्घाटन किया  Press Information Bureau",
+  "image": "",
+  "article": "news/article/22-Oct-2026-14-2026-press-information-bureau.html"
+ },
+ {
+  "source": "PIB",
+  "title": "'नशा मुक्त भारत अभियान' 35 करोड़ से अधिक लोगों तक पहुंचा, जिनमें 13.94 करोड़ से ज़्यादा युवा एवं 10.86 करोड़ महिलाएं शामिल; साथ ही, आउटरीच गतिविधियों के माध्यम से 32 लाख से अधिक शिक्षण संस - Press Information Bureau",
+  "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9vWHdMcFlvZ0hNTnRRNFU2RWhrNFUxRDZxaTUyQUFFaVMwR1RTSHZJWkx6c3dyLWNudlFORUl0OFhBVzZ6QVgtd3pESkZUOFRPMm5EODZFSkUzQWgwUUs5UDItUExkWWJKcTFMSXhKNGVKMHF6Yi1obg?oc=5",
+  "date": "22 Oct 2026, 06:22 PM",
+  "desc": "'नशा मुक्त भारत अभियान' 35 करोड़ से अधिक लोगों तक पहुंचा, जिनमें 13.94 करोड़ से ज़्यादा युवा एवं 10.86 करोड़ महिलाएं शामिल; साथ ही, आउटरीच गतिविधियों के माध्यम से 32 लाख से अधिक शिक्षण संस  Press Information Bureau",
+  "image": "",
+  "article": "news/article/22-Oct-2026-35-13-94-10-86-32-press-information.html"
+ },
+ {
+  "source": "MP News",
+  "title": "एमपीपीएससी: मध्य प्रदेश जेल विभाग में लॉ ऑफिसर की भर्ती, पांच नवंबर तक करें आवेदन, 1.77 लाख तक वेतन - Amar Ujala",
+  "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQVnR5Y01vRWZkQXo0ZzRjTlEyYmp6dnlHbjc2eDBfbW5XRGpkUGVObVF3NG9LdFlieFJLcDJ0empWYXBkdEFMYVlDMjhLeVl6SVliSEpUcnE4VkdmamxkR0Y5ZjJ6eS1DazRUOVNuZzBXbEQ1Z3dTSVNTcEo5ZWgzQTFBN3RFejdOTUlqcUVTaUdXLXdzd1c1cGdwdUY4d3JsMk1ZU01iR3N0MGdpOHoyTFhYM3hQZEJ2bnY4RWNVU1p6Y2hBdmRBdjFMTW15Q1k5Sm01N18zazllYzg?oc=5",
+  "date": "22 Oct 2026, 08:00 PM",
+  "desc": "एमपीपीएससी: मध्य प्रदेश जेल विभाग में लॉ ऑफिसर की भर्ती, पांच नवंबर तक करें आवेदन, 1.77 लाख तक वेतन  Amar Ujala",
+  "image": "",
+  "article": "news/article/22-Oct-2026-1-77-amar-ujala.html"
+ },
+ {
+  "source": "MP News",
+  "title": "हातोद में तेज बारिश, पीथमपुर में बूंदाबांदी: MP के 11 जिलों में बारिश-आंधी का अलर्ट; अमरकंटक में पारा 16° स... - Dainik Bhaskar",
+  "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSHJBTzIzNTFuTk5ncVBnb1NRU3BRZ2FlUmZfNGtzQ0VQTGEySkJ5QlN4cEQxZGhvWWc3SGk4MjZlTU52M1YxVEg3UkNwVk43V3EybWljbjlIa1ZBcGR5allTdllDRmw1QVNVNmkwMEtFbU5kSWtQcU1zZXU4eWFfSW9oTzdHa2Rhdzg5dzJXdGxTNzF0UnYtMmZjZGh3ekY0UFB0X3JUU1ZNOXRFajJGd1pSdHVYSDNmcjN0dGlyTdIBxAFBVV95cUxPV3libEt0UXhmQ0ZrMFFLUXdiLTRES3RJMElRbkZ1YWFlUldDRkw0RzNVSk9aU2lON1lCb3hrTWxYOTAxM3BabHRkY2ZaSjJhbUVyZ1VaWFRCQV85T0FRbEI0aUZqTXZITkhUaG92R1JLLTZzd04wZWxJc2pUWjBvMnlwenFtdm1lVTNZVG0wdFBMdndRcFQ3VmU5MHJObTRKMWRiLWt1VGdIMTY3ZVZod3FQYnRfZUJINEt4QjBQQmNWakxU?oc=5",
+  "date": "22 Oct 2026, 05:01 AM",
+  "desc": "हातोद में तेज बारिश, पीथमपुर में बूंदाबांदी: MP के 11 जिलों में बारिश-आंधी का अलर्ट; अमरकंटक में पारा 16° स...  Dainik Bhaskar",
+  "image": "",
+  "article": "news/article/22-Oct-2026-mp-11-16-dainik-bhaskar.html"
+ },
+ {
+  "source": "Hindi News",
   "title": "PM बोले-कुछ लोग विदेशों में भारत को बदनाम कर रहे: कांग्रेस कब तक अपने फेल प्रोडक्ट की लॉन्चिंग के लिए देश क... - Dainik Bhaskar",
   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMU1QZTZoRnFrb0hhVk9lS09LM3R0RjUzNExScDJWU202TFV2cFp3bTBYNjhQaWVuVGRvV1RBMTRVWWNJdHBTeU56RGkzSElNRzBGNE9BUXUwaEMtTDN1a0hBQ0R1YmNGWkprWHItY2dLSk4zRTl5TmRkYW95NTFkVFNXU3VtczFocDc0YjB2dWtoXzZIWUNBT0VMNWtObFJ5c0NobHpUWmc0aFpJd2s0eGV1VU9rNFow0gG-AUFVX3lxTE5fRnBlamZWNkozN1FsdHFrM2E4SnJuenc5TDdIU1NpaDYtQTJwOFFPNUVsYTlaNVdRamRUVGVHRDRUdXBKLXJuWGJ0WWo1R1Z1NTVxSllPcWZ0aXdqS2E5TjZTS2ptd19TN09vSnZ4NmpwRVp1TmU4TmtUMmRSRmI0d256TWJZOEVoTF9MMEJ6Tk9aTUVkU3Rsd3MzNTJubGlveF8xZnZhZkRZY2hkU081WGlOdVRpdW5BSjBPV2c?oc=5",
   "date": "22 Oct 2026, 10:01 PM",
@@ -122,51 +221,6 @@
   "article": "news/article/22-Oct-2026-z-news18-hindi.html"
  },
  {
-  "source": "Hindi News",
-  "title": "Tiger Shroff Attack Case में बड़ा खुलासा, वारदात से पहले शूटरों ने की थी बंदूक चलाने की प्रैक्टिस, हुआ था म - India TV Hindi",
-  "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQMy1aSFBvTFdXWHZqbENOSkQ5X1I4bE5fTEx1N0MxRThYX3ROX0JXMF9La2s0X1BNYUlNeDdNTzB6bUpWb1hYYmhIWE1JQlFtZkUzaVlSMmV4NzVyY2N2LTBiYVhGWU9ocTc0MXpsMUJvTTJFQUJQMnFCckhxV2hzcE04X1hwQlBESHFEQUN3aFl5cjJYWVJ3b2ZVaEZnYmtYWXg5QlhnNGp1d2FRT1RnN2VaV3VDSG4xRm83YUN5X1p0YzZ2MlFzTXNKZ1lsNDUzSnVLZXJPRnduRzVWN1c3VnVPMU1NZw?oc=5",
-  "date": "22 Oct 2026, 10:25 AM",
-  "desc": "Tiger Shroff Attack Case में बड़ा खुलासा, वारदात से पहले शूटरों ने की थी बंदूक चलाने की प्रैक्टिस, हुआ था म  India TV Hindiटाइगर श्रॉफ़ फ़ायरिंग केस में गिरफ़्तार बेगूसराय का ऋतिक कुमार कौन है?  BBCटाइगर पर फायरिंग से पहले शूटर्स ने प्रैक्टिस की थी: होटल में भी मिसफायर हुआ; 3 राज्यों से 10 आरोपी गिरफ्तार...  Dainik Bhaskarकौन हैं UP की राधा और बबीता, जो ट्रेन से मुंबई असलहे पहुंचाने के काम में लगी थीं; टाइगर श्रॉफ अटैक मामले मे  India TV Hindiटाइगर श्रॉफ फायरिंग केस, 4 दिनों तक पुलिस कस्टडी में रहेंगे आरोपी, बबीता के छलके आंसू  ABP News",
-  "image": "",
-  "article": "news/article/22-Oct-2026-tiger-shroff-attack-case-india-tv-hindi.html"
- },
- {
-  "source": "PIB",
-  "title": "सामाजिक न्याय और अधिकारिता विभाग ‘विशेष अभियान 6’ के प्रति समर्पित - Press Information Bureau",
-  "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBMTFZacHV2SXo1TEFsd1MzWmJNbkI0V2ZHR0xIU1Z3NThqQUY2YkMtS3BxUFJYakRmNUF0NGFRcUpidVU1WkVUUS1PMUYwS2NISkN5cFJZTDU2ME5NWUJxVEZTZnlpV2RvdHZ5YzlJSUlycEZyVTRncDlEbHVidw?oc=5",
-  "date": "22 Oct 2026, 02:14 PM",
-  "desc": "सामाजिक न्याय और अधिकारिता विभाग ‘विशेष अभियान 6’ के प्रति समर्पित  Press Information Bureau",
-  "image": "",
-  "article": "news/article/22-Oct-2026-6-press-information-bureau.html"
- },
- {
-  "source": "PIB",
-  "title": "'नशा मुक्त भारत अभियान' 35 करोड़ से अधिक लोगों तक पहुंचा, जिनमें 13.94 करोड़ से ज़्यादा युवा एवं 10.86 करोड़ महिलाएं शामिल; साथ ही, आउटरीच गतिविधियों के माध्यम से 32 लाख से अधिक शिक्षण संस - Press Information Bureau",
-  "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9vWHdMcFlvZ0hNTnRRNFU2RWhrNFUxRDZxaTUyQUFFaVMwR1RTSHZJWkx6c3dyLWNudlFORUl0OFhBVzZ6QVgtd3pESkZUOFRPMm5EODZFSkUzQWgwUUs5UDItUExkWWJKcTFMSXhKNGVKMHF6Yi1obg?oc=5",
-  "date": "22 Oct 2026, 06:22 PM",
-  "desc": "'नशा मुक्त भारत अभियान' 35 करोड़ से अधिक लोगों तक पहुंचा, जिनमें 13.94 करोड़ से ज़्यादा युवा एवं 10.86 करोड़ महिलाएं शामिल; साथ ही, आउटरीच गतिविधियों के माध्यम से 32 लाख से अधिक शिक्षण संस  Press Information Bureau",
-  "image": "",
-  "article": "news/article/22-Oct-2026-35-13-94-10-86-32-press-information.html"
- },
- {
-  "source": "PIB",
-  "title": "केंद्रीय शिक्षा मंत्री ने भारत इनोवेट्स 2026 पर स्मारक पुस्तक का विमोचन किया - Press Information Bureau",
-  "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBlOU8wbER5QjU5NFpWX2V0TlZSZTZMU2VGQi1LWDhMQnNyX3BESUwtQmZwLVljMXBFOW5vVXhUQ3hQRmx0cXl2OUk0ZXRwY3ljbTFBUkJVb0piN081WS00eXNUQ1hfXzRvNDEw?oc=5",
-  "date": "22 Oct 2026, 01:23 PM",
-  "desc": "केंद्रीय शिक्षा मंत्री ने भारत इनोवेट्स 2026 पर स्मारक पुस्तक का विमोचन किया  Press Information Bureau",
-  "image": "",
-  "article": "news/article/22-Oct-2026-2026-press-information-bureau.html"
- },
- {
-  "source": "PIB",
-  "title": "केंद्रीय मंत्री जे. पी. नड्डा ने मुंबई में 14वें इंडिया केम 2026 का उद्घाटन किया - Press Information Bureau",
-  "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9jTmtRbmZlX3Q5OGxhcFpTaU4wT2VvZVRaOTczTjV3UnN1cGEyN253VUxxdFRsTE1za21Gc0dWVmtIZjhZaVZtWnBZWjZZTkx6NFpLNEFaU2NFYUVPR2JVSnZIQXFJTE5oOHZzbV94N1AtdU5nVGlNNg?oc=5",
-  "date": "22 Oct 2026, 07:33 PM",
-  "desc": "केंद्रीय मंत्री जे. पी. नड्डा ने मुंबई में 14वें इंडिया केम 2026 का उद्घाटन किया  Press Information Bureau",
-  "image": "",
-  "article": "news/article/22-Oct-2026-14-2026-press-information-bureau.html"
- },
- {
   "source": "PIB",
   "title": "रक्षा सचिव ने विशेष अभियान 6 के तहत नई दिल्ली स्थि‍त सेना भवन में हिंदी पुस्तकालय 'ज्ञानदीप' का उद्घाटन किया - Press Information Bureau",
   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5yZHlTY0VOSlZuOVlsYmlGVW5yRWRDUUJiN05kWnR2TnBncm50ZVd0OHZibUF0U2NUMWxfOFR3cFVkOUhJcE5PU1RReXoxVzVyM2E5c0tBLUIxWFA2RnZ3MURIZ1lJb0Y3YnV6X3dMM1poV3JxeGhVNw?oc=5",
@@ -174,15 +228,6 @@
   "desc": "रक्षा सचिव ने विशेष अभियान 6 के तहत नई दिल्ली स्थि‍त सेना भवन में हिंदी पुस्तकालय 'ज्ञानदीप' का उद्घाटन किया  Press Information Bureau",
   "image": "",
   "article": "news/article/22-Oct-2026-6-press-information-bureau.html"
- },
- {
-  "source": "MP News",
-  "title": "हातोद में तेज बारिश, पीथमपुर में बूंदाबांदी: MP के 11 जिलों में बारिश-आंधी का अलर्ट; अमरकंटक में पारा 16° स... - Dainik Bhaskar",
-  "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSHJBTzIzNTFuTk5ncVBnb1NRU3BRZ2FlUmZfNGtzQ0VQTGEySkJ5QlN4cEQxZGhvWWc3SGk4MjZlTU52M1YxVEg3UkNwVk43V3EybWljbjlIa1ZBcGR5allTdllDRmw1QVNVNmkwMEtFbU5kSWtQcU1zZXU4eWFfSW9oTzdHa2Rhdzg5dzJXdGxTNzF0UnYtMmZjZGh3ekY0UFB0X3JUU1ZNOXRFajJGd1pSdHVYSDNmcjN0dGlyTdIBxAFBVV95cUxPV3libEt0UXhmQ0ZrMFFLUXdiLTRES3RJMElRbkZ1YWFlUldDRkw0RzNVSk9aU2lON1lCb3hrTWxYOTAxM3BabHRkY2ZaSjJhbUVyZ1VaWFRCQV85T0FRbEI0aUZqTXZITkhUaG92R1JLLTZzd04wZWxJc2pUWjBvMnlwenFtdm1lVTNZVG0wdFBMdndRcFQ3VmU5MHJObTRKMWRiLWt1VGdIMTY3ZVZod3FQYnRfZUJINEt4QjBQQmNWakxU?oc=5",
-  "date": "22 Oct 2026, 05:01 AM",
-  "desc": "हातोद में तेज बारिश, पीथमपुर में बूंदाबांदी: MP के 11 जिलों में बारिश-आंधी का अलर्ट; अमरकंटक में पारा 16° स...  Dainik Bhaskar",
-  "image": "",
-  "article": "news/article/22-Oct-2026-mp-11-16-dainik-bhaskar.html"
  },
  {
   "source": "MP News",
@@ -708,15 +753,6 @@
   "article": "news/article/21-Oct-2026-us-india-tv-hindi.html"
  },
  {
-  "source": "Hindi News",
-  "title": "सऊदी अरब में दो बांग्लादेशियों को मौत की सज़ा दिए जाने से जुड़े वे सवाल जो हैं अनसुलझे - BBC",
-  "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBscUFaQTBnd2o3RTBXWExoZjAtak9HLXBMOXhCV2ZRbWZOZ2o2RDhGbHh6bzZtcDNON2RwdER6eUhKbmpaUzZ4OTBuMjVfcEF6NFlCRjJaNnNLYmdf0gFiQVVfeXFMTTVaRFViRjVLV1lPamtGc2NORm5KR0F6cjc4eko2dXFzVkZDZ1hxQ1E2NFlzR29BMnZYRUViRVAxUUJyaTk4OF8xTnY2d0Qxb0xCQ0dhY09xbUM1R0RpblR4dXc?oc=5",
-  "date": "21 Oct 2026, 10:25 PM",
-  "desc": "सऊदी अरब में दो बांग्लादेशियों को मौत की सज़ा दिए जाने से जुड़े वे सवाल जो हैं अनसुलझे  BBCसऊदी में सज़ा-ए-मौत पाने वाले बांग्लादेश के उस पुरुष के बारे में ये जानकारी सामने आई  BBC'कर्ज लेकर भेजा, अब 4 साल की बेटी बिन मां के हो गई...', सऊदी में कत्ल कर दी गई बांग्लादेशी स्वीटी की कहानी  AajTakसऊदी अरब की सख्त सजा, क्या है 'ताज़ीर', मक्का में बांग्लादेशी कपल को क्यों दी गई मौत?  India TV Hindiसऊदी अरब में कत्ल: 'चार साल की बच्ची हो गई अनाथ...', बांग्लादेशी स्वीटी की रियल स्टोरी  Jagran",
-  "image": "",
-  "article": "news/article/21-Oct-2026-news-29d9f073.html"
- },
- {
   "source": "PIB",
   "title": "भारत और जापान ने संयुक्त ऋण तंत्र के लिए परिचालन नियमावली जारी की - Press Information Bureau",
   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5pdmg2eS1OWGVkY1lGN2hPbjJvc1ozaFVCOGRXczJVaTBCdlJXY2VrbGt1RXR1WXZfRGcyOC1WbW9yckYwM08xQWlhQWt1Qy1ZOFVWdlhpMjI2QmNBWGxqVDhXMUI0NEZMS1FxSHQ5UzQ0WTdITWIxMWptMF9ZZw?oc=5",
@@ -877,41 +913,5 @@
   "desc": "भोपाल में आसमान साफ तो उज्जैन-इंदौर में आंधी-बारिश, मध्य प्रदेश में आज कैसा रहेगा मौसम?  News18 Hindi",
   "image": "",
   "article": "news/article/21-Oct-2026-news18-hindi.html"
- },
- {
-  "source": "MP News",
-  "title": "रणजी ट्रॉफी: पुडुचेरी और मध्य प्रदेश का मैच नीरस ड्रॉ - ThePrint Hindi",
-  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOckJ6V1pWWFU2WGZjd2dJUEg0bVA3UVF4RnJPeUs1dWt3ZjFsREF2Xy0xWEN1SldpNURvZGtIdjBwMlowSTZxblVQa2ljTjk1cUt5eWlZVjctREhSTEhlbHZBNUlvZkdUYmdwMkR0aWtucWd6ekhQMWJ0b3FzUWF2TkJPYUlkdmUzVGo1V0dTRW1uaU94Zjhma1FjOHVBWmxOTGVBZnVB0gGrAUFVX3lxTE1IUXpNUE9DR0o2NjNkWHJwS1JzQUJHaXo1X3dFeXR2aVlTSGNyY3VXWFRSdDQ3UUZUS2t1LUIyUDhqTG9rRmxyWW44QWFPUWJvX2JzWVVmaGkyek9DUXZpR1pGZU9HMjU0M0lobXRyX0NPcFR1WmtVeTg5eks3ZEw2VENuZGtHajljU2JRcV9TMzN1M3I0QURJazV5aVdFUG9RY1FOR0hpWGJxUQ?oc=5",
-  "date": "21 Oct 2026, 07:35 PM",
-  "desc": "रणजी ट्रॉफी: पुडुचेरी और मध्य प्रदेश का मैच नीरस ड्रॉ  ThePrint Hindi",
-  "image": "",
-  "article": "news/article/21-Oct-2026-theprint-hindi.html"
- },
- {
-  "source": "MP News",
-  "title": "केदारनाथ में तापमान माइनस 7°C, राजस्थान में ओले गिरे: एमपी के 21 जिलों में बारिश का अलर्ट; यूपी के लखनऊ-कान... - Dainik Bhaskar",
-  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPaHdZV3Q2SlVZZmhHamw4NjhRWmJHdmREdjIxamp2eWZEblZ0dkZMYVR3a09zTkt5eFhVUFhFUHJLRG1UZUpZTndsRkFab1VpcTk0NkQ3Mzh3aVFlRmJwc3pKbjdTSlpDcFVfaGN4bUFlNWJxelJnenp4amRnNFpBY1E5MGlucHA2YnNYTnVrczJySVgtSjhodGNSQkh0ajNCamdqQ05lWFFHbWZTOFNZdU05NDJQQ3pCSTR6aG5n0gHDAUFVX3lxTE5qV0RkcUJDSTk2RXliVFRzTzYwcnRBdU8tM0h0czdGeEZzbEFmdUR6RzVWaHR2ZVZULVpld0RxOEwzQzRQRnZrN3Y1SkxEN1pNQkxfdFBFMTBJeWd1Y2xHMkp4S2pnVWQ1RjdZVHVmS1pkOTZOSW45cWc0eDVnU1E4WGdxNE5SbTVZcTI4YjAxSXM4SzBFamg3MnEyc3hZc05saTNIeDlIa3NDZXJNbkJWNDl4ZVpCWi0yN3Q3NTlwYnhybw?oc=5",
-  "date": "21 Oct 2026, 05:03 AM",
-  "desc": "केदारनाथ में तापमान माइनस 7°C, राजस्थान में ओले गिरे: एमपी के 21 जिलों में बारिश का अलर्ट; यूपी के लखनऊ-कान...  Dainik Bhaskar",
-  "image": "",
-  "article": "news/article/21-Oct-2026-7-c-21-dainik-bhaskar.html"
- },
- {
-  "source": "Hindi News",
-  "title": "सऊदी अरब में सज़ा-ए-मौत पाने वाले बांग्लादेश के उस पुरुष के बारे में ये जानकारी सामने आई - BBC",
-  "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1hNU03eHVUTDhjb0l4TTlzNWV0T19wb2hveTE2LW0wdTFTVlZCbWZvRjQxUEZkR1hPNVRRa2NvZXRpcmlRd2NaZDM1OEw1ZGpsRzRMczNPRVV3NzJy0gFiQVVfeXFMUFF3RENsOFZ2dDdtczJyYndVUksybmk3ZzYtVWJua2ZXN1dqQUppTTBGSzlaRXI5eVA0YUtDSllMVnpmSW9rMXc2TnpXTnFyaDBscmpLWjZHdHRDRU1CbVN1V1E?oc=5",
-  "date": "21 Oct 2026, 08:38 AM",
-  "desc": "सऊदी अरब में सज़ा-ए-मौत पाने वाले बांग्लादेश के उस पुरुष के बारे में ये जानकारी सामने आई  BBCसऊदी में बांग्लादेश की जिस महिला को मौत की सज़ा मिली उसके घर वालों ने दी ये जानकारी  BBCमस्जिद में किया KISS तो दे दी मौत! पाकिस्तान के दो करीबी देश उलझे; मृत्युदंड पर ढाका में बवाल?, International Hindi News  Hindustanबांग्लादेश बोला-सऊदी ने बिना बताए हमारे नागरिकों को फांसी दी: मस्जिद में अश्लील हरकत करने पर पति-पत्नी को म...  Dainik Bhaskar'बिना मुकदमे के कत्ल कर दिया गया बेटा...', सऊदी शासन से गुस्सा, बांग्लादेश से मांगा इंसाफ, नजरुल की कहानी  AajTak",
-  "image": "",
-  "article": "news/article/21-Oct-2026-news-3cc6f95a.html"
- },
- {
-  "source": "Hindi News",
-  "title": "टाइगर श्रॉफ को मिली पुलिस सुरक्षा: फायरिंग के बाद बॉडीगार्ड तैनात, रैपिडो ने कहा- घटना वाले दिन आरोपी ऋतिक ... - Dainik Bhaskar",
-  "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNRW5pT0xHTkJaaTlEMVE5NEpoTWE4N3FLaWMxcFFhNnVvSTU0Z0lEaUdPZUxBeHpOQUZuZGFxMkRxZUhYVk1ZOGRGSG9ITlNpM3dlelVxYzBhX1NRZUh6cDZmZHJKTF9lTFM4ODl4eTJsZDZQeFk4OWlRTXBUWHo3ZjItX3NaZm01c203cmU3dGNoRXZaQlZsRjNVckRNSGYxOFVPcTZlV0VtTGZVS3JyYzR2UDQxdVhCNy1DZkh4V0trVC1aSUJzT1RzQVpPeHR5?oc=5",
-  "date": "21 Oct 2026, 06:52 AM",
-  "desc": "टाइगर श्रॉफ को मिली पुलिस सुरक्षा: फायरिंग के बाद बॉडीगार्ड तैनात, रैपिडो ने कहा- घटना वाले दिन आरोपी ऋतिक ...  Dainik Bhaskarटाइगर श्रॉफ पर फ़ायरिंगः वो एक फ़ोन कॉल जिससे तीनों अभियुक्त पकड़ में आए  BBCटाइगर श्रॉफ फायरिंग-आरोपियों ने अमिताभ-सलमान, आमिर-अक्षय की रेकी की थी: सिक्योरिटी ज्यादा थी तो प्लान बदला;...  Dainik BhaskarExclusive: 'मुझे लगा टायर फटा है, फिर तेज दर्द हुआ', टाइगर श्रॉफ पर फायरिंग के दौरान सीने में लगी गोली, अब  India TV Hindi3 गाड़ियां, 3 रास्ते और 3 राज्य… टाइगर श्रॉफ के शूटर्स को कैसे महाराष्ट्र लाई पुलिस?  Jagran",
-  "image": "",
-  "article": "news/article/21-Oct-2026-dainik-bhaskar.html"
  }
 ]
