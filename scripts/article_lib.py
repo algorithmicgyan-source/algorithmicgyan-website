@@ -15,40 +15,93 @@ from urllib.parse import quote as _quote
 SITE = "https://algorithmicgyan-source.github.io/algorithmicgyan-website/"
 
 
-def fetch_body(url):
-    """Fetch the full article text from a DIRECT source URL.
+DESKTOP_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+MOBILE_UA = "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Chrome/126.0 Mobile Safari/537.36"
 
-    Returns "" on any failure (caller falls back to the RSS description).
-    Google News redirect links (news.google.com) cannot be fetched
-    server-side (Google returns 400 without a real browser session),
-    so callers should skip those and keep the RSS description.
+# Body cap — LONG description (user: "lambi jaankari honi chahiye").
+# Pehle 4000 chars / 8 paras tha, isliye khabar aadhi dikhti thi.
+BODY_MAX_CHARS = 12000
+BODY_MAX_PARAS = 25
+
+
+def fetch_html(url):
+    """Article HTML lao: desktop UA, 403 mile to mobile UA se retry.
+
+    Kuch publishers (NDTV) desktop UA ko 403 dete hain, mobile UA se khul jaate hain.
+    Returns "" on any failure.
     """
-    try:
-        import urllib.request as _ur
-        from trafilatura import extract as _extract
-        _req = _ur.Request(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"})
-        with _ur.urlopen(_req, timeout=25) as _r:
-            _html = _r.read().decode("utf-8", "ignore")
-        _txt = _extract(_html, include_comments=False, include_tables=False, no_fallback=False)
-        if not _txt:
+    import urllib.request as _ur
+    import urllib.error as _ue
+    for _ua in (DESKTOP_UA, MOBILE_UA):
+        try:
+            _req = _ur.Request(url, headers={
+                "User-Agent": _ua, "Accept-Language": "hi-IN,hi;q=0.9,en;q=0.8",
+                "Accept": "text/html,application/xhtml+xml"})
+            with _ur.urlopen(_req, timeout=25) as _r:
+                return _r.read().decode("utf-8", "ignore")
+        except _ue.HTTPError as _e:
+            if _e.code != 403:
+                return ""
+            continue
+        except Exception:
             return ""
-        _paras = [p.strip() for p in _txt.split("\n") if len(p.strip()) > 60]
-        _bad = ("subscribe", "advertisement", "also read", "read also", "follow us",
-                "download", "copyright", "all rights reserved", "sign up",
-                "newsletter", "click here")
-        _paras = [p for p in _paras if not any(b in p.lower() for b in _bad)]
-        _out, _total = [], 0
-        for p in _paras:
-            if _total + len(p) > 4000:
-                break
-            _out.append(p)
-            _total += len(p)
-            if len(_out) >= 8:
-                break
-        return "\n\n".join(_out)
-    except Exception:
+    return ""
+
+
+def extract_image(page_html):
+    """Article page se photo: og:image -> twitter:image. Google ki generic image kabhi nahi."""
+    if not page_html:
         return ""
+    _m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)', page_html)
+    if not _m:
+        _m = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']', page_html)
+    if not _m:
+        _m = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)', page_html)
+    _u = _m.group(1).strip() if _m else ""
+    if not _u or "googleusercontent" in _u or "gstatic" in _u:
+        return ""
+    return html.unescape(_u)
+
+
+def fetch_article(url):
+    """Ek article page se (full body, photo) — ek hi fetch me dono.
+
+    Google News redirect links (news.google.com) server-side nahi khulte
+    (sirf JS shell milta hai, na body na asli photo), isliye caller unhe
+    skip kare aur direct source feed ke link hi bhej.
+    Returns (body, image); dono "" ho sakte hain on failure.
+    """
+    _html = fetch_html(url)
+    if not _html:
+        return "", ""
+    _img = extract_image(_html)
+    try:
+        from trafilatura import extract as _extract
+        _txt = _extract(_html, include_comments=False, include_tables=False, no_fallback=False)
+    except Exception:
+        _txt = ""
+    if not _txt:
+        return "", _img
+    _paras = [p.strip() for p in _txt.split("\n") if len(p.strip()) > 60]
+    _bad = ("subscribe", "advertisement", "also read", "read also", "follow us",
+            "download", "copyright", "all rights reserved", "sign up",
+            "newsletter", "click here")
+    _paras = [p for p in _paras if not any(b in p.lower() for b in _bad)]
+    _out, _total = [], 0
+    for p in _paras:
+        if _total + len(p) > BODY_MAX_CHARS:
+            break
+        _out.append(p)
+        _total += len(p)
+        if len(_out) >= BODY_MAX_PARAS:
+            break
+    return "\n\n".join(_out), _img
+
+
+def fetch_body(url):
+    """Back-compat wrapper: sirf body (photo nahi). Naya code fetch_article use kare."""
+    _body, _img = fetch_article(url)
+    return _body
 
 
 def share_bar(title, url):
