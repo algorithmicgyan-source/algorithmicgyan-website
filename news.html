@@ -110,6 +110,15 @@
   </section>
   <section class="section">
     <div class="wrap">
+      <div style="background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:12px;margin-bottom:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <button id="calPrev" class="chip" style="flex:0 0 auto">‹ पिछला</button>
+          <div id="calTitle" style="font-weight:700;font-size:1rem"></div>
+          <button id="calNext" class="chip" style="flex:0 0 auto">अगला ›</button>
+        </div>
+        <div id="calGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:.9rem"></div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:8px">📅 Calendar se kisi tarikh par tap karein — us din ki saari khabrein khulengi. Date ka link copy karke share bhi kar sakte hain.</div>
+      </div>
       <div style="background:#e3f2fd;border-radius:12px;padding:12px;margin-bottom:14px">
         <div style="font-weight:700;margin-bottom:8px;font-size:1rem">Tarikh se dekhein:</div>
         <div class="chips" id="dateFilter" style="flex-wrap:nowrap;overflow-x:auto;padding:4px;align-items:center;-webkit-overflow-scrolling:touch"></div>
@@ -165,6 +174,65 @@ var SITE_URL = "https://algorithmicgyan-source.github.io/algorithmicgyan-website
 var curSource = "all";
 var curDate = null; // "DD Mon YYYY" or null = all dates
 var DATE_LIST = [];
+// ---- Calendar archive state (poori news history) ----
+var ARCHIVE = [];
+var ARCHIVE_BY_DATE = {};
+var calYear = null, calMonth = null;
+var CAL_MONTHS = ["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
+var CAL_DAYS = ["रवि","सोम","मंगल","बुध","गुरु","शुक्र","शनि"];
+var MONTHS_EN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function istNow() { return new Date(new Date().toLocaleString("en-US", {timeZone:"Asia/Kolkata"})); }
+function setDateParam(k) {
+  try {
+    var u = new URL(window.location.href);
+    if (k) u.searchParams.set("date", k); else u.searchParams.delete("date");
+    history.replaceState(null, "", u.toString());
+  } catch(e) {}
+}
+function buildCalendar() {
+  var box = document.getElementById("calGrid");
+  var title = document.getElementById("calTitle");
+  if (!box || !title) return;
+  if (calYear === null) {
+    if (curDate) {
+      var m = curDate.match(/(\d{2})\s+(\w{3})\s+(\d{4})/);
+      if (m) { calYear = +m[3]; calMonth = MON_IDX[m[2]] || 0; }
+    }
+    if (calYear === null) { var t = istNow(); calYear = t.getFullYear(); calMonth = t.getMonth(); }
+  }
+  title.textContent = CAL_MONTHS[calMonth] + " " + calYear;
+  var startDay = new Date(calYear, calMonth, 1).getDay();
+  var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  var html = "";
+  CAL_DAYS.forEach(function(d) { html += '<div style="font-weight:700;color:var(--muted);padding:4px 0">' + d + "</div>"; });
+  for (var i = 0; i < startDay; i++) html += "<div></div>";
+  for (var d = 1; d <= daysInMonth; d++) {
+    var k = String(d).padStart(2, "0") + " " + MONTHS_EN[calMonth] + " " + calYear;
+    var cnt = ARCHIVE_BY_DATE[k] || 0;
+    if (cnt > 0) {
+      var act = (k === curDate) ? " active" : "";
+      html += '<button class="chip cal-day' + act + '" data-d="' + escapeHTML(k) + '" style="flex-direction:column;line-height:1.2;padding:6px 2px">' + d + '<span style="font-size:.7rem">' + cnt + " खबर</span></button>";
+    } else {
+      html += '<div style="padding:8px 2px;color:#ccc">' + d + "</div>";
+    }
+  }
+  box.innerHTML = html;
+}
+function selectDate(k) {
+  curDate = k || null;
+  document.querySelectorAll("#dateFilter .date-chip").forEach(function(c) { c.classList.remove("active"); });
+  if (!k) {
+    var sab = document.querySelector('#dateFilter .date-chip[data-d=""]');
+    if (sab) sab.classList.add("active");
+  }
+  setDateParam(k);
+  if (k) {
+    var m = k.match(/(\d{2})\s+(\w{3})\s+(\d{4})/);
+    if (m) { calYear = +m[3]; calMonth = MON_IDX[m[2]] || 0; }
+  }
+  buildCalendar();
+  render();
+}
 var MON_IDX = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
 function dateKey(n) {
   var m = String(n.date || "").match(/(\d{2})\s+([A-Za-z]{3})\s+(\d{4})/);
@@ -213,7 +281,8 @@ function copyLink(url, btn) {
 }
 function render(f) {
   if (typeof f === "string") curSource = f;
-  var list = ALL.filter(function(n) {
+  var src = (curDate && ARCHIVE.length) ? ARCHIVE : ALL;
+  var list = src.filter(function(n) {
     var okS = (curSource === "all" || n.source === curSource);
     var okD = (!curDate || dateKey(n) === curDate);
     return okS && okD;
@@ -247,14 +316,30 @@ function render(f) {
       + "<h3>" + escapeHTML(n.title) + "</h3>" + desc + date + "</div></a>" + shareBtns + "</div>";
   }).join("");
 }
+var urlDate = null;
+try { urlDate = new URLSearchParams(window.location.search).get("date"); } catch(e) {}
 fetch("data/news.json?v=" + Date.now()).then(function(r) { return r.json(); }).then(function(d) {
-  ALL = d; buildDateFilter(); render("all");
+  ALL = d;
+  if (urlDate) curDate = urlDate;
+  buildDateFilter();
+  if (urlDate) {
+    document.querySelectorAll("#dateFilter .date-chip").forEach(function(c) { c.classList.remove("active"); });
+  }
+  render("all"); buildCalendar();
   // Last updated time
   var now = new Date();
   document.getElementById("lastUpdated").textContent =
     now.toLocaleDateString("en-IN", {day:"numeric", month:"short", year:"numeric"}) + ", " +
     now.toLocaleTimeString("en-IN", {hour:"2-digit", minute:"2-digit"});
 });
+// Poora archive load karo — calendar + purani tarikhon ki khabrein isi se aayengi
+fetch("data/news-archive.json?v=" + Date.now()).then(function(r) { return r.json(); }).then(function(d) {
+  ARCHIVE = d || [];
+  ARCHIVE_BY_DATE = {};
+  ARCHIVE.forEach(function(n) { var k = dateKey(n); if (k) ARCHIVE_BY_DATE[k] = (ARCHIVE_BY_DATE[k] || 0) + 1; });
+  buildCalendar();
+  if (curDate) render();
+}).catch(function() {});
 // Live clock: day + date + ticking time (IST)
 (function(){
   var days = ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
@@ -285,7 +370,21 @@ document.getElementById("dateFilter").addEventListener("click", function(e) {
   document.querySelectorAll("#dateFilter .date-chip").forEach(function(c) { c.classList.remove("active"); });
   b.classList.add("active");
   curDate = b.getAttribute("data-d") || null;
+  setDateParam(curDate);
+  buildCalendar();
   render();
+});
+document.getElementById("calGrid").addEventListener("click", function(e) {
+  var b = e.target.closest(".cal-day"); if (!b) return;
+  selectDate(b.getAttribute("data-d"));
+});
+document.getElementById("calPrev").addEventListener("click", function() {
+  calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; }
+  buildCalendar();
+});
+document.getElementById("calNext").addEventListener("click", function() {
+  calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; }
+  buildCalendar();
 });
 </script>
 

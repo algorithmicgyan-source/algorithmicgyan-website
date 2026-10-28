@@ -145,23 +145,30 @@ function doSearch(q) {
         + (p.description ? '<p class="desc">' + escapeHTML(p.description) + "</p>" : "") + "</div></a>";
     }
   });
-  // News
+  // News (poora archive — purani khabrein bhi searching me aayengi)
   DATA.news.forEach(function(n) {
     var hay = ((n.title || "") + " " + (n.desc || "")).toLowerCase();
     if (hay.indexOf(q) >= 0) {
       count++;
-      html += '<a class="card text-card" href="' + escapeHTML(n.link) + '" target="_blank" rel="noopener">'
+      var href = n.article ? escapeHTML(n.article) : escapeHTML(n.link);
+      var tgt = n.article ? "" : ' target="_blank" rel="noopener"';
+      html += '<a class="card text-card" href="' + href + '"' + tgt + '>'
         + '<div class="card-body"><span class="badge">📰 ' + escapeHTML(n.source) + "</span>"
-        + "<h3>" + escapeHTML(n.title) + "</h3></div></a>";
+        + "<h3>" + escapeHTML(n.title) + "</h3>"
+        + (n.date ? '<div class="meta"><span class="date">' + escapeHTML(n.date) + "</span></div>" : "") + "</div></a>";
     }
   });
   grid.innerHTML = html;
   info.textContent = count ? count + " natije mile." : "Kuch nahi mila. Kuch aur try karo.";
 }
+function fetchNewsArchive() {
+  return fetch("data/news-archive.json").then(function(r) { if (!r.ok) throw new Error("no archive"); return r.json(); })
+    .catch(function() { return fetch("data/news.json").then(function(r) { return r.json(); }); });
+}
 Promise.all([
   fetch("data/posts.json").then(function(r) { return r.json(); }).catch(function() { return []; }),
   fetch("data/videos.json").then(function(r) { return r.json(); }).catch(function() { return []; }),
-  fetch("data/news.json").then(function(r) { return r.json(); }).catch(function() { return []; })
+  fetchNewsArchive().catch(function() { return []; })
 ]).then(function(res) {
   DATA.posts = res[0]; DATA.videos = res[1]; DATA.news = res[2];
   var params = new URLSearchParams(window.location.search);

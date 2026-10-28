@@ -159,6 +159,21 @@ jobs:
           print(f"Articles ready: all {len(all_news)} verified")
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump(all_news, f, ensure_ascii=False, indent=1)
+          # Archive: saari khabrein hamesha save (lightweight, body ke bina) — calendar + search isi se chalenge
+          _arch = []
+          if _os.path.exists("data/news-archive.json"):
+              try: _arch = json.load(open("data/news-archive.json", encoding="utf-8"))
+              except: _arch = []
+          _seen_a = set(a.get("link", "") for a in _arch)
+          _seen_at = set(_norm_title(a.get("title", "")) for a in _arch)
+          for n in all_news:
+              if n.get("link", "") not in _seen_a and _norm_title(n.get("title", "")) not in _seen_at:
+                  _arch.append({k: n.get(k, "") for k in ("source", "title", "link", "date", "desc", "image", "article")})
+                  _seen_a.add(n.get("link", "")); _seen_at.add(_norm_title(n.get("title", "")))
+          _arch.sort(key=_dkey, reverse=True)
+          with open("data/news-archive.json", "w", encoding="utf-8") as f:
+              json.dump(_arch, f, ensure_ascii=False, indent=1)
+          print(f"Archive total: {len(_arch)} items")
           # Daily Current Affairs post banao (exam ke liye)
           IST = timezone(timedelta(hours=5, minutes=30))
           _today_ca = datetime.now(IST).strftime("%d %b %Y")
@@ -204,6 +219,6 @@ jobs:
         run: |
           git config user.name "News Bot"
           git config user.email "bot@algorithmicgyan.in"
-          git add data/news.json data/posts.json news/article/
+          git add data/news.json data/news-archive.json data/posts.json news/article/
           git diff --staged --quiet || git commit -m "Auto-update: daily news"
           git push
