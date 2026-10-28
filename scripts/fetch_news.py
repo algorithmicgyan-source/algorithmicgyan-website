@@ -3,7 +3,10 @@
 User decision (28 Oct 2026, permanent): general news does NOT match the
 channel's field, so the visible news section is MP SPECIAL ONLY.
 - MP feeds (direct, photo + full body): IBC24 + Bansal News
-  -> data/news.json + data/news-archive.json + news/article/ pages.
+  -> data/news.json (MP only) + news/article/ pages.
+- news-archive.json keeps ALL news forever (user: "dono jagah rakho"):
+  purani aam khabrein calendar + search me milti rahengi; nayi MP khabrein
+  isme judti rahengi.
 - General direct feeds (ABP / NDTV / AajTak) are fetched ONLY to build the
   daily Current Affairs post (exam content). They are NEVER saved as news
   items and never appear on the news page.
@@ -352,14 +355,15 @@ def main():
     with open("data/news.json", "w", encoding="utf-8") as f:
         json.dump(all_news, f, ensure_ascii=False, indent=1)
 
-    # 5. Archive: sirf MP items, hamesha (lightweight, body ke bina)
+    # 5. Archive: SAARI khabrein hamesha (lightweight, body ke bina) —
+    #    user: "dono jagah rakho" — purani aam khabrein calendar/search me
+    #    milti rahengi, isliye archive ko kabhi filter mat karo.
     arch = []
     if os.path.exists("data/news-archive.json"):
         try:
             arch = json.load(open("data/news-archive.json", encoding="utf-8"))
         except Exception:
             arch = []
-    arch = [a for a in arch if keep_mp(a)]
     seen_a = set(a.get("link", "") for a in arch)
     seen_at = set(norm_title(a.get("title", "")) for a in arch)
     for n in all_news:
@@ -372,7 +376,7 @@ def main():
     arch.sort(key=dkey, reverse=True)
     with open("data/news-archive.json", "w", encoding="utf-8") as f:
         json.dump(arch, f, ensure_ascii=False, indent=1)
-    print(f"Archive total (MP only): {len(arch)} items")
+    print(f"Archive total: {len(arch)} items")
 
     # 6. Daily Current Affairs post (general + MP, aaj ki khabrein)
     build_ca_post(fresh_ca + fresh_mp)
