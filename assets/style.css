@@ -50,7 +50,7 @@ a { color: inherit; }
 .hero { padding: 72px 0 56px; background: radial-gradient(700px 340px at 20% 0%, rgba(34, 211, 238, .12), transparent 60%), radial-gradient(700px 340px at 85% 10%, rgba(139, 92, 246, .14), transparent 60%); }
 .pill { display: inline-block; font-size: .85rem; color: var(--cyan); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; background: rgba(34, 211, 238, .06); }
 .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.2; font-weight: 700; }
-.grad { background: linear-gradient(90deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.grad { color: #0284C7; }
 .lede { color: var(--muted); font-size: 1.1rem; margin-top: 14px; max-width: 640px; }
 
 /* Sections */
@@ -256,7 +256,7 @@ footer h4, .footer h4 { color: #EAF0FA !important; }
    solid contrasting background. Fixes light-cyan/light text on white and
    dark text on the black header found across the main pages. === */
 /* 1. Gradient heading: darker gradient so it reads on the white hero. */
-.grad{background:linear-gradient(90deg,#0284C7,#6D28D9) !important;-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad{background:#0284C7;color:#0284C7 !important}
 /* 2. Hero pill: solid dark navy panel behind white text (was light cyan on white). */
 .pill{background:#0a0a2e !important;color:#fff !important;border-color:#0a0a2e !important}
 /* 3. "Sabhi dekho" links: darker cyan on white. */
