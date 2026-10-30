@@ -256,7 +256,7 @@ footer h4, .footer h4 { color: #EAF0FA !important; }
    solid contrasting background. Fixes light-cyan/light text on white and
    dark text on the black header found across the main pages. === */
 /* 1. Gradient heading: darker gradient so it reads on the white hero. */
-.grad{background:#0284C7;color:#0284C7 !important}
+.grad{background:none !important;color:#0284C7 !important}
 /* 2. Hero pill: solid dark navy panel behind white text (was light cyan on white). */
 .pill{background:#0a0a2e !important;color:#fff !important;border-color:#0a0a2e !important}
 /* 3. "Sabhi dekho" links: darker cyan on white. */
