@@ -14,7 +14,7 @@ a{color:#60a5fa}
 .back{display:inline-block;color:#60a5fa;text-decoration:none;font-weight:600;margin-bottom:8px}
 .share-row{display:flex;gap:8px;margin-top:20px}
 .share-row a{flex:1;text-align:center;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700}
-.wa{background:#25D366}.fb{background:#1877F2}.tw{background:#000}.tg{background:#229ED9}.cp{background:#555}
+.wa{background:#25D366}.wb{background:#075E54}.fb{background:#1877F2}.tw{background:#000}.tg{background:#229ED9}.cp{background:#555}.dl{background:#7C3AED}
 .share-row button{flex:1;padding:10px;border-radius:8px;color:#fff;font-weight:700;border:none;cursor:pointer}
 .post-card div[style*="fef3c7"]{color:#333 !important}
 .post-card div[style*="fef3c7"] strong{color:#111 !important}
@@ -35,12 +35,27 @@ a{color:#60a5fa}
 <div id="post"></div>
 <script>
 var slug = new URLSearchParams(location.search).get("slug");
+var AG_POST = null;
+function agDownloadPost(b){
+  if(!AG_POST) return;
+  var div = document.createElement("div");
+  div.innerHTML = AG_POST.content || "";
+  var body = div.textContent || div.innerText || "";
+  var txt = AG_POST.title + "\n" + (AG_POST.date || "") + " | " + (AG_POST.category || "") + "\n\n" + body
+    + "\n\n— Algorithmic Gyan\n" + location.href;
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([txt], {type: "text/plain;charset=utf-8"}));
+  a.download = slug + ".txt";
+  document.body.appendChild(a); a.click(); a.remove();
+  if(b){ var old = b.textContent; b.textContent = "✅ Downloaded!"; setTimeout(function(){ b.textContent = old; }, 2000); }
+}
 fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
   var p = d.posts.find(function(x){return x.slug === slug;});
+  AG_POST = p || null;
   var el = document.getElementById("post");
   if(!p){ el.innerHTML = "<p>पोस्ट नहीं मिली!</p>"; return; }
   document.getElementById("pgTitle").textContent = p.title + " | Algorithmic Gyan";
-  var img = p.image ? '<img src="'+p.image+'" alt="" loading="lazy">' : "";
+  var img = '<img src="'+(p.image || "assets/logo.png")+'" alt="" loading="lazy">';
   var pageUrl = location.href;
   el.innerHTML = '<div class="post-card">'
     + '<h1>'+p.title+'</h1>'
@@ -49,6 +64,8 @@ fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
     + '<div>'+p.content+'</div>'
     + '<div class="share-row">'
     + '<a class="wa" target="_blank" href="https://wa.me/?text='+encodeURIComponent(p.title+"\n\n👉 पढ़ें: "+pageUrl)+'">📲 WhatsApp</a>'
+    + '<a class="wb" target="_blank" href="https://wa.me/?text='+encodeURIComponent(p.title+"\n\n👉 पढ़ें: "+pageUrl)+'">💼 WhatsApp Business</a>'
+    + '<button class="dl" onclick="agDownloadPost(this)">⬇️ Download</button>'
     + '<a class="fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(pageUrl)+'">👍 Facebook</a>'
     + '<a class="tw" target="_blank" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(p.title)+'&url='+encodeURIComponent(pageUrl)+'">𝕏 X</a>'
     + '<a class="tg" target="_blank" href="https://t.me/share/url?url='+encodeURIComponent(pageUrl)+'&text='+encodeURIComponent(p.title)+'">✈️ Telegram</a>'

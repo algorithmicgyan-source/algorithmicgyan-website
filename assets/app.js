@@ -33,14 +33,34 @@ function agCopy(u, b) {
     b.textContent = "✅ Copied!"; setTimeout(function () { b.textContent = "🔗 Copy"; }, 2000);
   });
 }
-function shareRowHTML(title, url) {
+function shareRowHTML(title, url, slug) {
+  var dl = slug ? '<button class="share-btn dl" onclick="agDownload(\'' + slug + '\',this)">⬇️ Download</button>' : '';
   return '<div class="share-row">'
     + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(title + "\n\n👉 पढ़ें: " + url) + '">📲 WhatsApp</a>'
+    + '<a class="share-btn wb" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(title + "\n\n👉 पढ़ें: " + url) + '">💼 WhatsApp Business</a>'
     + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '">👍 Facebook</a>'
     + '<a class="share-btn tw" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url) + '">𝕏 X</a>'
     + '<a class="share-btn tg" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title) + '">✈️ Telegram</a>'
     + '<button class="share-btn cp" onclick="agCopy(\'' + url + '\',this)">🔗 Copy</button>'
+    + dl
     + '</div>';
+}
+
+function agDownload(slug, btn) {
+  fetch("data/posts.json").then(function (r) { return r.json(); }).then(function (d) {
+    var p = (d.posts || []).filter(function (x) { return x.slug === slug; })[0];
+    if (!p) return;
+    var div = document.createElement("div");
+    div.innerHTML = p.content || "";
+    var body = div.textContent || div.innerText || "";
+    var txt = p.title + "\n" + (p.date || "") + " | " + (p.category || "") + "\n\n" + body
+      + "\n\n— Algorithmic Gyan\n" + SITE_URL + "post.html?slug=" + encodeURIComponent(slug);
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain;charset=utf-8" }));
+    a.download = slug + ".txt";
+    document.body.appendChild(a); a.click(); a.remove();
+    if (btn) { var old = btn.textContent; btn.textContent = "✅ Downloaded!"; setTimeout(function () { btn.textContent = old; }, 2000); }
+  }).catch(function () {});
 }
 
 function cardHTML(p) {
@@ -71,11 +91,14 @@ function cardHTML(p) {
     dateBadge = '<span>' + cm.icon + "</span>";
   }
   var postUrl = "post.html?slug=" + encodeURIComponent(p.slug);
+  var thumbImg = p.image
+    ? '<img src="' + escapeHTML(p.image) + '" alt="" loading="lazy">'
+    : '<img class="post-logo" src="assets/logo.png" alt="Algorithmic Gyan logo" loading="lazy">';
   return '<a href="' + postUrl + '" style="text-decoration:none;color:inherit;display:block"><article class="card text-card">'
-    + '<div class="thumb">' + badge + dateBadge + "</div>"
+    + '<div class="thumb">' + badge + thumbImg + dateBadge + "</div>"
     + '<div class="card-body"><h3>' + escapeHTML(p.title) + "</h3>" + desc
     + '<div class="meta">' + date + "</div></div></article></a>"
-    + shareRowHTML(p.title, SITE_URL + postUrl);
+    + shareRowHTML(p.title, SITE_URL + postUrl, p.slug);
 }
 
 function emptyHTML() {
@@ -117,6 +140,7 @@ function loadHome() {
         + '<div class="card-body"><h3>' + escapeHTML(v.title) + "</h3></div></a>"
       + '<div class="share-row">'
       + '<a class="share-btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(v.title + " " + yurl) + '">📲 WhatsApp</a>'
+      + '<a class="share-btn wb" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(v.title + " " + yurl) + '">💼 WhatsApp Business</a>'
       + '<a class="share-btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(yurl) + '">👍 Facebook</a>'
       + '<a class="share-btn tw" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(v.title) + '&url=' + encodeURIComponent(yurl) + '">𝕏 X</a>'
       + '<a class="share-btn tg" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(yurl) + '&text=' + encodeURIComponent(v.title) + '">✈️ Telegram</a>'
@@ -156,7 +180,7 @@ function loadPosts() {
 }
 
 var _vss = document.createElement("style");
-_vss.textContent = ".share-row{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px}.share-btn{flex:1 1 90px;text-align:center;padding:8px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff !important;text-decoration:none}.share-btn.wa{background:#25D366}.share-btn.fb{background:#1877F2}.share-btn.tw{background:#000}.share-btn.tg{background:#229ED9}.share-btn.cp{background:#555}";
+_vss.textContent = ".share-row{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px}.share-btn{flex:1 1 90px;text-align:center;padding:8px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;color:#fff !important;text-decoration:none}.share-btn.wa{background:#25D366}.share-btn.wb{background:#075E54}.share-btn.fb{background:#1877F2}.share-btn.tw{background:#000}.share-btn.tg{background:#229ED9}.share-btn.cp{background:#555}.share-btn.dl{background:#7C3AED}.text-card .thumb img{position:absolute;inset:0}.text-card .thumb img.post-logo{object-fit:contain;padding:10px;box-sizing:border-box}.text-card .thumb .date-badge{position:absolute;right:10px;bottom:10px;z-index:2}";
 document.head.appendChild(_vss);
 
 var _dbCss = document.createElement("style");
