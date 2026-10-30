@@ -251,3 +251,21 @@ footer h4, .footer h4 { color: #EAF0FA !important; }
 .share-btn.tg{background:#229ED9}
 .share-btn.cp{background:#555}
 .share-label{font-weight:700;padding:8px 0;font-size:.9rem}
+
+/* === READABILITY FIX (30 Oct) — professional rule: every text block sits on a
+   solid contrasting background. Fixes light-cyan/light text on white and
+   dark text on the black header found across the main pages. === */
+/* 1. Gradient heading: darker gradient so it reads on the white hero. */
+.grad{background:linear-gradient(90deg,#0284C7,#6D28D9) !important;-webkit-background-clip:text;background-clip:text;color:transparent}
+/* 2. Hero pill: solid dark navy panel behind white text (was light cyan on white). */
+.pill{background:#0a0a2e !important;color:#fff !important;border-color:#0a0a2e !important}
+/* 3. "Sabhi dekho" links: darker cyan on white. */
+.link-more{color:#0284C7 !important}
+/* 4. Brand name in the black header: white (was inheriting dark body text). */
+header.site-header .brand{color:#fff !important}
+/* 5. Play icon over thumbnails: solid dark circle backing behind the glyph. */
+.thumb .play{width:72px;height:72px;margin:auto;border-radius:50%;background:rgba(0,0,0,.55)}
+/* 6. Filter chips: solid light-grey panels on the white page (were white-on-white). */
+.chip{background:#f0f0f0 !important}
+/* 6b. Active chip keeps its gradient (must re-assert: the rule above is !important). */
+.chip.active{background:linear-gradient(135deg,var(--cyan),var(--violet)) !important;color:#04121A !important;border-color:transparent !important}

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=4">
+<link rel="stylesheet" href="assets/style.css?v=5">
 <style>
 .ag-topbar{background:linear-gradient(90deg,#0a0a2e,#16213e);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 16px;font-size:.85rem;font-weight:600}
 .ag-topbar #ag-time{color:#FFD166;font-weight:700}
@@ -63,7 +63,7 @@
 .news-hero h1{font-size:1.8rem;margin-bottom:6px}
 .news-hero h1 .live-dot{display:inline-block;background:#FF0033;color:#fff;font-size:.8rem;padding:4px 12px;border-radius:99px;vertical-align:middle;animation:blink 1.5s infinite;margin-left:8px}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-#live-clock{color:#FFD166;font-weight:700;font-size:1.05rem;margin-top:8px}
+.news-hero #live-clock{color:#FFD166;font-weight:700;font-size:1.05rem;margin-top:8px}
 .social-row{display:flex;justify-content:center;gap:12px;margin-top:14px}
 .social-row a{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:99px;font-weight:700;font-size:.9rem;text-decoration:none;color:#fff;transition:transform .2s}
 .social-row a:hover{transform:scale(1.05)}
@@ -101,7 +101,7 @@
   <section class="page-head">
     <div class="wrap">
       <h1>📰 MP Special News <span style="font-size:1rem;background:#FF0033;color:#fff;padding:4px 12px;border-radius:999px;vertical-align:middle;animation:blink 1.5s infinite;">🔴 LIVE</span></h1>
-      <div id="live-clock" style="font-size:1.1rem;color:#FFD166;font-weight:700;margin-top:8px;">⏳ लोड हो रहा है...</div>
+      <div id="live-clock" style="font-size:1.1rem;color:#92400E;font-weight:700;margin-top:8px;">⏳ लोड हो रहा है...</div>
       <p class="lede">Madhya Pradesh ki <strong>special khabrein</strong> + roz ka <strong>current affairs</strong> — <strong>UPSC, SSC, Railway, Banking</strong> exams ki taiyaari ke liye! <strong>IBC24 aur Bansal News</strong> se <strong>automatic update!</strong> 🎓</p>
       <p style="color:var(--muted);font-size:.9rem;margin-top:8px;">🕐 Aakhri update: <span id="lastUpdated">--</span> &nbsp;|&nbsp; Page har 5 minute me khud refresh hoga</p>
       <style>@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}</style>
@@ -209,7 +209,7 @@ function buildCalendar() {
       var act = (k === curDate) ? " active" : "";
       html += '<button class="chip cal-day' + act + '" data-d="' + escapeHTML(k) + '" style="flex-direction:column;line-height:1.2;padding:6px 2px">' + d + '<span style="font-size:.7rem">' + cnt + " खबर</span></button>";
     } else {
-      html += '<div style="padding:8px 2px;color:#ccc">' + d + "</div>";
+      html += '<div style="padding:8px 2px;color:#999">' + d + "</div>";
     }
   }
   box.innerHTML = html;
