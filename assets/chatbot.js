@@ -161,7 +161,7 @@
     var kb = (typeof AG_CHAT_KB !== "undefined") ? AG_CHAT_KB : [];
     loadLiveData(kb);
 
-    var css = "#ag-chat-btn{position:fixed;right:16px;bottom:16px;z-index:9999;width:56px;height:56px;border-radius:50%;border:2px solid #00d4ff;background:linear-gradient(135deg,#0a0a2e,#16213e);color:#fff;font-size:26px;cursor:pointer;box-shadow:0 6px 24px rgba(0,212,255,.35);padding:0;line-height:1}"
+    var css = "#ag-chat-btn{position:fixed;right:16px;bottom:16px;z-index:9999;width:auto;height:56px;padding:0 18px;border-radius:999px;border:2px solid #00d4ff;background:linear-gradient(135deg,#0a0a2e,#16213e);color:#fff;font-size:24px;font-weight:700;cursor:pointer;box-shadow:0 6px 24px rgba(0,212,255,.35);display:flex;align-items:center;gap:6px;line-height:1}"
       + "#ag-chat-panel{display:none;position:fixed;right:12px;bottom:84px;z-index:9999;width:min(360px,calc(100vw - 24px));height:min(520px,calc(100vh - 110px));background:#070B14;border:1px solid rgba(0,212,255,.4);border-radius:16px;overflow:hidden;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.6);font-family:system-ui,'Hind',sans-serif}"
       + "#ag-chat-panel.ag-open{display:flex}"
       + "#ag-chat-head{background:linear-gradient(90deg,#0a0a2e,#16213e);color:#fff;padding:12px 14px;font-weight:700;display:flex;justify-content:space-between;align-items:center}"
@@ -183,11 +183,12 @@
     style.textContent = css;
     document.head.appendChild(style);
 
+    var BTN_HTML = "🤖<span style=\"font-size:16px;font-weight:800;letter-spacing:.5px\">AI</span>";
     var btn = document.createElement("button");
     btn.id = "ag-chat-btn";
     btn.type = "button";
-    btn.setAttribute("aria-label", "सहायक चैट खोलें");
-    btn.textContent = "💬";
+    btn.setAttribute("aria-label", "AI सहायक चैट खोलें");
+    btn.innerHTML = BTN_HTML;
     document.body.appendChild(btn);
 
     var panel = document.createElement("div");
@@ -229,7 +230,7 @@
       }
       setTimeout(function () { input.focus(); }, 50);
     }
-    function close() { panel.classList.remove("ag-open"); btn.textContent = "💬"; }
+    function close() { panel.classList.remove("ag-open"); btn.innerHTML = BTN_HTML; }
 
     btn.addEventListener("click", function () {
       if (panel.classList.contains("ag-open")) close(); else open();

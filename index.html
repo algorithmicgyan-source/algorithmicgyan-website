@@ -66,7 +66,6 @@
       <a href="index.html" class="active">Home</a>
       <a href="posts.html">Posts</a>
       <a href="videos.html">Videos</a>
-      <a href="news.html">📰 News</a>
       <a href="about.html">About</a>
           <a href="search.html">🔍</a>
     </nav>
@@ -92,7 +91,6 @@
         <a class="btn btn-ghost" id="btn-mp" href="post.html?slug=current-affairs-2026-10-04#mp-special">MP Special</a>
         <a class="btn btn-ghost" id="btn-nat" href="post.html?slug=current-affairs-2026-10-04#national">National</a>
         <a class="btn btn-ghost" id="btn-intl" href="post.html?slug=current-affairs-2026-10-04#international">International</a>
-        <a class="btn btn-ghost" href="news.html">🌐 News</a>
         <a class="btn btn-ghost" href="https://www.instagram.com/algorithmicgyan" target="_blank" rel="noopener">📸 Instagram</a>
         <a class="btn btn-ghost" href="https://www.facebook.com/share/19CxCsQNti/" target="_blank" rel="noopener">👍 Facebook</a>
         <a class="btn btn-ghost" id="shareSiteBtn" style="cursor:pointer" href="javascript:void(0)">🔗 Share</a>
@@ -117,15 +115,6 @@ document.getElementById("shareSiteBtn").addEventListener("click", async function
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap section-head">
-      <h2 data-hi="📰 ताज़ा ख़बरें" data-en="📰 Latest News">📰 ताज़ा ख़बरें</h2>
-      <a class="link-more" href="news.html" data-hi="सभी देखो →" data-en="View all →">सभी देखो →</a>
-    </div>
-    <div class="wrap">
-      <div class="grid" id="latestNews"></div>
-    </div>
-  </section>
 
   <!-- categories moved below -->
 
@@ -189,7 +178,6 @@ document.getElementById("shareSiteBtn").addEventListener("click", async function
     <div class="foot-links">
       <a href="posts.html">Posts</a>
       <a href="videos.html">Videos</a>
-      <a href="news.html">📰 News</a>
       <a href="about.html">About</a>
       <a href="https://algorithmicgyanyoutube.blogspot.com" target="_blank" rel="noopener">Blogger</a>
       <a href="https://www.youtube.com/@algorithmicgyan" target="_blank" rel="noopener">YouTube</a>
@@ -204,27 +192,6 @@ document.getElementById("shareSiteBtn").addEventListener("click", async function
 <script>loadHome();</script>
 
 <script>
-// Latest News load karo
-fetch("data/news.json?v=" + Date.now()).then(function(r){return r.json();}).then(function(news){
-  var grid = document.getElementById("latestNews");
-  if(!grid) return;
-  // Date-wise sort: nayi news pehle
-  news.sort(function(a, b){
-    var da = new Date(a.date.replace(/(\d{2}) (\w{3}) (\d{4})/, '$2 $1, $3'));
-    var db = new Date(b.date.replace(/(\d{2}) (\w{3}) (\d{4})/, '$2 $1, $3'));
-    return db - da;
-  });
-  grid.innerHTML = news.slice(0, 6).map(function(n){
-    var url = n.article || n.link;
-    var tgt = n.article ? '' : ' target="_blank" rel="noopener"';
-    var shareUrl = n.article ? ("https://algorithmicgyan-source.github.io/algorithmicgyan-website/" + n.article) : n.link;
-    return '<div class="card"><a href="'+url+'"'+tgt+' style="text-decoration:none;color:inherit;display:block">'
-      + '<div class="card-body"><span class="badge">📰 '+n.source+'</span>'
-      + '<h3>'+n.title+'</h3>'
-      + '<div class="meta">Date: '+n.date+'</div></div></a>'
-      + shareRowHTML(n.title, shareUrl) + '</div>';
-  }).join("");
-}).catch(function(){});
 
 // Hindi/English toggle
 (function(){

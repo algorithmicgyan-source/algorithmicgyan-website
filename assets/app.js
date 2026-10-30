@@ -33,6 +33,23 @@ function agCopy(u, b) {
     b.textContent = "✅ Copied!"; setTimeout(function () { b.textContent = "🔗 Copy"; }, 2000);
   });
 }
+/* WhatsApp Business: Android par Business app (com.whatsapp.w4b) kholo,
+   installed na ho to wa.me fallback; non-Android par seedha wa.me.
+   Sirf .wb (Business) buttons par lagta hai — normal WhatsApp wa.me hi rehta hai. */
+function agShareWBFromLink(a) {
+  var text = "";
+  try { text = new URL(a.href).searchParams.get("text") || ""; } catch (e) {}
+  window.location.href = "intent://send?text=" + encodeURIComponent(text)
+    + "#Intent;scheme=whatsapp;package=com.whatsapp.w4b;S.browser_fallback_url="
+    + encodeURIComponent(a.href) + ";end";
+}
+document.addEventListener("click", function (ev) {
+  if (ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+  var t = ev.target;
+  var a = (t && t.closest) ? t.closest("a.wb") : null;
+  if (!a || !a.href) return;
+  if (/Android/i.test(navigator.userAgent)) { ev.preventDefault(); agShareWBFromLink(a); }
+});
 function shareRowHTML(title, url, slug) {
   var dl = slug ? '<button class="share-btn dl" onclick="agDownload(\'' + slug + '\',this)">⬇️ Download</button>' : '';
   return '<div class="share-row">'

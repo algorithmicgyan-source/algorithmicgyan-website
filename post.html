@@ -14,7 +14,7 @@ a{color:#60a5fa}
 .back{display:inline-block;color:#60a5fa;text-decoration:none;font-weight:600;margin-bottom:8px}
 .share-row{display:flex;gap:8px;margin-top:20px}
 .share-row a{flex:1;text-align:center;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700}
-.wa{background:#25D366}.wb{background:#075E54}.fb{background:#1877F2}.tw{background:#000}.tg{background:#229ED9}.cp{background:#555}.dl{background:#7C3AED}
+.wa{background:#25D366}.wb{background:#075E54}.fb{background:#1877F2}.tw{background:#000}.tg{background:#229ED9}.cp{background:#555}.dl{background:#7C3AED}.imgshare{background:#00a8cc}.imgdl{background:#555}
 .share-row button{flex:1;padding:10px;border-radius:8px;color:#fff;font-weight:700;border:none;cursor:pointer}
 .post-card div[style*="fef3c7"]{color:#333 !important}
 .post-card div[style*="fef3c7"] strong{color:#111 !important}
@@ -70,9 +70,47 @@ fetch("data/posts.json").then(function(r){return r.json();}).then(function(d){
     + '<a class="tw" target="_blank" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(p.title)+'&url='+encodeURIComponent(pageUrl)+'">𝕏 X</a>'
     + '<a class="tg" target="_blank" href="https://t.me/share/url?url='+encodeURIComponent(pageUrl)+'&text='+encodeURIComponent(p.title)+'">✈️ Telegram</a>'
     + '<button class="cp" onclick="agCopy(\''+pageUrl+'\',this)">🔗 Copy Link</button>'
+    + '<button class="imgshare" onclick="agShareImage(this)">🖼️ Status par image lagao</button>'
+    + '<button class="imgdl" onclick="agDownloadImage(this)">⬇️ Image download</button>'
     + '</div></div>';
 });
 function agCopy(u,b){navigator.clipboard.writeText(u).then(function(){b.textContent="✅ Copied!";setTimeout(function(){b.textContent="🔗 Copy Link";},2000);});}
+/* WhatsApp Business: Android par Business app (com.whatsapp.w4b) kholo, na ho to wa.me fallback; non-Android par wa.me. */
+document.addEventListener("click", function (ev) {
+  if (ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+  var t = ev.target;
+  var a = (t && t.closest) ? t.closest("a.wb") : null;
+  if (!a || !a.href) return;
+  if (/Android/i.test(navigator.userAgent)) {
+    ev.preventDefault();
+    var text = "";
+    try { text = new URL(a.href).searchParams.get("text") || ""; } catch (e) {}
+    window.location.href = "intent://send?text=" + encodeURIComponent(text)
+      + "#Intent;scheme=whatsapp;package=com.whatsapp.w4b;S.browser_fallback_url="
+      + encodeURIComponent(a.href) + ";end";
+  }
+});
+/* Post image share: WhatsApp Status ko image file hi mile, sirf link nahi.
+   Native share sheet me image jaati hai; support na ho to image download hoti hai. */
+function agPostImgUrl(){ var img = document.querySelector("#post img"); return img ? (img.currentSrc || img.src) : null; }
+function agDownloadImage(b){
+  var url = agPostImgUrl(); if(!url) return;
+  var a = document.createElement("a"); a.href = url; a.download = "algorithmic-gyan-image";
+  document.body.appendChild(a); a.click(); a.remove();
+  if(b){ var old = b.textContent; b.textContent = "✅ Downloaded!"; setTimeout(function(){ b.textContent = old; }, 2000); }
+}
+function agShareImage(b){
+  var url = agPostImgUrl(); if(!url) return;
+  function fallback(){ agDownloadImage(b); }
+  fetch(url).then(function(r){ return r.blob(); }).then(function(blob){
+    var ext = (blob.type && blob.type.split("/")[1]) || "png";
+    var file = new File([blob], "algorithmic-gyan." + ext, {type: blob.type || "image/png"});
+    if (navigator.canShare && navigator.canShare({files: [file]})) {
+      return navigator.share({files: [file], title: document.title}).catch(function(){ fallback(); });
+    }
+    fallback();
+  }).catch(function(){ fallback(); });
+}
 </script>
 <script>
 // URL me #section ho to SIRF wahi section dikhao
